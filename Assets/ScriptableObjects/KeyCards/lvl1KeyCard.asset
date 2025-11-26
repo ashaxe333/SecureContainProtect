@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b9c640f0afb9c948a28b7cbac88ffbd, type: 3}
+  m_Name: lvl1KeyCard
+  m_EditorClassIdentifier: 
+  itemName: Key Card Level 1
+  icon: {fileID: 0}
+  description: none
+  prefab: {fileID: 919132149155446097, guid: 367898de661f9b84a8e0b7fb9b451375, type: 3}
+  level: 1
