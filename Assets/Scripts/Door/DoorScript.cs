@@ -22,7 +22,7 @@ public class DoorScript : MonoBehaviour
     private float slideAmount;                          // poèítá se podle typu dveøí
     private float speed;                                // poèítá se podle typu dveøí
 
-    private NavMeshObstacle nmo;
+    private NavMeshObstacle nmo;    // pøidat velikost
 
     private void Awake()
     {
@@ -130,6 +130,9 @@ public class DoorScript : MonoBehaviour
     }
 }
 
+/// <summary>
+/// tøída, která definuje typ dveøí, na základì kterého se poèítá jejích pohyb a rychlost
+/// </summary>
 public enum DoorType
 {
     SINGLE, LEFT, RIGHT, ELEVATOR, GATE

@@ -84,7 +84,7 @@ public class SCP173Script : MonoBehaviour
         {
             if (timer > 0)
             {
-                timer -= Time.deltaTime;
+                //timer -= Time.deltaTime;
                 scp173.SetDestination(playerLastPosition);
             }
             else
