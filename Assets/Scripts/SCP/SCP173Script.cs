@@ -156,7 +156,7 @@ public class SCP173Script : MonoBehaviour
     /// </summary>
     public void IsKilled()
     {
-        Debug.Log($"{distanceToPLayer} : {player.GetComponent<BlinkScript>().isBlinking}");
+        //Debug.Log($"{distanceToPLayer} : {player.GetComponent<BlinkScript>().isBlinking}");
         if ((!scp173Renderer.isVisible || player.GetComponent<BlinkScript>().isBlinking) && distanceToPLayer <= 3.0f)
         {
             DeathInfoScript.msg = "You were killed by SCP-173";

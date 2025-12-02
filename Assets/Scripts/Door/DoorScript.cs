@@ -94,7 +94,7 @@ public class DoorScript : MonoBehaviour
         Vector3 endPosition = startPosition + slideAmount * slideDirection;
         Vector3 newStartPosition = transform.position;
         float time = 0.0f;
-        Debug.Log($"DoorScript: slideDirection = {slideDirection}, start = {startPosition}, end = {endPosition}");
+        //Debug.Log($"DoorScript: slideDirection = {slideDirection}, start = {startPosition}, end = {endPosition}");
 
         while (time < 1)
         {
