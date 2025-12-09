@@ -6,6 +6,10 @@ using UnityEngine.XR;
 
 public class ElevatorSript : MonoBehaviour
 {
+    // NÁPADY:
+    // 1) Výtah se bude sám zavírat -> Potøebuju, aby to nìj mohl nastoupit až od urèíté karty.
+    // => Když to hráèe v nìm zavøe, musí si moct umìt otevøít, aniž by kvùli tomu jel do jinýho patra -> Pokud jsou dveøe zavøený, po stisknutí tlaèítka je otevøi
+
     public GameObject upButton;
     public GameObject downButton;
     public GameObject doorF0;
@@ -20,6 +24,8 @@ public class ElevatorSript : MonoBehaviour
 
     private int nextFloor = 1;
     public int currentFloor = 1;
+    public int from;
+    public int to;
     public bool elevatorIsBroken = false;
 
     private Coroutine coroutine;
@@ -72,7 +78,8 @@ public class ElevatorSript : MonoBehaviour
                     {
                         GameManagerScript.gameManagerInstance.GetTextInfo("elevator is broken");
                     }
-                    else if ((clickedObject == upButton && currentFloor < 2) || (clickedObject == downButton && currentFloor > 0))
+                    //Zmìna v podmínkách! 2 -> to, 0 ->from
+                    else if ((clickedObject == upButton && currentFloor < to) || (clickedObject == downButton && currentFloor > from))
                     {
                         port = true;
                         downButton.GetComponent<BoxCollider>().enabled = false;

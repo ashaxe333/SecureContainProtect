@@ -16,9 +16,11 @@ public class PlayerController : MonoBehaviour
     private float sneakSpeed = 2.0f;
 	private float gravity = 20.0f;
 
+    [SerializeField] public float movement;
+
 	private CharacterController controller;
 	private Vector3 moveDirection = Vector3.zero;
-	public float mouseSensitivity = 100.0f;
+	public float mouseSensitivity = 100.0f;   // do nastavenÌ
 	private float verticalRotation = 0.0f;
     private GameObject gameManager;
 
@@ -28,10 +30,17 @@ public class PlayerController : MonoBehaviour
     public GameObject scp939_3;
     public GameObject clickedObject;
 
+    //s3
+    private GameObject player;
+    private PlayerStaminaScript playerStaminaScript;
+
     void Start()
 	{
 		Cursor.lockState = CursorLockMode.Locked; // skryje kurzor myöi
         gameManager = GameObject.FindGameObjectWithTag("GameManager");
+
+        player = GameObject.FindGameObjectWithTag("Player");
+        playerStaminaScript = player.GetComponent<PlayerStaminaScript>();
 
         controller = GetComponent<CharacterController>();
 		if(controller is null)
@@ -54,7 +63,7 @@ public class PlayerController : MonoBehaviour
         float horizontal = Input.GetAxis("Horizontal");
         float vertical = Input.GetAxis("Vertical");
         // predelat na int
-        float result = 0.0f;
+        movement = 0.0f;
 
         if (controller.isGrounded)
         {
@@ -63,30 +72,33 @@ public class PlayerController : MonoBehaviour
 
             if (Input.GetKey(KeyCode.LeftShift) && vertical > 0)    // w
             {
-                moveDirection *= runSpeed;
-                result = 2.0f;
+                if (playerStaminaScript.canRun) moveDirection *= runSpeed;
+                else moveDirection *= moveSpeed;
+                movement = 2.0f;
+                
             }
             else if (Input.GetKey(KeyCode.X) && (horizontal != 0 || vertical != 0))     // w, s, a, d
             {
                 moveDirection *= sneakSpeed;
-				result = 0.5f;
+				movement = 0.5f;
             }
             else if (horizontal != 0 || vertical != 0)  // w, s, a, d
             {
                 moveDirection *= moveSpeed;
-                result = 1.0f;
+                movement = 1.0f;
+                //Debug.Log($"jen tak: {movement}");
             }
             else
             {
                 moveDirection *=  moveSpeed;
-                result = 0.0f;
+                movement = 0.0f;
             }
 
             if (scp939_1 != null && scp939_2 != null && scp939_3 != null)
             {
-                scp939_1.GetComponent<SCP939Script>().MoveTrigger(result);
-                scp939_2.GetComponent<SCP939Script>().MoveTrigger(result);
-                scp939_3.GetComponent<SCP939Script>().MoveTrigger(result);
+                scp939_1.GetComponent<SCP939Script>().MoveTrigger(movement);
+                scp939_2.GetComponent<SCP939Script>().MoveTrigger(movement);
+                scp939_3.GetComponent<SCP939Script>().MoveTrigger(movement);
             }
         }
 
@@ -107,7 +119,7 @@ public class PlayerController : MonoBehaviour
     /// <summary>
     /// inicializuje vöechny scp-939 po p¯echodu do patra F0
     /// </summary>
-    private void Assign939()    //vy¯eöit tak, abych nemusel assignvat tyto scp. Kaûd˝ zvl·öù by si mÏl vyt·hnout z hr·Ëe informaci o tom, jak chodÌ
+    private void Assign939()    // dÌky promÏnnÈ movement to jednotliv˝ scp z hr·Ëe dok·ûou zÌskat, zde smazat
     {
         if (GameManagerScript.gameManagerInstance.floor == 0)
         {

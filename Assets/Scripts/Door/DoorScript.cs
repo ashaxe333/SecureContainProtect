@@ -28,6 +28,7 @@ public class DoorScript : MonoBehaviour
     {
         startPosition = transform.position;
         nmo = GetComponent<NavMeshObstacle>();
+        //nmo.GetComponent<NavMeshObstacle>().size = 
         DoorRotation();
         SetDoorMoveParameters();
     }
