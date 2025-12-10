@@ -36,8 +36,7 @@ public class LightScript : MonoBehaviour
 
     public void DisableLight()
     {
-        // získat tøetí èást podmínky, pravdìpodobnì z výtahù a shodù. Zde budou triggery, které budou hlídat patra, a to budu ukládat do currentFloor v GameManageru
-        if (Vector3.Distance(light.transform.position, player.transform.position) < 50.0f && on /* && floor == GameManager.currentFloor*/)
+        if (Vector3.Distance(light.transform.position, player.transform.position) < 50.0f && on && floor == GameManagerScript.gameManagerInstance.currentFloor)
         {
             light.enabled = true;
         }

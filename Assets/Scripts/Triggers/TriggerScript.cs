@@ -14,18 +14,18 @@ public class TriggerScript : MonoBehaviour
 
         if(floorForActivate == null)
         {
-            Debug.Log("TriggerScript: Add floor for activate!");
+            Debug.Log("TriggerScript: Add currentFloor for activate!");
         }
     }
 
-    /*
+    
     /// <summary>
     /// Hlídá, pokud se hráè nedotknul triggeru. Pokud jo, Deaktivuje se aktuálnì aktivní patro, a aktivuje se patro nastavené na danném trigger
     /// </summary>
     /// <param name="other"> Objekt dotýkající se triggeru (hráè) </param>
     private void OnTriggerEnter(Collider other)
     {
-        floorForDeactivate = GameManagerScript.gameManagerInstance.GetComponent<GameManagerScript>().GetActiveFloor();
+        floorForDeactivate = GameManagerScript.gameManagerInstance.GetActiveFloor();
         Debug.Log("deactivating:" + floorForDeactivate.name);
 
         if (other.gameObject.CompareTag("Player"))
@@ -36,5 +36,4 @@ public class TriggerScript : MonoBehaviour
 
         //scp173.GetComponent<SCP173Script>().CorrectFloorWP(floorForActivate);
     }
-    */
 }

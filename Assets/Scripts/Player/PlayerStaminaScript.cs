@@ -16,7 +16,7 @@ public class PlayerStaminaScript : MonoBehaviour
     {
         player = GameObject.FindGameObjectWithTag("Player");
         playerController = GetComponent<PlayerController>();
-        staminaSlider.value = staminaValue;
+        staminaValue = staminaSlider.maxValue;
     }
 
     // Update is called once per frame
@@ -36,7 +36,7 @@ public class PlayerStaminaScript : MonoBehaviour
             if (staminaValue > 0)
             {
                 canRun = true;
-                staminaValue -= Time.deltaTime * 5;
+                staminaValue -= Time.deltaTime * 12;
             }
             else
             {
@@ -47,7 +47,7 @@ public class PlayerStaminaScript : MonoBehaviour
         else
         {
             canRun = true;
-            if (staminaValue < 100) staminaValue += Time.deltaTime * 4;
+            if (staminaValue < 100) staminaValue += Time.deltaTime * 6;
             else staminaValue = 100;
         }
 

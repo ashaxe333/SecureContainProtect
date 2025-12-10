@@ -16,21 +16,27 @@ public class PlayerHealthScript : MonoBehaviour
     {
         player = GameObject.FindGameObjectWithTag("Player");
         playerController = GetComponent<PlayerController>();
-        hpSlider.value = hpValue;
+        hpValue = hpSlider.maxValue;
     }
 
     // Update is called once per frame
     void Update()
     {
+        hpSlider.value = hpValue;
         if (hpSlider.value <= 0)
         {
-
+            isDead = true;
         }
         if (isDead) SceneManager.LoadScene(2);
     }
 
     public void TakeDamage(float dmg)
     {
+        hpValue -= dmg;
+    }
 
+    public void regenerate()
+    {
+        hpValue += Time.deltaTime * 0.01f;
     }
 }

@@ -107,7 +107,7 @@ public class PlayerInteractScript : MonoBehaviour
     /// </summary>
     private void Assign939()    //vyøešit tak, abych nemusel assignvat tyto scp. Kadı zvláš by si mìl vytáhnout z hráèe informaci o tom, jak chodí
     {
-        if (GameManagerScript.gameManagerInstance.floor == 0)
+        if (GameManagerScript.gameManagerInstance.currentFloor == 0)
         {
             scp939_1 = GameObject.FindGameObjectWithTag("939_1");
             scp939_2 = GameObject.FindGameObjectWithTag("939_2");

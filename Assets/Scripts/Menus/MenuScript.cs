@@ -22,7 +22,7 @@ public class MenuScript : MonoBehaviour
     /// </summary>
     public void LoadGame()
     {
-        GameManagerScript.gameManagerInstance.floor = 1; //nefunguje...
+        GameManagerScript.gameManagerInstance.currentFloor = 1; //nefunguje...
         SceneManager.LoadScene(1);
     }
 

@@ -13,19 +13,16 @@ public class GameManagerScript : MonoBehaviour
     public static GameManagerScript gameManagerInstance { get; private set; }
 
     private GameObject player;
-    public int floor;   
-    /*
+    public int currentFloor;
+    
     private GameObject f0;
     private GameObject f1;
     private GameObject f2;
-    private GameObject f3;
-    private GameObject stairs;
-    */
+    //private GameObject f3;
 
     public TMP_Text info;
     private bool startFade = false;
     private float fadeTime = 5.0f;
-    //private GameObject floor3;
 
     private Light[] lights;
 
@@ -46,23 +43,21 @@ public class GameManagerScript : MonoBehaviour
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
-        /*
+        
         f0 = GameObject.FindGameObjectWithTag("F0");
         f1 = GameObject.FindGameObjectWithTag("F1");
         f2 = GameObject.FindGameObjectWithTag("F2");
-        f3 = GameObject.FindGameObjectWithTag("F3");
-        stairs = GameObject.FindGameObjectWithTag("Stairs");
-        */
+        //f3 = GameObject.FindGameObjectWithTag("F3");
+        
         lights = FindObjectsByType<Light>(FindObjectsSortMode.None);
         //Debug.Log("GameManaerScript: pocet svetel: " + lights.Length);
 
         info.alpha = 0.0f;
 
-        /*
-        f0.SetActive(false);
-        f2.SetActive(false);
-        f3.SetActive(false);
-        */
+        //f0.SetActive(false);
+        //f2.SetActive(false);
+        //currentFloor = 1;
+        //f3.SetActive(false);
     }
 
     // Update is called once per frame
@@ -72,20 +67,35 @@ public class GameManagerScript : MonoBehaviour
         ShowTextInfo();
     }
 
-    /*
     /// <summary>
-    /// Vrac , kter  patro je ativn . Slou   pro triggery, kter  vypnou aktivn  patro, a zapnou to, o kter  se staraj  - optimaizace
+    /// Vrací, který patro je ativní . Slouží pro triggery, který vypnou aktivní patro, a zapnou to, o který se starají - optimaizace
     /// </summary>
     /// <returns></returns>
     public GameObject GetActiveFloor()
     {
-        if (f0.activeInHierarchy) return f0;
-        else if (f1.activeInHierarchy) return f1;
-        else if (f2.activeInHierarchy) return f2;
-        else if (f3.activeInHierarchy) return f3;
+        if (f0.activeInHierarchy)
+        {
+            currentFloor = 0;
+            return f0;
+        }
+        else if (f1.activeInHierarchy)
+        {
+            currentFloor = 1;
+            return f1; ;
+        }
+        else if (f2.activeInHierarchy)
+        {
+            currentFloor = 2;
+            return f2;
+        }
+        /*
+        else if (f3.activeInHierarchy)
+        {
+            currentFloor = 3;
+            return f3;
+        */
         else return null;
     }
-    */
 
     /// <summary>
     /// Vypíná svìtla, která jsou daleko - optimalizace

@@ -121,7 +121,7 @@ public class PlayerController : MonoBehaviour
     /// </summary>
     private void Assign939()    // díky promìnné movement to jednotlivý scp z hráèe dokážou získat, zde smazat
     {
-        if (GameManagerScript.gameManagerInstance.floor == 0)
+        if (GameManagerScript.gameManagerInstance.currentFloor == 0)
         {
             scp939_1 = GameObject.FindGameObjectWithTag("939_1");
             scp939_2 = GameObject.FindGameObjectWithTag("939_2");
