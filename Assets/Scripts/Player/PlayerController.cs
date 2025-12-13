@@ -20,7 +20,8 @@ public class PlayerController : MonoBehaviour
 
 	private CharacterController controller;
 	private Vector3 moveDirection = Vector3.zero;
-	public float mouseSensitivity = 100.0f;   // do nastavení
+    public Slider sensitivitySlider;
+	private float mouseSensitivity;   // do nastavení
 	private float verticalRotation = 0.0f;
     private GameObject gameManager;
 
@@ -28,7 +29,7 @@ public class PlayerController : MonoBehaviour
     public GameObject scp939_1;
     public GameObject scp939_2;
     public GameObject scp939_3;
-    public GameObject clickedObject;
+    [SerializeField] public GameObject clickedObject;
 
     //s3
     private GameObject player;
@@ -41,6 +42,7 @@ public class PlayerController : MonoBehaviour
 
         player = GameObject.FindGameObjectWithTag("Player");
         playerStaminaScript = player.GetComponent<PlayerStaminaScript>();
+        mouseSensitivity = sensitivitySlider.value;
 
         controller = GetComponent<CharacterController>();
 		if(controller is null)
@@ -86,7 +88,6 @@ public class PlayerController : MonoBehaviour
             {
                 moveDirection *= moveSpeed;
                 movement = 1.0f;
-                //Debug.Log($"jen tak: {movement}");
             }
             else
             {
@@ -133,5 +134,10 @@ public class PlayerController : MonoBehaviour
             scp939_2 = null;
             scp939_3 = null;
         }
+    }
+
+    public void SetSensitivity(float sens)
+    {
+        mouseSensitivity = sens;
     }
 }

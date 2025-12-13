@@ -6,12 +6,16 @@ using UnityEngine.SceneManagement;
 public class PauseMenuScript : MonoBehaviour
 {
     bool isPaused = false;
+    public GameObject pauseMenu;
+    public GameObject optionMenu;
+    public GameObject generalsMenu;
     public GameObject pausePanel;
 
     // Start is called before the first frame update
     void Start()
     {
         Time.timeScale = 1;
+        pauseMenu.SetActive(false);
         pausePanel.SetActive(false);
     }
 
@@ -39,6 +43,7 @@ public class PauseMenuScript : MonoBehaviour
         isPaused = true;
         Time.timeScale = 0;
         Cursor.lockState = CursorLockMode.None;
+        pauseMenu.SetActive(true);
         pausePanel.SetActive(true);
     }
 
@@ -50,7 +55,18 @@ public class PauseMenuScript : MonoBehaviour
         isPaused = false;
         Time.timeScale = 1;
         Cursor.lockState = CursorLockMode.Locked;
+        pauseMenu.SetActive(false);
         pausePanel.SetActive(false);
+    }
+
+    /// <summary>
+    /// Otevøe options menu
+    /// </summary>
+    public void OpenOptions()
+    {
+        optionMenu.SetActive(true);
+        generalsMenu.SetActive(true);
+        pauseMenu.SetActive(false);
     }
 
     /// <summary>

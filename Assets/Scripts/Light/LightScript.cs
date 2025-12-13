@@ -8,6 +8,7 @@ public class LightScript : MonoBehaviour
     public bool broken;
     private bool on;
     public int floor;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
