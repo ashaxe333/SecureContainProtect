@@ -3,7 +3,37 @@ guid: 86f9e01e6439eca4fb84e43760844797
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: F0_Ground_Metal_v2
+    second: {fileID: 2100000, guid: 53ccd38ddc859ce49b6ffc5079d96144, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: F0_Wall
+    second: {fileID: 2100000, guid: ac2db38a41f25e24d98d5a330a0ee6d0, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: MetalBlack
+    second: {fileID: 2100000, guid: 772da049be7aafd42bddd7b1291be7da, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: MetalBlue
+    second: {fileID: 2100000, guid: dd04ac1ebe266114fa39c8e1abc2393c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: MetalPaintedDarkGrey
+    second: {fileID: 2100000, guid: c4e241bf60d723249bec88c40852d273, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: MetalPaintedYeallow
+    second: {fileID: 2100000, guid: 71b97eacb6e6e9b40a9259e1270adf69, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -16,8 +46,6 @@ ModelImporter:
     optimizeGameObjects: 0
     removeConstantScaleCurves: 0
     motionNodeName: 
-    rigImportErrors: 
-    rigImportWarnings: 
     animationImportErrors: 
     animationImportWarnings: 
     animationRetargetingWarnings: 

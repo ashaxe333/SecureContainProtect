@@ -7,6 +7,11 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: F2_ConcreteFloor
+    second: {fileID: 2100000, guid: 2f58c8ca06c1972428a51f1c1ab51cdf, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: F2_ConcreteWall1
     second: {fileID: 2100000, guid: cb92ac2fc1fb3694caae8562f2c787e5, type: 2}
   - first:
@@ -17,8 +22,28 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: F2_RoughWall1
+    second: {fileID: 2100000, guid: b4e856a1ab4559b45872d86ae73bbef4, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: F2_RoughWall2
+    second: {fileID: 2100000, guid: b154e6ca9cfcefd42b966bdb2ae11f01, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: F2_RoughWall3
+    second: {fileID: 2100000, guid: 42a4452fabd9175459e47830a24434e3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: F2_Yellow
     second: {fileID: 2100000, guid: 94667e8cce53b9d45b0e159d57aad159, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: MetalBlack
+    second: {fileID: 2100000, guid: 772da049be7aafd42bddd7b1291be7da, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -31,8 +56,6 @@ ModelImporter:
     optimizeGameObjects: 0
     removeConstantScaleCurves: 0
     motionNodeName: 
-    rigImportErrors: 
-    rigImportWarnings: 
     animationImportErrors: 
     animationImportWarnings: 
     animationRetargetingWarnings: 

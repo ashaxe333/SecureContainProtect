@@ -7,8 +7,18 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: F1_ConcreteFloor
+    second: {fileID: 2100000, guid: 4bb55aca71a2d0a48a220a93af9e53ea, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: F1_ConcreteWall
-    second: {fileID: 2100000, guid: efc0325aa36fab54f844260cc539857c, type: 2}
+    second: {fileID: 2100000, guid: 671a26926ad29914a83c444a2ac4d3b1, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: F1_PlasterWall
+    second: {fileID: 2100000, guid: 4dda01ec542b83845afbd84991500ed3, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
@@ -24,6 +34,16 @@ ModelImporter:
       assembly: UnityEngine.CoreModule
       name: F1_WhiteWall
     second: {fileID: 2100000, guid: fc952f894b551934692baf405c35f78e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Metal1
+    second: {fileID: 2100000, guid: 779eb3901680cd747b6c0ddae31edfb3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: MetalBlack
+    second: {fileID: 2100000, guid: 772da049be7aafd42bddd7b1291be7da, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

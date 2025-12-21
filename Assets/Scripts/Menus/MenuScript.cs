@@ -11,6 +11,9 @@ public class MenuScript : MonoBehaviour
     public GameObject helpBTN;
     public GameObject tutorialPanel;
 
+    public GameObject panel;
+    public GameObject generals;
+
     private void Start()
     {
         Cursor.lockState = CursorLockMode.None;
@@ -44,6 +47,11 @@ public class MenuScript : MonoBehaviour
         exitBTN.SetActive(false);
         helpBTN.SetActive(false);
         tutorialPanel.SetActive(true);
+    }
+
+    public void ShowOptionPanel()
+    {
+
     }
 
     /// <summary>
