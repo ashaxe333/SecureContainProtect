@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-[CreateAssetMenu(fileName = "Corridor", menuName = "Level/Corridor")]
+[CreateAssetMenu(fileName = "Corridor", menuName = "Item/Corridor")]
 public class CorridorData : ScriptableObject
 {
     public string corridorName;

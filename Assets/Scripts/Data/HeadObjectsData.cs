@@ -1,11 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEngine.UIElements.UxmlAttributeDescription;
 
-[CreateAssetMenu(menuName = "Item/Card")]
-public class CardData : ItemData
+[CreateAssetMenu(menuName = "Item/Mask")]
+public class HeadObjectsData : ItemData
 {
-    public int level;
 
     public override void Use(bool use)
     {

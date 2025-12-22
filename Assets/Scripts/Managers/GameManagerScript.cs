@@ -119,7 +119,7 @@ public class GameManagerScript : MonoBehaviour
     /// Nastavuje bool startFade na true (spouští metodu ShowTextInfo), a nastaví text, který se ukáže hráèi ve høe
     /// </summary>
     /// <param name="text">text, který se napíše pøi høe, jako nìjaká informace pro hráèe</param>
-    public void GetTextInfo(string text)
+    public void SetTextInfo(string text)
     {
         startFade = true;
         info.text = text;

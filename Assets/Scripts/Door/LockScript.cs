@@ -46,7 +46,7 @@ public class LockScript : MonoBehaviour
     {
         if (doorScript.isBroken)
         {
-            GameManagerScript.gameManagerInstance.GetTextInfo("Door seems to be broken");
+            GameManagerScript.gameManagerInstance.SetTextInfo("Door seems to be broken");
         }
         else if (doorScript.lowestKeyCardLevel > 0)
         {
@@ -57,7 +57,7 @@ public class LockScript : MonoBehaviour
             }
             else
             {
-                GameManagerScript.gameManagerInstance.GetTextInfo("A better key card is required");
+                GameManagerScript.gameManagerInstance.SetTextInfo("A better key card is required");
             }
         }
         else
@@ -70,7 +70,7 @@ public class LockScript : MonoBehaviour
     {
         if (doorScript.doorType == DoorType.ELEVATOR && elevatorScript.elevatorIsBroken)
         {
-            GameManagerScript.gameManagerInstance.GetTextInfo("Elevator is broken");
+            GameManagerScript.gameManagerInstance.SetTextInfo("Elevator is broken");
             Debug.Log("LockScript: Elevator is broken");
         }
         else if (doorScript.doorType == DoorType.ELEVATOR && floor != elevatorScript.currentFloor)
@@ -78,7 +78,7 @@ public class LockScript : MonoBehaviour
             elevatorScript.destination = floor;
             elevatorScript.called = true;
             Debug.Log("LockScript: Elevator was called");
-            GameManagerScript.gameManagerInstance.GetTextInfo("Elevator was called");
+            GameManagerScript.gameManagerInstance.SetTextInfo("Elevator was called");
         }
         else
         {

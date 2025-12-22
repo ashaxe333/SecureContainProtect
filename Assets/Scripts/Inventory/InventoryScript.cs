@@ -1,19 +1,46 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class InventoryScript : MonoBehaviour
 {
-    public List<InventoryItem> items;
+    public List<GameObject> slots;
+    public List<InventoryItem> items; //tohle asi pryè
+    public ItemData usingHeadItem;
+    public ItemData usingHandItem;
+    private bool show = true;
 
-    public void Add(ItemData item)
+    public void Add(ItemData collected)
     {
-        items.Add(new InventoryItem(item));
+        foreach (GameObject slot in slots)
+        {
+            if (!slot.GetComponent<InventorySlot>().used) 
+            {
+                items.Add(new InventoryItem(collected));
+                slot.GetComponent<InventorySlot>().sprite = collected.GetComponent<ItemData>().sprite;
+                show = false;
+                break;
+            }
+        }
+        if (show)
+        {
+            GameManagerScript.gameManagerInstance.SetTextInfo("Inventory is full");
+            show = true;
+        }
     }
 
-    public void Remove(int index)
+    public void Remove(InventoryItem inventoryItem)
     {
-        items.RemoveAt(index);
+        foreach (GameObject slot in slots)
+        {
+            if (slot.GetComponent<InventorySlot>().InventoryItem == inventoryItem)
+            {
+                items.Remove(inventoryItem);
+                slot.GetComponent<InventorySlot>().RemoveSprite();
+                break;
+            }
+        }
     }
 
     public bool HasKeyCard(int requiredCardLevel)
@@ -38,5 +65,37 @@ public class InventoryScript : MonoBehaviour
             */
         }
         return false;
+    }
+
+    public void Use(ItemData item)
+    {
+        if (item.area == ItemArea.HAND)
+        {
+            if (usingHandItem == null)
+            {
+                item.isUsing = true;
+                usingHandItem = item;
+            }
+            else
+            {
+                usingHandItem.isUsing = false;
+                item.isUsing = true;
+                usingHandItem = item;
+            }
+        }
+        else if (item.area == ItemArea.HEAD)
+        {
+            if (usingHeadItem == null)
+            {
+                item.isUsing = true;
+                usingHeadItem = item;
+            }
+            else
+            {
+                usingHeadItem.isUsing = false;
+                item.isUsing = true;
+                usingHeadItem = item;
+            }
+        }
     }
 }

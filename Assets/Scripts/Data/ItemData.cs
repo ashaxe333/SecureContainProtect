@@ -2,17 +2,23 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "Item")]
 public abstract class ItemData : ScriptableObject
 {
     public string itemName;
-    public Sprite icon;
+    public Sprite sprite;
     public string description;
-    public GameObject prefab;
 
-    public virtual void Use(GameObject player)
+    public GameObject prefab;
+    public ItemArea area;
+    public bool isUsing;
+
+    public virtual void Use(bool use)
     {
         Debug.Log("Používáš: " + itemName);
     }
 }
 
+public enum ItemArea
+{
+    HEAD, HAND, LEG
+}

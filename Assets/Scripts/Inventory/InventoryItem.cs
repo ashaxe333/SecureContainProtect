@@ -14,7 +14,7 @@ public class InventoryItem
 
     public void Use(GameObject player)
     {
-        itemData.Use(player);
+        itemData.Use(true);
     }
 }
 

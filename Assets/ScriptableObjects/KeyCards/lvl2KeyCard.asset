@@ -13,7 +13,9 @@ MonoBehaviour:
   m_Name: lvl2KeyCard
   m_EditorClassIdentifier: 
   itemName: lvl2KeyCard
-  icon: {fileID: 0}
+  sprite: {fileID: 0}
   description: Level 2 security key card
   prefab: {fileID: 919132149155446097, guid: 29ded428d63074f4cb42f840de3643f9, type: 3}
+  area: 1
+  isUsing: 0
   level: 2
