@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: lvl1KeyCard
   m_EditorClassIdentifier: 
   itemName: Key Card Level 1
-  sprite: {fileID: 0}
+  sprite: {fileID: 21300000, guid: 4b227bba97e862746b6dc640e17f70f5, type: 3}
   description: Level 1 security key card
   prefab: {fileID: 919132149155446097, guid: 367898de661f9b84a8e0b7fb9b451375, type: 3}
   area: 1

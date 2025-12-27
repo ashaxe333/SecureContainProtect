@@ -11,10 +11,5 @@ public class InventoryItem
     {
         this.itemData = data;
     }
-
-    public void Use(GameObject player)
-    {
-        itemData.Use(true);
-    }
 }
 

@@ -9,6 +9,7 @@ using UnityEngine.UI;
 public class PlayerInteractScript : MonoBehaviour
 {
     private GameObject player;
+    private InventoryScript inventoryScript;
 
     public GameObject scp939_1;
     public GameObject scp939_2;
@@ -21,6 +22,7 @@ public class PlayerInteractScript : MonoBehaviour
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
+        inventoryScript = player.GetComponent<InventoryScript>();
 
         scp939_1 = GameObject.FindGameObjectWithTag("939_1");
         scp939_2 = GameObject.FindGameObjectWithTag("939_2");
@@ -71,7 +73,7 @@ public class PlayerInteractScript : MonoBehaviour
             if (Input.GetMouseButtonDown(0))
             {
                 clickedObject = hit.collider.gameObject;
-                player.GetComponent<InventoryScript>().Add(clickedObject.GetComponent<ItemHolderScript>().sourceData);
+                inventoryScript.Add(clickedObject.GetComponent<ItemHolderScript>().sourceData);
                 clickedObject.SetActive(false);
             }
         }

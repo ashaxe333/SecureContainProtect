@@ -1,3 +1,4 @@
+using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -6,21 +7,73 @@ using UnityEngine;
 public class InventoryScript : MonoBehaviour
 {
     public List<GameObject> slots;
+    public List<InventorySlot> slotScripts;
     public List<InventoryItem> items; //tohle asi pryè
     public ItemData usingHeadItem;
     public ItemData usingHandItem;
     private bool show = true;
+    public GameObject inventory;
 
-    public void Add(ItemData collected)
+    void Start()
+    {
+        //inventory = GameObject.FindGameObjectWithTag("Inventory");
+        inventory.SetActive(false);
+        items = new List<InventoryItem>();
+
+        Debug.Log("InventoryScript instance: " + gameObject.name);
+        Debug.Log("Slots count: " + slotScripts.Count);
+
+        GetScripts();
+
+    }
+
+    void Update()
+    {
+        ShowInventory();
+    }
+
+    public void GetScripts()
     {
         foreach (GameObject slot in slots)
         {
-            if (!slot.GetComponent<InventorySlot>().used) 
+            slotScripts.Add(slot.GetComponent<InventorySlot>());
+        }
+    }
+
+    public void ShowInventory()
+    {
+        if (Input.GetKeyDown(KeyCode.Tab))
+        {
+            bool isActive = !inventory.activeSelf;
+            inventory.SetActive(isActive);
+
+            if (isActive)
             {
-                items.Add(new InventoryItem(collected));
-                slot.GetComponent<InventorySlot>().sprite = collected.GetComponent<ItemData>().sprite;
+                Cursor.lockState = CursorLockMode.None;
+                Cursor.visible = true;
+            }
+            else
+            {
+                Cursor.lockState = CursorLockMode.Locked;
+                Cursor.visible = false;
+            }
+        }
+    }
+
+    public void Add(ItemData collected)
+    {
+        foreach (InventorySlot slot in slotScripts)
+        {
+            if (!slot.used)
+            {
+                InventoryItem invItem = new InventoryItem(collected);
+
+                items.Add(invItem);
+                slot.inventoryItem = invItem;
+                slot.sprite = collected.sprite;
+                slot.ShowSprite();
                 show = false;
-                break;
+                return;
             }
         }
         if (show)
@@ -32,13 +85,13 @@ public class InventoryScript : MonoBehaviour
 
     public void Remove(InventoryItem inventoryItem)
     {
-        foreach (GameObject slot in slots)
+        foreach (InventorySlot slot in slotScripts)
         {
-            if (slot.GetComponent<InventorySlot>().InventoryItem == inventoryItem)
+            if (slot.inventoryItem == inventoryItem)
             {
                 items.Remove(inventoryItem);
-                slot.GetComponent<InventorySlot>().RemoveSprite();
-                break;
+                slot.RemoveSprite();
+                return;
             }
         }
     }
@@ -73,13 +126,13 @@ public class InventoryScript : MonoBehaviour
         {
             if (usingHandItem == null)
             {
-                item.isUsing = true;
+                item.Use(true);
                 usingHandItem = item;
             }
             else
             {
-                usingHandItem.isUsing = false;
-                item.isUsing = true;
+                usingHandItem.Use(false);
+                item.Use(true);
                 usingHandItem = item;
             }
         }
@@ -87,15 +140,21 @@ public class InventoryScript : MonoBehaviour
         {
             if (usingHeadItem == null)
             {
-                item.isUsing = true;
+                item.Use(true);
                 usingHeadItem = item;
             }
             else
             {
-                usingHeadItem.isUsing = false;
-                item.isUsing = true;
+                usingHeadItem.Use(false);
+                item.Use(true);
                 usingHeadItem = item;
             }
         }
+    }
+
+    public void Drop(InventoryItem inventoryItem, Vector3 position)
+    {
+        Instantiate(inventoryItem.itemData.prefab, position, Quaternion.identity);
+        Remove(inventoryItem);
     }
 }
