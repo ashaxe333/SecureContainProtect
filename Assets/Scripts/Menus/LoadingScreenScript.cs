@@ -20,6 +20,31 @@ public class LoadingScreenScript : MonoBehaviour
     {
         AsyncOperation operation = SceneManager.LoadSceneAsync(levelToLoad);
         operation.allowSceneActivation = false;
+
+        while (!operation.isDone)
+        {
+            // operation.progress je 0..0.9 -> normalizujeme na 0..1
+            float progress = Mathf.Clamp01(operation.progress / 0.9f);
+            LoadingBar.value = progress;
+
+            Debug.Log(progress);
+
+            // Jakmile je progress blízko 1, povolíme aktivaci scény
+            if (progress >= 1f)
+            {
+                operation.allowSceneActivation = true;
+            }
+
+            yield return null;
+        }
+    }
+
+
+    /*
+    IEnumerator LoadAsyncScreen(int levelToLoad)
+    {
+        AsyncOperation operation = SceneManager.LoadSceneAsync(levelToLoad);
+        operation.allowSceneActivation = false;
         float progressValue = 0;
 
         while (!operation.isDone)
@@ -36,25 +61,5 @@ public class LoadingScreenScript : MonoBehaviour
             yield return null;
         }
     }
-
-    /*
-     public void LoadScene(int levelToLoad)
-    {
-        LoadingScreen.SetActive(true);
-        StartCoroutine(LoadAsyncScreen(levelToLoad));
-    }
-
-    IEnumerator LoadAsyncScreen(int levelToLoad)
-    {
-        AsyncOperation operation = SceneManager.LoadSceneAsync(levelToLoad);
-        
-        while (!operation.isDone)
-        {
-            float progressValue = Mathf.Clamp01(operation.progress / 0.9f);
-            Debug.Log(progressValue);
-            LoadingBar.value = progressValue;
-            yield return null;
-        }
-    }
-     */
+    */
 }

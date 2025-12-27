@@ -12,4 +12,3 @@ public class InventoryItem
         this.itemData = data;
     }
 }
-

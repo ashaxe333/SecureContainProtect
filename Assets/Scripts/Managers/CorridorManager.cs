@@ -33,6 +33,7 @@ public class CorridorManager : MonoBehaviour
     {
         LoadCorridors();
 
+        currentCorridor = corridors[Random.Range(0, corridors.Count)];
         player = GameObject.FindGameObjectWithTag("Player");
         jumpScareWayPoint = GameObject.FindGameObjectWithTag("JumpScareWP");
 

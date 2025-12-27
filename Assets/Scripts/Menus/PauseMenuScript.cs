@@ -43,6 +43,7 @@ public class PauseMenuScript : MonoBehaviour
         isPaused = true;
         Time.timeScale = 0;
         Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
         pauseMenu.SetActive(true);
         pausePanel.SetActive(true);
     }
@@ -55,6 +56,7 @@ public class PauseMenuScript : MonoBehaviour
         isPaused = false;
         Time.timeScale = 1;
         Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
         pauseMenu.SetActive(false);
         pausePanel.SetActive(false);
     }

@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class InventorySlot : MonoBehaviour, IPointerClickHandler, IPointerEnterHandler
+public class InventorySlot : MonoBehaviour, IPointerClickHandler, IPointerEnterHandler, IPointerExitHandler
 {
     public bool used;
     public Sprite sprite;
@@ -15,6 +15,11 @@ public class InventorySlot : MonoBehaviour, IPointerClickHandler, IPointerEnterH
     {
         contextMenuScript = contextMenu.GetComponent<ItemContextMenuScript>();
         used = false;
+    }
+
+    void Update()
+    {
+        //updatovat position
     }
 
     /// <summary>
@@ -38,16 +43,28 @@ public class InventorySlot : MonoBehaviour, IPointerClickHandler, IPointerEnterH
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        if (inventoryItem == null) return;
+        if (!used) return;
 
-        if (eventData.button == PointerEventData.InputButton.Right)
-        {
-            contextMenuScript.Show(this, transform.position);
-        }
+        if (eventData.button == PointerEventData.InputButton.Right) contextMenuScript.OnDrop();
+        if (eventData.button == PointerEventData.InputButton.Left) contextMenuScript.OnUse();
     }
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        Debug.Log("Hover?");
+        if (!used) {
+            Debug.Log("InventorySlot - used: " + used);
+            return;
+        }
+
+        Debug.Log("InventorySlot - used: " + used);
+        contextMenu.transform.position = new Vector3(eventData.position.x+50, eventData.position.y-50);
+        contextMenuScript.Show(this);
+    }
+
+    public void OnPointerExit(PointerEventData eventData)
+    {
+        if (!used) return;
+
+        contextMenuScript.Hide();
     }
 }

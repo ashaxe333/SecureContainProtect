@@ -8,7 +8,6 @@ public class InventoryScript : MonoBehaviour
 {
     public List<GameObject> slots;
     public List<InventorySlot> slotScripts;
-    public List<InventoryItem> items; //tohle asi pryè
     public ItemData usingHeadItem;
     public ItemData usingHandItem;
     private bool show = true;
@@ -16,9 +15,8 @@ public class InventoryScript : MonoBehaviour
 
     void Start()
     {
-        //inventory = GameObject.FindGameObjectWithTag("Inventory");
+        inventory.SetActive(true);
         inventory.SetActive(false);
-        items = new List<InventoryItem>();
 
         Debug.Log("InventoryScript instance: " + gameObject.name);
         Debug.Log("Slots count: " + slotScripts.Count);
@@ -68,7 +66,6 @@ public class InventoryScript : MonoBehaviour
             {
                 InventoryItem invItem = new InventoryItem(collected);
 
-                items.Add(invItem);
                 slot.inventoryItem = invItem;
                 slot.sprite = collected.sprite;
                 slot.ShowSprite();
@@ -89,7 +86,6 @@ public class InventoryScript : MonoBehaviour
         {
             if (slot.inventoryItem == inventoryItem)
             {
-                items.Remove(inventoryItem);
                 slot.RemoveSprite();
                 return;
             }
@@ -98,14 +94,14 @@ public class InventoryScript : MonoBehaviour
 
     public bool HasKeyCard(int requiredCardLevel)
     {
-        foreach (InventoryItem item in items)
+        foreach (InventorySlot slot in slotScripts)
         {
-            if(item.itemData is CardData card && card.level >= requiredCardLevel)
+            if (slot.inventoryItem != null && slot.inventoryItem.itemData is CardData card && card.level >= requiredCardLevel)
             {
                 return true;
             }
             /*
-            lehèí zápis:
+             lehèí zápis:
 
             if (item.itemData is KeyCardData)
             {
