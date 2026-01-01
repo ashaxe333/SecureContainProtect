@@ -7,17 +7,14 @@ using static UnityEngine.Mesh;
 
 public class InventoryScript : MonoBehaviour
 {
-    // ÚKOLY
+    // ÚKOLY:
+    // 1) Pøidat Unequip metodu? Jen zatím nevím k èemu
 
     public List<GameObject> slots;
     public List<InventorySlot> slotScripts;
 
     public EquipmentSlotScript activeHeadSlot;
     public EquipmentSlotScript activeHandSlot;
-
-    // smazat
-    //public ItemData usingHeadItem;
-    //public ItemData usingHandItem;
 
     private bool show = true;
     public GameObject inventory;
@@ -31,7 +28,6 @@ public class InventoryScript : MonoBehaviour
         Debug.Log("Slots count: " + slotScripts.Count);
 
         GetScripts();
-
     }
 
     void Update()
@@ -89,9 +85,7 @@ public class InventoryScript : MonoBehaviour
             {
                 InventoryItem invItem = new InventoryItem(collected);
 
-                slot.inventoryItem = invItem;
-                slot.sprite = collected.sprite;
-                slot.ShowSprite();
+                slot.SetItem(invItem);
                 show = false;
                 return;
             }
@@ -113,7 +107,7 @@ public class InventoryScript : MonoBehaviour
         {
             if (slot.inventoryItem == inventoryItem)
             {
-                slot.RemoveSprite();
+                slot.Clear();
                 return;
             }
         }
@@ -126,7 +120,7 @@ public class InventoryScript : MonoBehaviour
     /// <returns> true/false </returns>
     public bool IsKeyCardActive(int requiredCardLevel)
     {
-        if (activeHandSlot.inventoryItem.itemData is CardData card && card.level >= requiredCardLevel) return true;
+        if (activeHandSlot.used && activeHandSlot.inventoryItem.itemData is CardData card && card.level >= requiredCardLevel) return true;
         return false;
     }
 
@@ -141,11 +135,10 @@ public class InventoryScript : MonoBehaviour
         return false;
     }
 
-    public void SetEquippedItem(InventoryItem inventoryItem)
-    {
-
-    }
-
+    /// <summary>
+    /// equipne item do aktivního slotu
+    /// </summary>
+    /// <param name="inventoryItem"> equipnutý item </param>
     public void Equip(InventoryItem inventoryItem)
     {
         if (inventoryItem.itemData.area == ItemArea.HAND)
@@ -154,17 +147,19 @@ public class InventoryScript : MonoBehaviour
 
             if (!activeHandSlot.used)
             {
-                activeHandSlot.used = true;
-                activeHandSlot.inventoryItem = inventoryItem;
                 inventoryItem.itemData.Equip(true);
+                activeHandSlot.SetItem(inventoryItem);
                 Remove(inventoryItem);
             }
             else
             {
-                activeHandSlot.inventoryItem.itemData.Equip(false);
-                Add(activeHandSlot.inventoryItem.itemData);
+                ItemData unequiped = activeHandSlot.inventoryItem.itemData;
+                Add(unequiped);
+                unequiped.Equip(false);
+                activeHandSlot.Clear();
+
+                activeHandSlot.SetItem(inventoryItem);
                 inventoryItem.itemData.Equip(true);
-                activeHandSlot.inventoryItem = inventoryItem;
                 Remove(inventoryItem);
             }
         }
@@ -174,17 +169,19 @@ public class InventoryScript : MonoBehaviour
 
             if (!activeHeadSlot.used)
             {
-                activeHeadSlot.used = true;
-                activeHeadSlot.inventoryItem = inventoryItem;
                 inventoryItem.itemData.Equip(true);
+                activeHeadSlot.SetItem(inventoryItem);
                 Remove(inventoryItem);
             }
             else
             {
-                activeHeadSlot.inventoryItem.itemData.Equip(false);
-                Add(activeHeadSlot.inventoryItem.itemData);
+                ItemData unequiped = activeHeadSlot.inventoryItem.itemData;
+                Add(unequiped);
+                unequiped.Equip(false);
+                activeHeadSlot.Clear();
+
+                activeHeadSlot.SetItem(inventoryItem);
                 inventoryItem.itemData.Equip(true);
-                activeHeadSlot.inventoryItem = inventoryItem;
                 Remove(inventoryItem);
             }
         }
@@ -197,20 +194,22 @@ public class InventoryScript : MonoBehaviour
     /// <param name="position"> kde se item objeví </param>
     public void Drop(InventoryItem inventoryItem, Vector3 position)
     {
-        ItemData item = inventoryItem.itemData;
-        if (activeHandSlot.inventoryItem.itemData == item)
+        if (activeHandSlot.used && activeHandSlot.inventoryItem == inventoryItem)
         {
             inventoryItem.itemData.Equip(false);
-            activeHandSlot.inventoryItem.itemData = null;
+            activeHandSlot.Clear();
         }
-        if(activeHeadSlot.inventoryItem.itemData == item)
+        else if(activeHeadSlot.used && activeHeadSlot.inventoryItem == inventoryItem)
         {
             inventoryItem.itemData.Equip(false);
-            activeHeadSlot.inventoryItem.itemData = null;
+            activeHeadSlot.Clear();
+        }
+        else
+        {
+            Remove(inventoryItem);
         }
 
         Quaternion rotation = Quaternion.Euler(90f, 0f, 0f);
         Instantiate(inventoryItem.itemData.prefab, position, rotation);
-        Remove(inventoryItem);
     }
 }

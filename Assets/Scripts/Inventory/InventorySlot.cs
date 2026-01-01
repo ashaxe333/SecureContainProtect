@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
+using static UnityEditor.Progress;
 
 public class InventorySlot : MonoBehaviour, IPointerClickHandler, IPointerEnterHandler, IPointerExitHandler
 {
@@ -14,8 +15,7 @@ public class InventorySlot : MonoBehaviour, IPointerClickHandler, IPointerEnterH
     public ItemContextMenuScript contextMenuScript;
 
     public GameObject image;
-    private Image spriteImage; //Bylo public
-    public Sprite sprite;
+    private Image spriteImage;
 
     void Start()
     {
@@ -26,21 +26,26 @@ public class InventorySlot : MonoBehaviour, IPointerClickHandler, IPointerEnterH
     }
 
     /// <summary>
-    /// Zobrzí sprite itemu, který se na danném slotu nachází
+    /// Nasadí item do slotu, a zprovozní
     /// </summary>
-    public void ShowSprite()
+    /// <param name="item"> item </param>
+    public void SetItem(InventoryItem item)
     {
-        spriteImage.sprite = sprite;
+        inventoryItem = item;
+        //inventoryItem.itemData.Equip(true);
+        spriteImage.sprite = inventoryItem.itemData.sprite;
         used = true;
         image.SetActive(true);
+
     }
 
     /// <summary>
-    /// Odstraní sprite itemu, který se na danném slotu nachází
+    /// vyèistí slot po dropnutí itemu
     /// </summary>
-    public void RemoveSprite()
+    public void Clear()
     {
         spriteImage.sprite = null;
+        //inventoryItem.itemData.Equip(false);
         inventoryItem = null;
         used = false;
         image.SetActive(false);

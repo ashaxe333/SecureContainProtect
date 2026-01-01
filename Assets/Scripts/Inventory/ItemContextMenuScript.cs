@@ -75,6 +75,6 @@ public class ItemContextMenuScript : MonoBehaviour
 
         //Debug.Log("ItemContextMenuScript - OnEquip: currentSlot není null!!!!");
         inventoryScript.Equip(currentSlotScript.inventoryItem/*.itemData*/);
-        //Hide();
+        Hide();
     }
 }
