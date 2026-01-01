@@ -8,6 +8,11 @@ using UnityEngine.UI;
 
 public class PlayerInteractScript : MonoBehaviour
 {
+    // ÚKOLY
+    // 1) Oddìlit zámky od interactive objektù, a dát jim jiný image, než ruèièku pokud mám aktivní kartu
+    // 2) Všem collectiblùm zobrazt pøi sbírání ještì název
+    // 3) Opìt SCP939 by si informace mìlo získávat samo
+
     private GameObject player;
     private InventoryScript inventoryScript;
 
@@ -49,6 +54,7 @@ public class PlayerInteractScript : MonoBehaviour
         if (Physics.Raycast(ray, out hit, 5.0f, 1 << 7))
         {
             //Debug.Log("je to interactive");
+            //Dát sem image karty?
             hand.SetActive(true);
 
             if (Input.GetMouseButtonDown(0))

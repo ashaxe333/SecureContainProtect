@@ -65,7 +65,7 @@ namespace TMPro.Examples
         }
 
 
-        // Use this for initialization
+        // Equip this for initialization
         void Start()
         {
             if (CameraTarget == null)

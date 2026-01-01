@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: lvl3KeyCard
   m_EditorClassIdentifier: 
   itemName: lvl3KeyCard
-  sprite: {fileID: 0}
+  sprite: {fileID: 21300000, guid: ec1bac5dcdd69ac43beb267582070a68, type: 3}
   description: Level 3 security key card
-  prefab: {fileID: 919132149155446097, guid: b87293c204e03e34983e8c54ebee8250, type: 3}
+  prefab: {fileID: 4454553190913190363, guid: 8c3a0d7b08df5794c89e8a2f23c9c37b, type: 3}
   area: 1
   isUsing: 0
   level: 3

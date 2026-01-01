@@ -7,7 +7,7 @@ using UnityEngine.XR;
 public class ElevatorSript : MonoBehaviour
 {
     // NÁPADY:
-    // 1) Vıtah se bude sám zavírat -> Potøebuju, aby to nìj mohl nastoupit a od urèíté karty.
+    // 1) Vıtah se bude sám zavírat -> Potøebuju, aby do nìj mohl nastoupit a od urèíté karty.
     // => Kdy to hráèe v nìm zavøe, musí si moct umìt otevøít, ani by kvùli tomu jel do jinıho patra -> Pokud jsou dveøe zavøenı, po stisknutí tlaèítka je otevøi
 
     public GameObject upButton;

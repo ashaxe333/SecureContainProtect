@@ -7,9 +7,9 @@ public class CardData : ItemData
 {
     public int level;
 
-    public override void Use(bool use)
+    public override void Equip(bool equip)
     {
-        isUsing = use;
-        Debug.Log($"using {itemName}: {isUsing}");
+        isEquiped = equip;
+        Debug.Log($"using {itemName}: {isEquiped}");
     }
 }

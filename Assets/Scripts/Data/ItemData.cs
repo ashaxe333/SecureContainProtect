@@ -10,9 +10,9 @@ public abstract class ItemData : ScriptableObject
 
     public GameObject prefab;
     public ItemArea area;
-    public bool isUsing;
+    public bool isEquiped;
 
-    public virtual void Use(bool use)
+    public virtual void Equip(bool use)
     {
         Debug.Log("Používáš: " + itemName);
     }

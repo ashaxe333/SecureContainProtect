@@ -17,7 +17,7 @@ public class EnvMapAnimator : MonoBehaviour {
         m_material = m_textMeshPro.fontSharedMaterial;
     }
 
-    // Use this for initialization
+    // Equip this for initialization
 	IEnumerator Start ()
     {
         Matrix4x4 matrix = new Matrix4x4(); 

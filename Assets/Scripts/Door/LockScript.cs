@@ -50,8 +50,8 @@ public class LockScript : MonoBehaviour
         }
         else if (doorScript.lowestKeyCardLevel > 0)
         {
-            Debug.Log("DoorScript: M· hr·Ë keycard? " + inventoryScript.HasKeyCard(doorScript.lowestKeyCardLevel));
-            if (inventoryScript.HasKeyCard(doorScript.lowestKeyCardLevel))
+            Debug.Log("DoorScript: M· hr·Ë keycard? " + inventoryScript.IsKeyCardActive(doorScript.lowestKeyCardLevel));
+            if (inventoryScript.IsKeyCardActive(doorScript.lowestKeyCardLevel))
             {
                 DoorCheck();
             }

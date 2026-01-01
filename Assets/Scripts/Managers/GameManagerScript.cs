@@ -13,6 +13,7 @@ public class GameManagerScript : MonoBehaviour
     public static GameManagerScript gameManagerInstance { get; private set; }
 
     private GameObject player;
+    private InventoryScript inventoryScript;
     public int currentFloor;
     
     private GameObject f0;
@@ -43,6 +44,7 @@ public class GameManagerScript : MonoBehaviour
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
+        inventoryScript = player.gameObject.GetComponent<InventoryScript>();
         
         f0 = GameObject.FindGameObjectWithTag("F0");
         f1 = GameObject.FindGameObjectWithTag("F1");
