@@ -3,7 +3,7 @@ using UnityEngine;
 public class LightScript : MonoBehaviour
 {
     private GameObject player;
-    private Light light;
+    private Light lightInScene;
 
     public bool broken;
     private bool on;
@@ -13,7 +13,7 @@ public class LightScript : MonoBehaviour
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
-        light = GetComponent<Light>();
+        lightInScene = GetComponent<Light>();
         //light.GetComponent<Light>().intensity = 1;
     }
 
@@ -25,25 +25,25 @@ public class LightScript : MonoBehaviour
 
     public void TurnOff()
     {
-        light.enabled = false;
+        lightInScene.enabled = false;
         on = false;
     }
 
     public void TurnOn()
     {
-        light.enabled = true;
+        lightInScene.enabled = true;
         on = true;
     }
 
     public void DisableLight()
     {
-        if (Vector3.Distance(light.transform.position, player.transform.position) < 50.0f && on && floor == GameManagerScript.gameManagerInstance.currentFloor)
+        if (Vector3.Distance(lightInScene.transform.position, player.transform.position) < 50.0f && on && floor == GameManagerScript.Instance.currentFloor)
         {
-            light.enabled = true;
+            lightInScene.enabled = true;
         }
         else
         {
-            light.enabled = false;
+            lightInScene.enabled = false;
         }
     }
 }

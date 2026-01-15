@@ -23,6 +23,7 @@ public class PlayerInteractScript : MonoBehaviour
     //public List<GameObject> allInteractiveObjects = new List<GameObject>();
     public GameObject hand;
     private bool fkinHand;
+    private bool interactEnable = true;
 
     void Start()
     {
@@ -38,7 +39,9 @@ public class PlayerInteractScript : MonoBehaviour
 
     void Update()
     {
-        Interact();
+        if (interactEnable)
+            Interact();
+
         Assign939();
     }
 
@@ -111,11 +114,20 @@ public class PlayerInteractScript : MonoBehaviour
     */
 
     /// <summary>
+    /// Nastaví, jestli hráè mùe intereagovat
+    /// </summary>
+    /// <param name="enabled"></param>
+    public void SetInteractEnable(bool enabled)
+    {
+        interactEnable = enabled;
+    }
+
+    /// <summary>
     /// inicializuje všechny scp-939 po pøechodu do patra F0
     /// </summary>
     private void Assign939()    //vyøešit tak, abych nemusel assignvat tyto scp. Kadı zvláš by si mìl vytáhnout z hráèe informaci o tom, jak chodí
     {
-        if (GameManagerScript.gameManagerInstance.currentFloor == 0)
+        if (GameManagerScript.Instance.currentFloor == 0)
         {
             scp939_1 = GameObject.FindGameObjectWithTag("939_1");
             scp939_2 = GameObject.FindGameObjectWithTag("939_2");

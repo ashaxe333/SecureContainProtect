@@ -13,13 +13,17 @@ public class ItemContextMenuScript : MonoBehaviour
 
     private CanvasGroup canvasGroup;
 
-    void Start()
+    void Awake()
     {
         player = GameObject.FindGameObjectWithTag("Player");
         inventoryScript = player.GetComponent<InventoryScript>();
 
         canvasGroup = GetComponent<CanvasGroup>();
         canvasGroup.blocksRaycasts = false;
+    }
+
+    void Start()
+    {
         Hide();
     }
 
@@ -42,16 +46,6 @@ public class ItemContextMenuScript : MonoBehaviour
         itemName.text = inventorySlot.inventoryItem.itemData.name;
         itemDescription.text = inventorySlot.inventoryItem.itemData.description;
         gameObject.SetActive(true);
-        /*
-        Vector2 position;
-        RectTransformUtility.ScreenPointToLocalPointInRectangle(
-            transform.parent as RectTransform,
-            Input.mousePosition,
-            null,
-            out position
-        );
-        transform.localPosition = position;
-        */
     }
 
     /// <summary>
@@ -74,7 +68,7 @@ public class ItemContextMenuScript : MonoBehaviour
         if (currentSlotScript == null) return;
 
         //Debug.Log("ItemContextMenuScript - OnEquip: currentSlot není null!!!!");
-        inventoryScript.Equip(currentSlotScript.inventoryItem/*.itemData*/);
+        inventoryScript.Equip(currentSlotScript.inventoryItem);
         Hide();
     }
 }

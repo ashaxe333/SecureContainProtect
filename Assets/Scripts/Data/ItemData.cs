@@ -17,8 +17,3 @@ public abstract class ItemData : ScriptableObject
         Debug.Log("Používáš: " + itemName);
     }
 }
-
-public enum ItemArea
-{
-    HEAD, HAND, LEG
-}

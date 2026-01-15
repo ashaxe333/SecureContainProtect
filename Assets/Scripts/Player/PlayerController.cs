@@ -34,15 +34,20 @@ public class PlayerController : MonoBehaviour
     //s3
     private GameObject player;
     private PlayerStaminaScript playerStaminaScript;
+    private bool movementEnabled = true;
+    private bool cameraEnabled = true;
 
     void Start()
 	{
-		Cursor.lockState = CursorLockMode.Locked; // skryje kurzor myši
+        CursorManagerScript.Instance.HideCursor();
+
         gameManager = GameObject.FindGameObjectWithTag("GameManager");
 
         player = GameObject.FindGameObjectWithTag("Player");
         playerStaminaScript = player.GetComponent<PlayerStaminaScript>();
-        mouseSensitivity = sensitivitySlider.value;
+
+        mouseSensitivity = PlayerPrefs.GetFloat("MouseSensitivity", 100f);
+        sensitivitySlider.SetValueWithoutNotify(mouseSensitivity);
 
         controller = GetComponent<CharacterController>();
 		if(controller is null)
@@ -53,7 +58,12 @@ public class PlayerController : MonoBehaviour
 
 	void Update()
 	{
-        Move();
+        if (movementEnabled)
+            Move();
+
+        if (cameraEnabled)
+            LookAround();
+
         Assign939();
     }
 
@@ -64,7 +74,6 @@ public class PlayerController : MonoBehaviour
     {
         float horizontal = Input.GetAxis("Horizontal");
         float vertical = Input.GetAxis("Vertical");
-        // predelat na int
         movement = 0.0f;
 
         if (controller.isGrounded)
@@ -105,7 +114,13 @@ public class PlayerController : MonoBehaviour
 
         moveDirection.y -= gravity * Time.deltaTime;
         controller.Move(moveDirection * Time.deltaTime);
+    }
 
+    /// <summary>
+    /// Stará se o kamru hráèe
+    /// </summary>
+    public void LookAround()
+    {
         // ovládání kamery pomocí myši
         float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity * Time.deltaTime;
         float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity * Time.deltaTime;
@@ -118,11 +133,29 @@ public class PlayerController : MonoBehaviour
     }
 
     /// <summary>
+    /// Urèuje, jestli hráè bude moct chodit
+    /// </summary>
+    /// <param name="enabled"> true/false </param>
+    public void SetMovementEnabled(bool enabled)
+    {
+        movementEnabled = enabled;
+    }
+
+    /// <summary>
+    /// Urèuje, jestli hráè mùže ovládat kameru
+    /// </summary>
+    /// <param name="enabled"></param>
+    public void SetCameraEnabled(bool enabled)
+    {
+        cameraEnabled = enabled;
+    }
+
+    /// <summary>
     /// inicializuje všechny scp-939 po pøechodu do patra F0
     /// </summary>
     private void Assign939()    // díky promìnné movement to jednotlivý scp z hráèe dokážou získat, zde smazat
     {
-        if (GameManagerScript.gameManagerInstance.currentFloor == 0)
+        if (GameManagerScript.Instance.currentFloor == 0)
         {
             scp939_1 = GameObject.FindGameObjectWithTag("939_1");
             scp939_2 = GameObject.FindGameObjectWithTag("939_2");
@@ -136,8 +169,13 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Sets Mouse Sensitivity in-game
+    /// </summary>
+    /// <param name="sens"></param>
     public void SetSensitivity(float sens)
     {
         mouseSensitivity = sens;
+        PlayerPrefs.SetFloat("MouseSensitivity", sens);
     }
 }

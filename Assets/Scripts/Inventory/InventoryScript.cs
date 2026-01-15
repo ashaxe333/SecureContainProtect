@@ -7,27 +7,25 @@ using static UnityEngine.Mesh;
 
 public class InventoryScript : MonoBehaviour
 {
-    // ÚKOLY:
-    // 1) Pøidat Unequip metodu? Jen zatím nevím k èemu
-
     public List<GameObject> slots;
     public List<InventorySlot> slotScripts;
 
     public EquipmentSlotScript activeHeadSlot;
     public EquipmentSlotScript activeHandSlot;
-
-    private bool show = true;
     public GameObject inventory;
+
+    private CanvasGroup canvasGroup;
+
+    void Awake()
+    {
+        GetScripts();
+    }
 
     void Start()
     {
-        inventory.SetActive(true);
-        inventory.SetActive(false);
-
-        Debug.Log("InventoryScript instance: " + gameObject.name);
-        Debug.Log("Slots count: " + slotScripts.Count);
-
-        GetScripts();
+        canvasGroup = inventory.GetComponent<CanvasGroup>();
+        canvasGroup.alpha = 0f;           // invisibile
+        canvasGroup.blocksRaycasts = false; // nepøijímá kliky
     }
 
     void Update()
@@ -53,19 +51,21 @@ public class InventoryScript : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Tab))
         {
-            bool isActive = !inventory.activeSelf;
-            inventory.SetActive(isActive);
-
-            if (isActive)
+            if(canvasGroup.alpha == 0f)
             {
-                Cursor.lockState = CursorLockMode.None;
-                Cursor.visible = true;
+                canvasGroup.alpha = 1f;
+                canvasGroup.blocksRaycasts = true;
+                CursorManagerScript.Instance.ShowCursor();
+                GameStateManagerScript.Instance.SetState(GameState.INVENTORY);
             }
             else
             {
-                Cursor.lockState = CursorLockMode.Locked;
-                Cursor.visible = false;
-                foreach(InventorySlot slot in slotScripts)
+                canvasGroup.alpha = 0f;
+                canvasGroup.blocksRaycasts = false;
+                CursorManagerScript.Instance.HideCursor();
+                GameStateManagerScript.Instance.SetState(GameState.GAMEPLAY);
+
+                foreach (InventorySlot slot in slotScripts)
                 {
                     slot.contextMenuScript.Hide();
                 }
@@ -79,6 +79,8 @@ public class InventoryScript : MonoBehaviour
     /// <param name="collected"> sebraný item </param>
     public void Add(ItemData collected)
     {
+        bool show = true;
+
         foreach (InventorySlot slot in slotScripts)
         {
             if (!slot.used)
@@ -90,11 +92,8 @@ public class InventoryScript : MonoBehaviour
                 return;
             }
         }
-        if (show)
-        {
-            GameManagerScript.gameManagerInstance.SetTextInfo("Inventory is full");
-            show = true;
-        }
+
+        if (show) GameManagerScript.Instance.SetTextInfo("Inventory is full");
     }
 
     /// <summary>
@@ -126,12 +125,12 @@ public class InventoryScript : MonoBehaviour
 
     public bool IsMaskActive()
     {
-        if(activeHeadSlot.inventoryItem.itemData is MaskData) return true;
+        if(activeHeadSlot.used && activeHeadSlot.inventoryItem.itemData is MaskData) return true;
         return false;
     }
     public bool IsNightVisionActive()
     {
-        if (activeHeadSlot.inventoryItem.itemData is NightVisionData) return true;
+        if (activeHeadSlot.used && activeHeadSlot.inventoryItem.itemData is NightVisionData) return true;
         return false;
     }
 
@@ -141,49 +140,53 @@ public class InventoryScript : MonoBehaviour
     /// <param name="inventoryItem"> equipnutý item </param>
     public void Equip(InventoryItem inventoryItem)
     {
-        if (inventoryItem.itemData.area == ItemArea.HAND)
+        EquipmentSlotScript equipmentSlot = GetCorrectAreaSlot(inventoryItem);
+
+        if (equipmentSlot == null) return;
+
+        if (!equipmentSlot.used)
         {
-            if (activeHandSlot.inventoryItem == inventoryItem) return;
-
-            if (!activeHandSlot.used)
-            {
-                inventoryItem.itemData.Equip(true);
-                activeHandSlot.SetItem(inventoryItem);
-                Remove(inventoryItem);
-            }
-            else
-            {
-                ItemData unequiped = activeHandSlot.inventoryItem.itemData;
-                Add(unequiped);
-                unequiped.Equip(false);
-                activeHandSlot.Clear();
-
-                activeHandSlot.SetItem(inventoryItem);
-                inventoryItem.itemData.Equip(true);
-                Remove(inventoryItem);
-            }
+            inventoryItem.itemData.Equip(true);
+            equipmentSlot.SetItem(inventoryItem);
+            Remove(inventoryItem);
         }
-        else if (inventoryItem.itemData.area == ItemArea.HEAD)
+        else if(equipmentSlot.inventoryItem == inventoryItem)
         {
-            if (activeHeadSlot.inventoryItem == inventoryItem) return;
+            ItemData unequiped = equipmentSlot.inventoryItem.itemData;
+            Add(unequiped);
+            unequiped.Equip(false);
+            equipmentSlot.Clear();
+        }
+        else
+        {
+            ItemData unequiped = equipmentSlot.inventoryItem.itemData;
+            Add(unequiped);
+            unequiped.Equip(false);
+            equipmentSlot.Clear();
 
-            if (!activeHeadSlot.used)
-            {
-                inventoryItem.itemData.Equip(true);
-                activeHeadSlot.SetItem(inventoryItem);
-                Remove(inventoryItem);
-            }
-            else
-            {
-                ItemData unequiped = activeHeadSlot.inventoryItem.itemData;
-                Add(unequiped);
-                unequiped.Equip(false);
-                activeHeadSlot.Clear();
+            equipmentSlot.SetItem(inventoryItem);
+            inventoryItem.itemData.Equip(true);
+            Remove(inventoryItem);
+        }
+    }
 
-                activeHeadSlot.SetItem(inventoryItem);
-                inventoryItem.itemData.Equip(true);
-                Remove(inventoryItem);
-            }
+    /// <summary>
+    /// Dostane správný EquipmentSlotScript
+    /// </summary>
+    /// <param name="inventoryItem"> item </param>
+    /// <returns> správný EquipmentSlotScript </returns>
+    public EquipmentSlotScript GetCorrectAreaSlot(InventoryItem inventoryItem)
+    {
+        switch (inventoryItem.itemData.area)
+        {
+            case ItemArea.HAND:
+                return activeHandSlot;
+
+            case ItemArea.HEAD:
+                return activeHeadSlot;
+
+            default:
+                return null;
         }
     }
 

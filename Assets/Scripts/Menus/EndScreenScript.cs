@@ -7,8 +7,7 @@ public class EndScreenScript : MonoBehaviour
 {
     private void Start()
     {
-        Cursor.lockState = CursorLockMode.None;
-        Cursor.visible = true;
+        CursorManagerScript.Instance.ShowCursor();
     }
 
     /// <summary>

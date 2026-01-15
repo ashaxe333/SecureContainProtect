@@ -129,7 +129,7 @@ public class SCP173Script : MonoBehaviour
         Vector3 viewportPos = playerCamera.WorldToViewportPoint(scp173Transform.position);
 
         bool inFront = viewportPos.z > 0;
-        bool insideViewport = viewportPos.x > 0 && viewportPos.x < 1 &&
+        bool insideViewport = viewportPos.ApplyState > 0 && viewportPos.ApplyState < 1 &&
                               viewportPos.y > 0 && viewportPos.y < 1;
 
         bool isInCameraView = inFront && insideViewport;

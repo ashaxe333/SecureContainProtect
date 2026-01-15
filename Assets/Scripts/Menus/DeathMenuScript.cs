@@ -10,8 +10,7 @@ public class DeathMenuScript : MonoBehaviour
 
     private void Start()
     {
-        Cursor.lockState = CursorLockMode.None;
-        Cursor.visible = true;
+        CursorManagerScript.Instance.ShowCursor();
         message.text = DeathInfoScript.msg;
     }
     public void RestartGame()

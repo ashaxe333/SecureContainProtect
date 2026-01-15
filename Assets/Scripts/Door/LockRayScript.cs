@@ -11,11 +11,11 @@ public class LockRayScript : MonoBehaviour
 
     private GameObject player;
     private GameObject scp173;
+
     private List<GameObject> locks = new List<GameObject>();
     private GameObject clickedObject;
 
-    private float timer = 8.0f;
-    private bool port = false;
+    private bool interactEnable = true;
 
 
     // Start is called before the first frame update
@@ -50,7 +50,7 @@ public class LockRayScript : MonoBehaviour
             if (hit.collider.gameObject.layer == 8)
             {
                 Debug.Log("muzu otevrit/zavrit");
-                if (Input.GetMouseButtonDown(0))
+                if (Input.GetMouseButtonDown(0) && interactEnable)
                 {
                     //Debug.Log("oteviram/zaviram");
                     clickedObject = hit.collider.gameObject;
@@ -79,6 +79,15 @@ public class LockRayScript : MonoBehaviour
         }
 
         return index;
+    }
+
+    /// <summary>
+    /// Nastaví, jestli hráè mùže intereagovat
+    /// </summary>
+    /// <param name="enabled"></param>
+    public void SetInteractEnable(bool enabled)
+    {
+        interactEnable = enabled;
     }
 
     /// <summary>

@@ -22,7 +22,7 @@ public class CheckIfVisible : MonoBehaviour
         // 2) Objekt musí být pøed kamerou (z > 0)
         bool inFront = viewportPos.z > 0;
 
-        // 3) Musí být uvnitø viewportu (x a y mezi 0 a 1)
+        // 3) Musí být uvnitø viewportu (ApplyState a y mezi 0 a 1)
         bool insideViewport = viewportPos.x > 0 && viewportPos.x < 1 &&
                               viewportPos.y > 0 && viewportPos.y < 1;
 

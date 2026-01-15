@@ -25,7 +25,7 @@ public class TriggerScript : MonoBehaviour
     /// <param name="other"> Objekt dotýkající se triggeru (hráè) </param>
     private void OnTriggerEnter(Collider other)
     {
-        floorForDeactivate = GameManagerScript.gameManagerInstance.GetActiveFloor();
+        floorForDeactivate = GameManagerScript.Instance.GetActiveFloor();
         Debug.Log("deactivating:" + floorForDeactivate.name);
 
         if (other.gameObject.CompareTag("Player"))

@@ -8,8 +8,6 @@ public class CorridorInstanceScript : MonoBehaviour
     public CorridorData sourceData; // ruènì nebo automaticky
     public List<Transform> spawnPoints = new List<Transform>();
 
-    private bool playerIsInside = false;
-
     public Vector3 GetRandomSpawnPoint()
     {
         if (spawnPoints.Count == 0)

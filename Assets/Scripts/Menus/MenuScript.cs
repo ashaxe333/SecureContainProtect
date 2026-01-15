@@ -16,8 +16,7 @@ public class MenuScript : MonoBehaviour
 
     private void Start()
     {
-        Cursor.lockState = CursorLockMode.None;
-        Cursor.visible = true;
+        CursorManagerScript.Instance.ShowCursor();
         tutorialPanel.SetActive(false);
     }
 
@@ -26,7 +25,7 @@ public class MenuScript : MonoBehaviour
     /// </summary>
     public void LoadGame()
     {
-        //GameManagerScript.gameManagerInstance.currentFloor = 1; //nefunguje...
+        //GameManagerScript.Instance.currentFloor = 1; //nefunguje...
         SceneManager.LoadScene(1);
     }
 

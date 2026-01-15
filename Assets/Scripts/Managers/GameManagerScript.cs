@@ -10,7 +10,7 @@ public class GameManagerScript : MonoBehaviour
 {
     // UPRAVIT
     // 1) vyøešit loading screen (v té scénì, kde se "zaseknu" dát panel s loadingem)
-    public static GameManagerScript gameManagerInstance { get; private set; }
+    public static GameManagerScript Instance { get; private set; }
 
     private GameObject player;
     private InventoryScript inventoryScript;
@@ -29,10 +29,10 @@ public class GameManagerScript : MonoBehaviour
 
     private void Awake()
     {
-        // Singleton (bez toho je gameManagerInstance jen null)
-        if (gameManagerInstance == null)
+        // Singleton (bez toho je Instance jen null)
+        if (Instance == null)
         {
-            gameManagerInstance = this;
+            Instance = this;
             //DontDestroyOnLoad(gameObject); // neznièí instanci pøi pøechodu do jiné scény
         }
         else

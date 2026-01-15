@@ -17,12 +17,16 @@ public class InventorySlot : MonoBehaviour, IPointerClickHandler, IPointerEnterH
     public GameObject image;
     private Image spriteImage;
 
+    void Awake()
+    {
+        contextMenuScript = contextMenu.GetComponent<ItemContextMenuScript>();
+        spriteImage = image.GetComponent<Image>();
+        used = false;
+    }
+
     void Start()
     {
-        spriteImage = image.GetComponent<Image>();
         image.SetActive(false);
-        contextMenuScript = contextMenu.GetComponent<ItemContextMenuScript>();
-        used = false;
     }
 
     /// <summary>
@@ -32,8 +36,7 @@ public class InventorySlot : MonoBehaviour, IPointerClickHandler, IPointerEnterH
     public void SetItem(InventoryItem item)
     {
         inventoryItem = item;
-        //inventoryItem.itemData.Equip(true);
-        spriteImage.sprite = inventoryItem.itemData.sprite;
+        spriteImage.sprite = item.itemData.sprite;
         used = true;
         image.SetActive(true);
 
@@ -45,7 +48,6 @@ public class InventorySlot : MonoBehaviour, IPointerClickHandler, IPointerEnterH
     public void Clear()
     {
         spriteImage.sprite = null;
-        //inventoryItem.itemData.Equip(false);
         inventoryItem = null;
         used = false;
         image.SetActive(false);
