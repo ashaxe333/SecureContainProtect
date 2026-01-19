@@ -10,19 +10,14 @@ public class PlayerInteractScript : MonoBehaviour
 {
     // ÚKOLY
     // 1) Oddìlit zámky od interactive objektù, a dát jim jinı image, ne ruèièku pokud mám aktivní kartu
-    // 2) Všem collectiblùm zobrazt pøi sbírání ještì název
-    // 3) Opìt SCP939 by si informace mìlo získávat samo
+    // 2) Všem collectiblùm zobrazit pøi sbírání ještì název
+    // 3) 
 
     private GameObject player;
     private InventoryScript inventoryScript;
 
-    public GameObject scp939_1;
-    public GameObject scp939_2;
-    public GameObject scp939_3;
-
     //public List<GameObject> allInteractiveObjects = new List<GameObject>();
     public GameObject hand;
-    private bool fkinHand;
     private bool interactEnable = true;
     [SerializeField] public GameObject clickedObject;
 
@@ -31,10 +26,6 @@ public class PlayerInteractScript : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player");
         inventoryScript = player.GetComponent<InventoryScript>();
 
-        scp939_1 = GameObject.FindGameObjectWithTag("939_1");
-        scp939_2 = GameObject.FindGameObjectWithTag("939_2");
-        scp939_3 = GameObject.FindGameObjectWithTag("939_3");
-
         hand.SetActive(false);
     }
 
@@ -42,8 +33,6 @@ public class PlayerInteractScript : MonoBehaviour
     {
         if (interactEnable)
             Interact();
-
-        Assign939();
     }
 
     /// <summary>
@@ -65,14 +54,6 @@ public class PlayerInteractScript : MonoBehaviour
             {
                 clickedObject = hit.collider.gameObject;
                 clickedObject.GetComponent<LeverDoorScript>().DoorMove(clickedObject);
-
-                if (scp939_1 != null && scp939_2 != null && scp939_3 != null)
-                {
-                    Debug.Log("neni null");
-                    scp939_1.GetComponent<SCP939Script>().NoiseTrigger(clickedObject);
-                    scp939_2.GetComponent<SCP939Script>().NoiseTrigger(clickedObject);
-                    scp939_3.GetComponent<SCP939Script>().NoiseTrigger(clickedObject);
-                }
             }
         }
         else if (Physics.Raycast(ray, out hit, 5.0f, 1 << 6))
@@ -121,24 +102,5 @@ public class PlayerInteractScript : MonoBehaviour
     public void SetInteractEnable(bool enabled)
     {
         interactEnable = enabled;
-    }
-
-    /// <summary>
-    /// inicializuje všechny scp-939 po pøechodu do patra F0
-    /// </summary>
-    private void Assign939()    //vyøešit tak, abych nemusel assignvat tyto scp. Kadı zvláš by si mìl vytáhnout z hráèe informaci o tom, jak chodí
-    {
-        if (GameManagerScript.Instance.currentFloor == 0)
-        {
-            scp939_1 = GameObject.FindGameObjectWithTag("939_1");
-            scp939_2 = GameObject.FindGameObjectWithTag("939_2");
-            scp939_3 = GameObject.FindGameObjectWithTag("939_3");
-        }
-        else
-        {
-            scp939_1 = null;
-            scp939_2 = null;
-            scp939_3 = null;
-        }
     }
 }

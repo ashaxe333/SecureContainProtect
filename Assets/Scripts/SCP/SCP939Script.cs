@@ -50,6 +50,9 @@ public class SCP939Script : MonoBehaviour
     {
         distanceToPlayer = Vector3.Distance(scp939.transform.position, player.transform.position);
         timer -= Time.deltaTime;
+
+        MoveTrigger();
+        NoiseTrigger();
         Move();
     }
 
@@ -57,7 +60,7 @@ public class SCP939Script : MonoBehaviour
     /// Registruje, pokud SCP-939 uslyší pohyb hráèe (Jak daleko od nìj je, a v jakém režimu se pohybuje). Pokud je dost blízko, zaène hráèe sledovat
     /// </summary>
     /// <param name="mode">øíká, v jakém režimu se hráè pohybuje</param>
-    public void MoveTrigger(float mode) // smazat vstup
+    public void MoveTrigger()
     {
         if (!isTriggered)
         {
@@ -90,9 +93,10 @@ public class SCP939Script : MonoBehaviour
     /// <summary>
     /// Registruje, pokud hráè nìjak interaguje s pøedmìtem
     /// </summary>
-    public void NoiseTrigger(GameObject clickedObject) // smazat vstup
+    public void NoiseTrigger()
     {
-        //target = clickedObject;
+        if (playerInteractScript.clickedObject == null) return;
+
         target = playerInteractScript.clickedObject;
         distanceToTarget = Vector3.Distance(scp939.transform.position, target.transform.position);
         isTriggered2 = true;
@@ -147,8 +151,8 @@ public class SCP939Script : MonoBehaviour
     /// </summary>
     void Patrol()
     {
-        /*
         // do koleèka
+        /*
         if (scp939.remainingDistance < scp939.stoppingDistance + 1)
         {
             currentWaypoint = (currentWaypoint + 1) % F1waypoints.Length;     //restartuje currenWaypoint na 0

@@ -25,10 +25,6 @@ public class PlayerController : MonoBehaviour
 	private float verticalRotation = 0.0f;
     private GameObject gameManager;
 
-    //s2
-    public GameObject scp939_1;
-    public GameObject scp939_2;
-    public GameObject scp939_3;
     [SerializeField] public GameObject clickedObject;
 
     //s3
@@ -63,8 +59,6 @@ public class PlayerController : MonoBehaviour
 
         if (cameraEnabled)
             LookAround();
-
-        Assign939();
     }
 
     /// <summary>
@@ -102,13 +96,6 @@ public class PlayerController : MonoBehaviour
             {
                 moveDirection *=  moveSpeed;
                 movement = 0.0f;
-            }
-
-            if (scp939_1 != null && scp939_2 != null && scp939_3 != null)
-            {
-                scp939_1.GetComponent<SCP939Script>().MoveTrigger(movement);
-                scp939_2.GetComponent<SCP939Script>().MoveTrigger(movement);
-                scp939_3.GetComponent<SCP939Script>().MoveTrigger(movement);
             }
         }
 
@@ -148,25 +135,6 @@ public class PlayerController : MonoBehaviour
     public void SetCameraEnabled(bool enabled)
     {
         cameraEnabled = enabled;
-    }
-
-    /// <summary>
-    /// inicializuje všechny scp-939 po pøechodu do patra F0
-    /// </summary>
-    private void Assign939()    // díky promìnné movement to jednotlivý scp z hráèe dokážou získat, zde smazat
-    {
-        if (GameManagerScript.Instance.currentFloor == 0)
-        {
-            scp939_1 = GameObject.FindGameObjectWithTag("939_1");
-            scp939_2 = GameObject.FindGameObjectWithTag("939_2");
-            scp939_3 = GameObject.FindGameObjectWithTag("939_3");
-        }
-        else
-        {
-            scp939_1 = null;
-            scp939_2 = null;
-            scp939_3 = null;
-        }
     }
 
     /// <summary>

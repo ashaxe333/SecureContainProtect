@@ -3,7 +3,37 @@ guid: 450c310758a3cdf4a88be72da00bbcbd
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: F0_Ground_Metal_v2
+    second: {fileID: 2100000, guid: 53ccd38ddc859ce49b6ffc5079d96144, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: F0_RoomWall
+    second: {fileID: 2100000, guid: 17e977d7c03042d4cbc15bef4de2908e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Glass
+    second: {fileID: 2100000, guid: f8faa7f9b6bc5f14ca5ddc53bd8fd7e9, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: MetalBlack
+    second: {fileID: 2100000, guid: 772da049be7aafd42bddd7b1291be7da, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: MetalPaintedDarkGrey
+    second: {fileID: 2100000, guid: c4e241bf60d723249bec88c40852d273, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: MetalPaintedYeallow
+    second: {fileID: 2100000, guid: 71b97eacb6e6e9b40a9259e1270adf69, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
