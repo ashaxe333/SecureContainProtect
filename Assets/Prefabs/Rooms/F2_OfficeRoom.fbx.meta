@@ -3,7 +3,27 @@ guid: 2a65ae93c1364704ab1153217ce0813a
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BlackMramor
+    second: {fileID: 2100000, guid: 3c26b36cd5e8c1348bb5fd9abda12e03, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: F2_PlasterWall
+    second: {fileID: 2100000, guid: e6e03c2532ccb04418f0e2e13d2a2ac6, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: F2_RoughWall1
+    second: {fileID: 2100000, guid: b4e856a1ab4559b45872d86ae73bbef4, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: MetalBlue
+    second: {fileID: 2100000, guid: dd04ac1ebe266114fa39c8e1abc2393c, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

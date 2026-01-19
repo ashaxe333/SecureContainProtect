@@ -24,7 +24,7 @@ public class CursorManagerScript : MonoBehaviour
     /// </summary>
     public void HideCursor()
     {
-        Debug.Log("HIDE CURSOR CALLED", this);
+        //Debug.Log("HIDE CURSOR CALLED", this);
         Cursor.lockState = CursorLockMode.None;    // prevence pøed bugem
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
@@ -35,7 +35,7 @@ public class CursorManagerScript : MonoBehaviour
     /// </summary>
     public void ShowCursor()
     {
-        Debug.Log("SHOW CURSOR CALLED", this);
+        //Debug.Log("SHOW CURSOR CALLED", this);
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
     }

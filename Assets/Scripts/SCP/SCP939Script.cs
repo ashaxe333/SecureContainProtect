@@ -7,6 +7,8 @@ using UnityEngine.SceneManagement;
 public class SCP939Script : MonoBehaviour
 {
     private GameObject player;
+    private PlayerController playerController;
+    private PlayerInteractScript playerInteractScript;
     public NavMeshAgent scp939;
 
     private GameObject target;
@@ -33,6 +35,8 @@ public class SCP939Script : MonoBehaviour
     {
         timer = 1.0f;
         player = GameObject.FindGameObjectWithTag("Player");
+        playerController = player.GetComponent<PlayerController>();
+        playerInteractScript = player.GetComponent<PlayerInteractScript>();
         gameManager = GameObject.FindGameObjectWithTag("GameManager");
 
         if (player == null)
@@ -53,11 +57,11 @@ public class SCP939Script : MonoBehaviour
     /// Registruje, pokud SCP-939 uslyší pohyb hráèe (Jak daleko od nìj je, a v jakém režimu se pohybuje). Pokud je dost blízko, zaène hráèe sledovat
     /// </summary>
     /// <param name="mode">øíká, v jakém režimu se hráè pohybuje</param>
-    public void MoveTrigger(float mode)
+    public void MoveTrigger(float mode) // smazat vstup
     {
         if (!isTriggered)
         {
-            switch (mode)
+            switch (playerController.movement)
             {
                 case 0.0f:
                     followDistance = 2.0f;
@@ -86,9 +90,10 @@ public class SCP939Script : MonoBehaviour
     /// <summary>
     /// Registruje, pokud hráè nìjak interaguje s pøedmìtem
     /// </summary>
-    public void NoiseTrigger(GameObject clickedObject)
+    public void NoiseTrigger(GameObject clickedObject) // smazat vstup
     {
-        target = clickedObject;
+        //target = clickedObject;
+        target = playerInteractScript.clickedObject;
         distanceToTarget = Vector3.Distance(scp939.transform.position, target.transform.position);
         isTriggered2 = true;
         timer = 15.0f;

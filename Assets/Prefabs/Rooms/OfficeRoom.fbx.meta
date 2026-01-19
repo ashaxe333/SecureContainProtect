@@ -17,6 +17,16 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: F1_ConcreteFloor
+    second: {fileID: 2100000, guid: 4bb55aca71a2d0a48a220a93af9e53ea, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: F1_PlasterWall
+    second: {fileID: 2100000, guid: 4dda01ec542b83845afbd84991500ed3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: MetalDarkGrey
     second: {fileID: 2100000, guid: 38ee88d2f19745448b8f3389e90e4310, type: 2}
   materials:

@@ -14,6 +14,6 @@ public abstract class ItemData : ScriptableObject
 
     public virtual void Equip(bool use)
     {
-        Debug.Log("Používáš: " + itemName);
+        //Debug.Log("Používáš: " + itemName);
     }
 }

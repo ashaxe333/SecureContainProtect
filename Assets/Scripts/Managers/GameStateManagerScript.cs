@@ -23,7 +23,7 @@ public class GameStateManagerScript : MonoBehaviour
         if (Instance == null)
         {
             Instance = this;
-            DontDestroyOnLoad(gameObject);
+            //DontDestroyOnLoad(gameObject);
         }
         else
         {
@@ -114,7 +114,7 @@ public class GameStateManagerScript : MonoBehaviour
         pauseMenuScript.pausePanel.SetActive(true);
         pauseMenu.SetActive(true);
 
-        PreviousState = CurrentState; // uložíme aktuální stav
+        PreviousState = CurrentState; // uloží aktuální stav
         SetState(GameState.PAUSE);
     }
 

@@ -49,7 +49,7 @@ public class LockRayScript : MonoBehaviour
         {
             if (hit.collider.gameObject.layer == 8)
             {
-                Debug.Log("muzu otevrit/zavrit");
+                //Debug.Log("muzu otevrit/zavrit");
                 if (Input.GetMouseButtonDown(0) && interactEnable)
                 {
                     //Debug.Log("oteviram/zaviram");

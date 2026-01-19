@@ -3,7 +3,12 @@ guid: 3a04b25bbe3e7fb4285c2dff19e71810
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: CR_ConcreteWall
+    second: {fileID: 2100000, guid: 4d7b78f1ea9948c4a983430647cfcf7f, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

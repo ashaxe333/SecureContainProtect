@@ -117,7 +117,7 @@ public class PlayerController : MonoBehaviour
     }
 
     /// <summary>
-    /// Star· se o kamru hr·Ëe
+    /// Star· se o kameru hr·Ëe
     /// </summary>
     public void LookAround()
     {

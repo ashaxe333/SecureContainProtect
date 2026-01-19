@@ -8,8 +8,14 @@ using static UnityEngine.GraphicsBuffer;
 
 public class SCP173Script : MonoBehaviour
 {
+    // UKOLY:
+    // 1) Na jumpscare zavolat Light Manager, a na každý zapnutý svìtlo zavolat metodu, kde probliknou, a spustí se flickering.
+    //    S tím zavolat sound pro jumpscare.
+
     private GameObject player;
     public Camera playerCamera;
+    private BlinkScript blinkScript;
+
     public NavMeshAgent scp173;
     public GameObject child;
     private Renderer scp173Renderer;
@@ -22,13 +28,16 @@ public class SCP173Script : MonoBehaviour
     private float timer;
     private bool hasSeenPlayer;
     private float spawnDuration = 15.0f;
+    private float killDistance = 4.0f;      // dobrý tøeba pro obtížnost. 4f už nic neodpustí, 3f je ještì ok
     Vector3 playerLastPosition;
 
     private GameObject hitObject;
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
+        blinkScript = player.GetComponent<BlinkScript>();
         //playerCamera = Camera.main;
+
         scp173Renderer = child.GetComponent<Renderer>();
         scp173Transform = child.GetComponent<Transform>();
         timer = spawnDuration;
@@ -48,7 +57,7 @@ public class SCP173Script : MonoBehaviour
     }
 
     /// <summary>
-    /// Hlídá, jestli se hráè nevyskytuje v dosahu. Pokud jo, bude hráèe sledovat na poslední místo, kde byl vidìt
+    /// Hlídá, jestli se hráè nevyskytuje v dosahu. Pokud jo, bude hráèe sledovat na poslední místo, kde byl vidìn
     /// </summary>
     void FollowPlayer()
     {
@@ -63,9 +72,11 @@ public class SCP173Script : MonoBehaviour
         if (Physics.Raycast(ray, out hit, 75.0f, raycastLayerMask/*Physics.DefaultRaycastLayers, QueryTriggerInteraction.Ignore*/))
         {
             //Debug.Log("Trefil jsem: " + hit.collider.gameObject.name);
+            hitObject = hit.collider.gameObject;
 
-            if (hit.collider.gameObject == player)
+            if (hitObject == player)
             {
+                //Debug.Log("Trefil jsem hráèe!!! ZABÍT!!!");
                 hasSeenPlayer = true;
                 timer = spawnDuration * 2;
                 playerLastPosition = player.transform.position;
@@ -110,8 +121,10 @@ public class SCP173Script : MonoBehaviour
     
     public void IsSeen()
     {
-        if (scp173Renderer.isVisible && !player.GetComponent<BlinkScript>().isBlinking)
+        if (scp173Renderer.isVisible && !blinkScript.isBlinking)
         {
+            //Debug.Log($"SCP173: renderer = {scp173Renderer.isVisible}");
+            //Debug.Log($"SCP173: Is Seen");
             scp173.isStopped = true;
             scp173.ResetPath();
             scp173.velocity = Vector3.zero;
@@ -119,45 +132,21 @@ public class SCP173Script : MonoBehaviour
         }
         else
         {
+            //Debug.Log($"SCP173: renderer = {scp173Renderer.isVisible}");
+            //Debug.Log($"SCP173: Isn't Seen");
             scp173.isStopped = false;
         }
     }
-    
-    /*
-    public void IsSeen()
-    {
-        Vector3 viewportPos = playerCamera.WorldToViewportPoint(scp173Transform.position);
-
-        bool inFront = viewportPos.z > 0;
-        bool insideViewport = viewportPos.ApplyState > 0 && viewportPos.ApplyState < 1 &&
-                              viewportPos.y > 0 && viewportPos.y < 1;
-
-        bool isInCameraView = inFront && insideViewport;
-
-        // Raycast od hráèe k SCP-173
-        Vector3 dirToSCP = (scp173Transform.position - player.transform.position).normalized;
-        float distToSCP = Vector3.Distance(player.transform.position, scp173Transform.position);
-        bool lineOfSight = !Physics.Raycast(player.transform.position, dirToSCP, distToSCP, raycastLayerMask);
-
-        bool isVisible = isInCameraView && lineOfSight && !player.GetComponent<BlinkScript>().isBlinking;
-
-        scp173.isStopped = isVisible;
-
-        if (isVisible)
-            Debug.Log("Kamera vidí 173!");
-        else
-            Debug.Log("Kamera nevidí 173.");
-    }
-
-    */
 
     /// <summary>
     /// Pokud se scp-173 pøiblíží dost blízko a zároveò ho hráè nevidí, zabije hráèe
     /// </summary>
     public void IsKilled()
     {
-        //Debug.Log($"{distanceToPLayer} : {player.GetComponent<BlinkScript>().isBlinking}");
-        if ((!scp173Renderer.isVisible || player.GetComponent<BlinkScript>().isBlinking) && distanceToPLayer <= 3.0f)
+        //Debug.Log($"{distanceToPLayer} : renderer.isVisible - {scp173Renderer.isVisible}");
+        //Debug.Log($"SCP173: hitObject == player - {hitObject == player}");
+
+        if ((!scp173Renderer.isVisible || blinkScript.isBlinking) && distanceToPLayer <= killDistance && hitObject == player)
         {
             DeathInfoScript.msg = "You were killed by SCP-173";
             SceneManager.LoadScene(2);
@@ -170,7 +159,6 @@ public class SCP173Script : MonoBehaviour
     void Patrol()
     {
         int random = Random.Range(0, 20);
-        //Debug.Log("SCP173Script: " + random + " (random number)");
 
         switch (random)
         {

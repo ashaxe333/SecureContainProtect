@@ -24,6 +24,7 @@ public class PlayerInteractScript : MonoBehaviour
     public GameObject hand;
     private bool fkinHand;
     private bool interactEnable = true;
+    [SerializeField] public GameObject clickedObject;
 
     void Start()
     {
@@ -50,7 +51,7 @@ public class PlayerInteractScript : MonoBehaviour
     /// </summary>
     public void Interact()
     {
-        GameObject clickedObject = null;
+        clickedObject = null;
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
 
