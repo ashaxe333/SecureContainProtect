@@ -28,7 +28,7 @@ public class SCP173Script : MonoBehaviour
     private float timer;
     private bool hasSeenPlayer;
     private float spawnDuration = 15.0f;
-    private float killDistance = 4.0f;      // dobrý tøeba pro obtížnost. 4f už nic neodpustí, 3f je ještì ok
+    private float killDistance = 4.0f;      // dobrý tøeba pro nastavení obtížnosti. 4f už nic neodpustí, 3f je ještì "milý"
     Vector3 playerLastPosition;
 
     private GameObject hitObject;
@@ -163,21 +163,21 @@ public class SCP173Script : MonoBehaviour
         switch (random)
         {
             case 0:
-                Debug.Log("CorridorManager: To player");
-                if (CorridorManager.corridorManagerInstance.CanSpawn()) scp173.Warp(CorridorManager.corridorManagerInstance.jumpScareWayPoint.transform.position);
-                else scp173.Warp(CorridorManager.corridorManagerInstance.GetClosestNonPlayerRoom().GetComponent<CorridorInstanceScript>().GetRandomSpawnPoint()); //když nevyjde jumpscare, spawne se do nejbližší místnosti
+                Debug.Log("SCP173Script: To player");
+                if (CorridorManager.Instance.CanSpawn()) scp173.Warp(CorridorManager.Instance.jumpScareWayPoint.transform.position);
+                else scp173.Warp(CorridorManager.Instance.GetClosestNonPlayerRoom().GetComponent<CorridorInstanceScript>().GetRandomSpawnPoint()); //když nevyjde jumpscare, spawne se do nejbližší místnosti
                 timer = spawnDuration;
                 break;
 
             case int n when (n >= 1 && n <= 5):
-                Debug.Log("CorridorManager: To closest corridor");
-                scp173.Warp(CorridorManager.corridorManagerInstance.GetClosestNonPlayerRoom().GetComponent<CorridorInstanceScript>().GetRandomSpawnPoint());
+                Debug.Log("SCP173Script: To closest corridor");
+                scp173.Warp(CorridorManager.Instance.GetClosestNonPlayerRoom().GetComponent<CorridorInstanceScript>().GetRandomSpawnPoint());
                 timer = spawnDuration;
                 break;
 
             default:
-                Debug.Log("CorridorManager: To random corridor");
-                scp173.Warp(CorridorManager.corridorManagerInstance.GetRandomNonPlayerRoom().GetComponent<CorridorInstanceScript>().GetRandomSpawnPoint());
+                //Debug.Log("SCP173Script: To random corridor");
+                scp173.Warp(CorridorManager.Instance.GetRandomNonPlayerRoom().GetComponent<CorridorInstanceScript>().GetRandomSpawnPoint());
                 timer = spawnDuration;
                 break;
         }

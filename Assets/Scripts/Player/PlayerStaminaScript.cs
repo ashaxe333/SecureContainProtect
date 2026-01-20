@@ -9,7 +9,7 @@ public class PlayerStaminaScript : MonoBehaviour
     private PlayerController playerController;
 
     public Slider staminaSlider;
-    [SerializeField] public bool canRun = true;
+    [HideInInspector] public bool canRun = true;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()

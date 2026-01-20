@@ -19,7 +19,7 @@ public class GameManagerScript : MonoBehaviour
     private GameObject f0;
     private GameObject f1;
     private GameObject f2;
-    //private GameObject f3;
+    private GameObject f3;
 
     public TMP_Text info;
     private bool startFade = false;
@@ -49,17 +49,17 @@ public class GameManagerScript : MonoBehaviour
         f0 = GameObject.FindGameObjectWithTag("F0");
         f1 = GameObject.FindGameObjectWithTag("F1");
         f2 = GameObject.FindGameObjectWithTag("F2");
-        //f3 = GameObject.FindGameObjectWithTag("F3");
+        f3 = GameObject.FindGameObjectWithTag("F3");
         
         lights = FindObjectsByType<Light>(FindObjectsSortMode.None);
         //Debug.Log("GameManaerScript: pocet svetel: " + lights.Length);
 
         info.alpha = 0.0f;
 
-        //f0.SetActive(false);
-        //f2.SetActive(false);
-        //currentFloor = 1;
-        //f3.SetActive(false);
+        f0.SetActive(false);
+        f2.SetActive(false);
+        currentFloor = 1;
+        f3.SetActive(false);
     }
 
     // Update is called once per frame
@@ -83,19 +83,18 @@ public class GameManagerScript : MonoBehaviour
         else if (f1.activeInHierarchy)
         {
             currentFloor = 1;
-            return f1; ;
+            return f1;
         }
         else if (f2.activeInHierarchy)
         {
             currentFloor = 2;
             return f2;
         }
-        /*
         else if (f3.activeInHierarchy)
         {
             currentFloor = 3;
             return f3;
-        */
+        }
         else return null;
     }
 
@@ -106,13 +105,13 @@ public class GameManagerScript : MonoBehaviour
     {
         for (int i = 0; i < lights.Length; i++)
         {
-            if (Vector3.Distance(lights[i].transform.position, player.transform.position) < 40)
+            if (Vector3.Distance(lights[i].transform.position, player.transform.position) < 50)
             {
-                lights[i].enabled = true; 
+                lights[i].gameObject.SetActive(true); 
             }
             else
             {
-                lights[i].enabled = false;
+                lights[i].gameObject.SetActive(false);
             }
         }
     }

@@ -26,7 +26,7 @@ public class CorridorInstanceScript : MonoBehaviour
 
     public void PlayerEntered()
     {
-        Debug.Log("Player entered" + sourceData.name);
-        CorridorManager.corridorManagerInstance.currentCorridor = this.gameObject;  // this.GameObject(); - Z nìjakého dùvodu není platný
+        //Debug.Log("Player entered" + sourceData.name);
+        CorridorManager.Instance.currentCorridor = this.gameObject;  // this.GameObject(); - Z nìjakého dùvodu není platný
     }
 }

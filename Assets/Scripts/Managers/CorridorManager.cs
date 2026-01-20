@@ -7,7 +7,8 @@ using UnityEngine.SocialPlatforms;
 
 public class CorridorManager : MonoBehaviour
 {
-    public static CorridorManager corridorManagerInstance { get; private set; }    //staticky mùžu pøistupovat ke tøídì CorridorManager + èíst mùžu všude, ale mìnit jen tady
+    // MOZNA: rozdìlit corridors na f0/f1/f2/f3Corridors, a podle aktivního patra scp173 loadovat spawny
+    public static CorridorManager Instance { get; private set; }    //staticky mùžu pøistupovat ke tøídì CorridorManager + èíst mùžu všude, ale mìnit jen tady
 
     public List<CorridorData> allCorridorTypes;
     public List<GameObject> corridors = new List<GameObject>();
@@ -17,21 +18,23 @@ public class CorridorManager : MonoBehaviour
 
     private void Awake()
     {
-        // Singleton (bez toho je corridorManagerInstance jen null)
-        if (corridorManagerInstance == null)
+        // Singleton (bez toho je Instance jen null)
+        if (Instance == null)
         {
-            corridorManagerInstance = this;
+            Instance = this;
             //DontDestroyOnLoad(gameObject); // neznièí instanci pøi pøechodu do jiné scény
         }
         else
         {
             Destroy(gameObject); // znièí duplicitní instanci
         }
+
+        LoadCorridors();
     }
 
     void Start()
     {
-        LoadCorridors();
+        //LoadCorridors();
 
         currentCorridor = corridors[Random.Range(0, corridors.Count)];
         player = GameObject.FindGameObjectWithTag("Player");

@@ -72,11 +72,11 @@ public class InventorySlot : MonoBehaviour, IPointerClickHandler, IPointerEnterH
     public void OnPointerEnter(PointerEventData eventData)
     {
         if (!used) {
-            Debug.Log("InventorySlot - used: " + used);
+            //Debug.Log("InventorySlot - used: " + used);
             return;
         }
 
-        Debug.Log("InventorySlot - used: " + used);
+        //Debug.Log("InventorySlot - used: " + used);
         contextMenu.transform.position = new Vector3(eventData.position.x+40, eventData.position.y-30);
         contextMenuScript.Show(this);
     }

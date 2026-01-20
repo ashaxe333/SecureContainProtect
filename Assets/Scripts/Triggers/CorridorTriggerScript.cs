@@ -10,7 +10,7 @@ public class CorridorTriggerScript : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            Debug.Log("current corridor changed to: " + CorridorManager.corridorManagerInstance.currentCorridor.name);
+            //Debug.Log("current corridor changed to: " + CorridorManager.Instance.currentCorridor.name);
             parentCorridor.GetComponent<CorridorInstanceScript>().PlayerEntered();
         }
     }

@@ -9,7 +9,7 @@ public class PlayerHealthScript : MonoBehaviour
     private PlayerController playerController;
 
     public Slider hpSlider;
-    [SerializeField] public bool isDead = false;
+    [HideInInspector] public bool isDead = false;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()

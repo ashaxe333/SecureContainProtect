@@ -71,19 +71,19 @@ public class LockScript : MonoBehaviour
         if (doorScript.doorType == DoorType.ELEVATOR && elevatorScript.elevatorIsBroken)
         {
             GameManagerScript.Instance.SetTextInfo("Elevator is broken");
-            Debug.Log("LockScript: Elevator is broken");
+            //Debug.Log("LockScript: Elevator is broken");
         }
         else if (doorScript.doorType == DoorType.ELEVATOR && floor != elevatorScript.currentFloor)
         {
             elevatorScript.destination = floor;
             elevatorScript.called = true;
-            Debug.Log("LockScript: Elevator was called");
+            //Debug.Log("LockScript: Elevator was called");
             GameManagerScript.Instance.SetTextInfo("Elevator was called");
         }
         else
         {
             DoorMove();
-            Debug.Log("LockScript: open");
+            //Debug.Log("LockScript: open");
         }
     }
 

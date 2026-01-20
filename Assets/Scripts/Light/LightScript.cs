@@ -1,49 +1,35 @@
 using UnityEngine;
+using UnityEngine.WSA;
 
 public class LightScript : MonoBehaviour
 {
-    private GameObject player;
-    private Light lightInScene;
+    public Light lightInScene;
 
     public bool broken;
-    private bool on;
+    private bool on = true;
     public int floor;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    void Awake()
     {
-        player = GameObject.FindGameObjectWithTag("Player");
-        lightInScene = GetComponent<Light>();
+        lightInScene = gameObject.GetComponent<Light>();
+        //ApplyState();
         //light.GetComponent<Light>().intensity = 1;
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnEnable()
     {
-        DisableLight();
+        ApplyState();
     }
 
-    public void TurnOff()
+    public void ApplyState()
     {
-        lightInScene.enabled = false;
-        on = false;
+        lightInScene.enabled = on && !broken;
     }
 
-    public void TurnOn()
+    public void ToggleLight()
     {
-        lightInScene.enabled = true;
-        on = true;
-    }
-
-    public void DisableLight()
-    {
-        if (Vector3.Distance(lightInScene.transform.position, player.transform.position) < 50.0f && on && floor == GameManagerScript.Instance.currentFloor)
-        {
-            lightInScene.enabled = true;
-        }
-        else
-        {
-            lightInScene.enabled = false;
-        }
+        on = !on;
+        ApplyState();
     }
 }

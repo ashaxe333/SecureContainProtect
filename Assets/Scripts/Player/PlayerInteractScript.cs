@@ -73,6 +73,17 @@ public class PlayerInteractScript : MonoBehaviour
             Debug.Log("je to button");
             hand.SetActive(true);
         }
+        else if (Physics.Raycast(ray, out hit, 5.0f, 1 << 13))
+        {
+            Debug.Log("je to LightSwitch");
+            hand.SetActive(true);
+
+            if (Input.GetMouseButtonDown(0))
+            {
+                clickedObject = hit.collider.gameObject;
+                clickedObject.GetComponent<LightTriggerScript>().LightSwitch();
+            }
+        }
         else hand.SetActive(false);
     }
 

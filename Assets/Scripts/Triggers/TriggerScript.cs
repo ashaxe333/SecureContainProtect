@@ -26,11 +26,12 @@ public class TriggerScript : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         floorForDeactivate = GameManagerScript.Instance.GetActiveFloor();
-        Debug.Log("deactivating:" + floorForDeactivate.name);
 
-        if (other.gameObject.CompareTag("Player"))
+        if (other.gameObject.CompareTag("Player") && floorForActivate != floorForDeactivate)
         {
-            floorForDeactivate.SetActive(false);
+            Debug.Log("deactivating:" + floorForDeactivate.name);
+            floorForDeactivate.SetActive(false); 
+            Debug.Log("activating:" + floorForActivate.name);
             floorForActivate.SetActive(true);
         }
 

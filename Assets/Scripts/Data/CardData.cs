@@ -10,6 +10,6 @@ public class CardData : ItemData
     public override void Equip(bool equip)
     {
         isEquiped = equip;
-        Debug.Log($"using {itemName}: {isEquiped}");
+        //Debug.Log($"using {itemName}: {isEquiped}");
     }
 }
