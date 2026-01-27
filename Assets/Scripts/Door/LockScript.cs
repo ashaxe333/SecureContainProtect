@@ -46,7 +46,7 @@ public class LockScript : MonoBehaviour
     {
         if (doorScript.isBroken)
         {
-            GameManagerScript.Instance.SetTextInfo("Door seems to be broken");
+            GameManagerScript.Instance.SetTextInfo("Door seems to be isBroken");
         }
         else if (doorScript.lowestKeyCardLevel > 0)
         {
@@ -70,8 +70,8 @@ public class LockScript : MonoBehaviour
     {
         if (doorScript.doorType == DoorType.ELEVATOR && elevatorScript.elevatorIsBroken)
         {
-            GameManagerScript.Instance.SetTextInfo("Elevator is broken");
-            //Debug.Log("LockScript: Elevator is broken");
+            GameManagerScript.Instance.SetTextInfo("Elevator is isBroken");
+            //Debug.Log("LockScript: Elevator is isBroken");
         }
         else if (doorScript.doorType == DoorType.ELEVATOR && floor != elevatorScript.currentFloor)
         {

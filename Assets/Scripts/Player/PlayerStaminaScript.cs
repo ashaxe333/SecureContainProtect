@@ -35,7 +35,7 @@ public class PlayerStaminaScript : MonoBehaviour
             if (staminaValue > 0)
             {
                 canRun = true;
-                staminaValue -= Time.deltaTime * 12;
+                staminaValue -= Time.deltaTime * 24;
             }
             else
             {
@@ -46,7 +46,7 @@ public class PlayerStaminaScript : MonoBehaviour
         else
         {
             canRun = true;
-            if (staminaValue < 100) staminaValue += Time.deltaTime * 6;
+            if (staminaValue < 100) staminaValue += Time.deltaTime * 12;
             else staminaValue = 100;
         }
 

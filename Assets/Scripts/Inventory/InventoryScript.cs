@@ -14,6 +14,8 @@ public class InventoryScript : MonoBehaviour
     public EquipmentSlotScript activeHandSlot;
     public GameObject inventory;
 
+    public GameObject maskVision;
+
     private CanvasGroup canvasGroup;
 
     void Awake()

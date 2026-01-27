@@ -76,7 +76,7 @@ public class ElevatorSript : MonoBehaviour
                 {
                     if (elevatorIsBroken)
                     {
-                        GameManagerScript.Instance.SetTextInfo("elevator is broken");
+                        GameManagerScript.Instance.SetTextInfo("elevator is isBroken");
                     }
                     //Zmìna v podmínkách! 2 -> to, 0 ->from
                     else if ((clickedObject == upButton && currentFloor < to) || (clickedObject == downButton && currentFloor > from))

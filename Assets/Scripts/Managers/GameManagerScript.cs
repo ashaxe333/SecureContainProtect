@@ -25,8 +25,6 @@ public class GameManagerScript : MonoBehaviour
     private bool startFade = false;
     private float fadeTime = 5.0f;
 
-    private Light[] lights;
-
     private void Awake()
     {
         // Singleton (bez toho je Instance jen null)
@@ -45,30 +43,27 @@ public class GameManagerScript : MonoBehaviour
     {
         player = GameObject.FindGameObjectWithTag("Player");
         inventoryScript = player.gameObject.GetComponent<InventoryScript>();
-        
-        f0 = GameObject.FindGameObjectWithTag("F0");
-        f1 = GameObject.FindGameObjectWithTag("F1");
-        f2 = GameObject.FindGameObjectWithTag("F2");
-        f3 = GameObject.FindGameObjectWithTag("F3");
-        
-        lights = FindObjectsByType<Light>(FindObjectsSortMode.None);
-        //Debug.Log("GameManaerScript: pocet svetel: " + lights.Length);
+
+        //f0 = GameObject.FindGameObjectWithTag("F0");
+        //f1 = GameObject.FindGameObjectWithTag("F1");
+        //f2 = GameObject.FindGameObjectWithTag("F2");
+        //f3 = GameObject.FindGameObjectWithTag("F3");
+
+        //f0.SetActive(false);
+        //f2.SetActive(false);
+        //f3.SetActive(false);
+
+        currentFloor = 1;
 
         info.alpha = 0.0f;
-
-        f0.SetActive(false);
-        f2.SetActive(false);
-        currentFloor = 1;
-        f3.SetActive(false);
     }
 
-    // Update is called once per frame
     void Update()
     {
-        TurnLightOff();
         ShowTextInfo();
     }
 
+    /*
     /// <summary>
     /// Vrací, který patro je ativní . Slouží pro triggery, který vypnou aktivní patro, a zapnou to, o který se starají - optimaizace
     /// </summary>
@@ -97,24 +92,7 @@ public class GameManagerScript : MonoBehaviour
         }
         else return null;
     }
-
-    /// <summary>
-    /// Vypíná svìtla, která jsou daleko - optimalizace
-    /// </summary>
-    private void TurnLightOff()
-    {
-        for (int i = 0; i < lights.Length; i++)
-        {
-            if (Vector3.Distance(lights[i].transform.position, player.transform.position) < 50)
-            {
-                lights[i].gameObject.SetActive(true); 
-            }
-            else
-            {
-                lights[i].gameObject.SetActive(false);
-            }
-        }
-    }
+    */
 
     /// <summary>
     /// Nastavuje bool startFade na true (spouští metodu ShowTextInfo), a nastaví text, který se ukáže hráèi ve høe

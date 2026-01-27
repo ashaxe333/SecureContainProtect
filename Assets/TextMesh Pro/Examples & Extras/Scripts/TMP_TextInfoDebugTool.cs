@@ -335,7 +335,7 @@ namespace TMPro.Examples
 
                         //Debug.Log("End Word Region at [" + currentCharInfo.character + "]");
                     }
-                    // If Word is split on more than one line.
+                    // If Word is split isOn more than one line.
                     else if (isBeginRegion && currentLine != m_TextInfo.characterInfo[characterIndex + 1].lineNumber)
                     {
                         isBeginRegion = false;
@@ -441,7 +441,7 @@ namespace TMPro.Examples
 
                         //Debug.Log("End Word Region at [" + currentCharInfo.character + "]");
                     }
-                    // If Link is split on more than one line.
+                    // If Link is split isOn more than one line.
                     else if (isBeginRegion && currentLine != textInfo.characterInfo[characterIndex + 1].lineNumber)
                     {
                         isBeginRegion = false;

@@ -5,14 +5,16 @@ using System.Threading;
 using UnityEngine;
 using UnityEngine.SocialPlatforms;
 
-public class CorridorManager : MonoBehaviour
+public class AreaManager : MonoBehaviour
 {
-    // MOZNA: rozdìlit corridors na f0/f1/f2/f3Corridors, a podle aktivního patra scp173 loadovat spawny
-    public static CorridorManager Instance { get; private set; }    //staticky mùžu pøistupovat ke tøídì CorridorManager + èíst mùžu všude, ale mìnit jen tady
+    // MOZNA:
+    // pøidat currentAreas, což bude pøedstavovat list s aktualními chodbami. Odtud bude scp173 loadovat spawny, a ne z areas. Kvùli patrùm - jsem na F1, scp tahá z F1
+    public static AreaManager Instance { get; private set; }    //staticky mùžu pøistupovat ke tøídì AreaManager + èíst mùžu všude, ale mìnit jen tady
 
-    public List<CorridorData> allCorridorTypes;
-    public List<GameObject> corridors = new List<GameObject>();
-    public GameObject currentCorridor;
+    public List<AreaData> allAreaTypes;
+    public List<GameObject> areas = new List<GameObject>();
+    //public List<GameObject> currentAreas = new List<GameObject>();    // list s aktuálnì aktivníma místnostma
+    public GameObject currentArea;
     public GameObject jumpScareWayPoint;
     private GameObject player;
 
@@ -29,32 +31,30 @@ public class CorridorManager : MonoBehaviour
             Destroy(gameObject); // znièí duplicitní instanci
         }
 
-        LoadCorridors();
+        LoadAreas();
     }
 
     void Start()
     {
-        //LoadCorridors();
-
-        currentCorridor = corridors[Random.Range(0, corridors.Count)];
+        currentArea = areas[Random.Range(0, areas.Count)];
         player = GameObject.FindGameObjectWithTag("Player");
         jumpScareWayPoint = GameObject.FindGameObjectWithTag("JumpScareWP");
 
         if (jumpScareWayPoint == null) 
         {
-            Debug.Log("CorridorManager: jumpScare Point!!");
+            Debug.Log("AreaManager: jumpScare Point!!");
         }
     }
 
     public GameObject GetRandomNonPlayerRoom()
     {
-        //Debug.Log("poèet chodeb: " + corridors.Count);
-        corridors.Remove(currentCorridor);
-        //Debug.Log("poèet chodeb: " + corridors.Count);
-        int index = Random.Range(0, corridors.Count);
-        corridors.Add(currentCorridor);
-        //Debug.Log("poèet chodeb: " + corridors.Count);
-        return corridors[index];
+        //Debug.Log("poèet chodeb: " + areas.Count);
+        areas.Remove(currentArea);
+        //Debug.Log("poèet chodeb: " + areas.Count);
+        int index = Random.Range(0, areas.Count);
+        areas.Add(currentArea);
+        //Debug.Log("poèet chodeb: " + areas.Count);
+        return areas[index];
     }
 
     public GameObject GetClosestNonPlayerRoom()
@@ -62,36 +62,36 @@ public class CorridorManager : MonoBehaviour
         float min = float.MaxValue;
         int index = 0;
 
-        corridors.Remove(currentCorridor);
-        for (int i = 0; i < corridors.Count; i++)
+        areas.Remove(currentArea);
+        for (int i = 0; i < areas.Count; i++)
         {
-            if (min > Vector3.Distance(corridors[i].transform.position, player.transform.position))
+            if (min > Vector3.Distance(areas[i].transform.position, player.transform.position))
             {
-                min = Vector3.Distance(corridors[i].transform.position, player.transform.position);
+                min = Vector3.Distance(areas[i].transform.position, player.transform.position);
                 index = i;
             }
         }
-        corridors.Add(currentCorridor);
+        areas.Add(currentArea);
 
-        return corridors[index];
+        return areas[index];
     }
 
     /// <summary>
     /// Naètì všechny chodby do listu, odkud scp173 bere chodby pro spawn
     /// </summary>
-    public void LoadCorridors() 
+    public void LoadAreas() 
     {
         GameObject[] objectsInScene = FindObjectsByType<GameObject>(FindObjectsSortMode.None);
 
         foreach (GameObject obj in objectsInScene)
         {
-            if (obj.layer == LayerMask.NameToLayer("Corridors"))
+            if (obj.layer == LayerMask.NameToLayer("Areas"))
             {
-                corridors.Add(obj);
+                areas.Add(obj);
             }
         }
 
-        Debug.Log("corridors count: " + corridors.Count);
+        Debug.Log("areas count: " + areas.Count);
     }
 
     /// <summary>
@@ -112,19 +112,39 @@ public class CorridorManager : MonoBehaviour
             GameObject hitObject = hit.collider.gameObject;
             if (hitObject == jumpScareWayPoint)
             {
-                Debug.Log("CorridorManager: Mùže se spawnout");
+                Debug.Log("AreaManager: Mùže se spawnout");
                 return true;
             }
             else
             {
-                Debug.Log("CorridorManager: Nemùže se spawnout");
+                Debug.Log("AreaManager: Nemùže se spawnout");
                 return false;
             }
         }
         else
         {
-            Debug.Log("CorridorManager: Nemùže se spawnout");
+            Debug.Log("AreaManager: Nemùže se spawnout");
             return false;
         }
     }
+
+    // Pro scp173, aby pøi optimalizaci vybíralo zprávný spawny
+    /*
+    public void LoadCurrentAreas()
+    {
+        switch (GameManagerScript.Instance.currentFloor)
+        {
+            case 0:
+                foreach(GameObject corridor in areas)
+                {
+                    if (corridor.GetComponent<AreaInstanceScript>().floor == GameManagerScript.Instance.currentFloor)
+                    {
+                        currentAreas.Add(corridor);
+                    }
+                }
+                break;
+
+        }
+    }
+    */
 }

@@ -42,7 +42,7 @@ namespace TMPro.Examples
         private Vector3 moveVector;
         private float mouseWheel;
 
-        // Controls for Touches on Mobile devices
+        // Controls for Touches isOn Mobile devices
         //private float prev_ZoomDelta;
 
 
@@ -127,7 +127,7 @@ namespace TMPro.Examples
         {
             moveVector = Vector3.zero;
 
-            // Check Mouse Wheel Input prior to Shift Key so we can apply multiplier on Shift for Scrolling
+            // Check Mouse Wheel Input prior to Shift Key so we can apply multiplier isOn Shift for Scrolling
             mouseWheel = Input.GetAxis("Mouse ScrollWheel");
 
             float touchCount = Input.touchCount;
@@ -253,7 +253,7 @@ namespace TMPro.Examples
 
             }
 
-            // Check Pinching to Zoom in - out on Mobile device
+            // Check Pinching to Zoom in - out isOn Mobile device
             if (touchCount == 2)
             {
                 Touch touch0 = Input.GetTouch(0);

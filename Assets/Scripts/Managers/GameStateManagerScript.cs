@@ -14,6 +14,7 @@ public class GameStateManagerScript : MonoBehaviour
 
     public GameObject pauseMenu;
     private PauseMenuScript pauseMenuScript;
+    private OptionsMenuScript optionsMenuScript;
     private LockRayScript lockRayScript;
     public bool isPaused = false;
 
@@ -35,6 +36,7 @@ public class GameStateManagerScript : MonoBehaviour
     {
         player = GameObject.FindGameObjectWithTag("Player");
         pauseMenuScript = gameObject.GetComponent<PauseMenuScript>();
+        optionsMenuScript = gameObject.GetComponent<OptionsMenuScript>();
         playerController = player.GetComponent<PlayerController>();
         playerInteractScript = player.GetComponent<PlayerInteractScript>();
         lockRayScript = GameManagerScript.Instance.GetComponent<LockRayScript>();
@@ -126,6 +128,9 @@ public class GameStateManagerScript : MonoBehaviour
         isPaused = false;
         pauseMenuScript.pausePanel.SetActive(false);
         pauseMenu.SetActive(false);
+
+        pauseMenuScript.CloseOptions();
+        optionsMenuScript.ShowOptionPanels(0);
 
         SetState(PreviousState);
     }

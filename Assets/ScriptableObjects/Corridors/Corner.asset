@@ -9,10 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 33c63878d3bf2954d81d4084bf124b26, type: 3}
-  m_Name: F1_Crossroad1
+  m_Script: {fileID: 11500000, guid: 43413c9352ef12844be304154c4fb01d, type: 3}
+  m_Name: Corner
   m_EditorClassIdentifier: 
   corridorName: 
-  type: 3
+  type: 1
+  floor: 0
   prefab: {fileID: 0}
-  exits: 4
+  exits: 0

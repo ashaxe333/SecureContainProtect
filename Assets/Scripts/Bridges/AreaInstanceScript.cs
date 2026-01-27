@@ -3,18 +3,21 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class CorridorInstanceScript : MonoBehaviour
+public class AreaInstanceScript : MonoBehaviour
 {
-    public CorridorData sourceData; // ruènì nebo automaticky
+    public AreaData sourceData;
     public List<Transform> spawnPoints = new List<Transform>();
+    [HideInInspector] public int floor;
 
     public Vector3 GetRandomSpawnPoint()
     {
         if (spawnPoints.Count == 0)
         {
-            Debug.Log("CorridorInstanceScript: No spawn points assigned!");
+            Debug.Log("AreaInstanceScript: No spawn points assigned!");
             return transform.position;
         }
+
+        floor = (int)sourceData.floor;
 
         int index = Random.Range(0, spawnPoints.Count);
         float offsetY = Random.Range(-4f, 4f);
@@ -27,6 +30,6 @@ public class CorridorInstanceScript : MonoBehaviour
     public void PlayerEntered()
     {
         //Debug.Log("Player entered" + sourceData.name);
-        CorridorManager.Instance.currentCorridor = this.gameObject;  // this.GameObject(); - Z nìjakého dùvodu není platný
+        AreaManager.Instance.currentArea = this.gameObject;  // this.GameObject(); - Z nìjakého dùvodu není platný
     }
 }

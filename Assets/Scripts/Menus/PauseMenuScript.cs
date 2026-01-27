@@ -10,7 +10,6 @@ public class PauseMenuScript : MonoBehaviour
     public GameObject generalsMenu;
     public GameObject pausePanel;
 
-    // Start is called before the first frame update
     void Start()
     {
         pauseMenu.SetActive(false);
@@ -25,6 +24,14 @@ public class PauseMenuScript : MonoBehaviour
         optionMenu.SetActive(true);
         generalsMenu.SetActive(true);
         pauseMenu.SetActive(false);
+    }
+
+    /// <summary>
+    /// Zavøe options menu
+    /// </summary>
+    public void CloseOptions()
+    {
+        optionMenu.SetActive(false);
     }
 
     /// <summary>

@@ -13,8 +13,9 @@ MonoBehaviour:
   m_Name: GasMask
   m_EditorClassIdentifier: 
   itemName: GasMask
-  sprite: {fileID: 0}
+  sprite: {fileID: 21300000, guid: 4b227bba97e862746b6dc640e17f70f5, type: 3}
   description: 
   prefab: {fileID: 4852589186476772995, guid: 16553e61b08af6042980d033e1339352, type: 3}
   area: 0
   isEquiped: 0
+  maskVision: {fileID: 0}

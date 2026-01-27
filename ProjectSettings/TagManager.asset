@@ -31,7 +31,7 @@ TagManager:
   - Locks
   - Button
   - Walls
-  - Corridors
+  - Areas
   - Triggers
   - LightSwitches
   - 

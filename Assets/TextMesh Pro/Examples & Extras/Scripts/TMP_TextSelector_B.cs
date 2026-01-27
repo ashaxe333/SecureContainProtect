@@ -124,7 +124,7 @@ namespace TMPro.Examples
                     // Setup the Matrix for the scale change.
                     m_matrix = Matrix4x4.TRS(Vector3.zero, Quaternion.identity, Vector3.one * zoomFactor);
 
-                    // Apply Matrix operation on the given character.
+                    // Apply Matrix operation isOn the given character.
                     vertices[vertexIndex + 0] = m_matrix.MultiplyPoint3x4(vertices[vertexIndex + 0]);
                     vertices[vertexIndex + 1] = m_matrix.MultiplyPoint3x4(vertices[vertexIndex + 1]);
                     vertices[vertexIndex + 2] = m_matrix.MultiplyPoint3x4(vertices[vertexIndex + 2]);
