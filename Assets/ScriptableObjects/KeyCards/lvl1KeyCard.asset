@@ -17,5 +17,5 @@ MonoBehaviour:
   description: Level 1 security key card
   prefab: {fileID: 6555990442419603138, guid: 207c86c386cd8fc4597d1d928d2bb939, type: 3}
   area: 1
-  isUsing: 1
+  isEquiped: 1
   level: 1

@@ -81,14 +81,15 @@ public class AreaManager : MonoBehaviour
     /// </summary>
     public void LoadAreas() 
     {
-        GameObject[] objectsInScene = FindObjectsByType<GameObject>(FindObjectsSortMode.None);
+        //areas = FindObjectsByType<AreaInstanceScript>(FindObjectsSortMode.None).ToList();
+        GameObject[] objectsInScene = FindObjectsByType<GameObject>(FindObjectsSortMode.None); 
 
-        foreach (GameObject obj in objectsInScene)
-        {
-            if (obj.layer == LayerMask.NameToLayer("Areas"))
-            {
-                areas.Add(obj);
-            }
+        foreach (GameObject obj in objectsInScene) 
+        { 
+            if (obj.layer == LayerMask.NameToLayer("Areas")) 
+            { 
+                areas.Add(obj); 
+            } 
         }
 
         Debug.Log("areas count: " + areas.Count);

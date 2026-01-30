@@ -178,7 +178,7 @@ public class SCP173Script : MonoBehaviour
                 break;
 
             default:
-                //Debug.Log("SCP173Script: To random corridor");
+                //Debug.Log("SCP173Script: To random corridor");    GetComponent<AreaInstanceScript>().
                 scp173.Warp(AreaManager.Instance.GetRandomNonPlayerRoom().GetComponent<AreaInstanceScript>().GetRandomSpawnPoint());
                 timer = spawnDuration;
                 break;

@@ -35,7 +35,7 @@ public class DoorScript : MonoBehaviour
 
     void Start()
     {
-        if(parentWall == null) Debug.Log($"DoorScript: dveøe {name} nemají parentwall!");
+        if (parentWall == null) Debug.Log($"DoorScript: dveøe {name} nemají parentwall!");
     }
 
     /// <summary>
@@ -43,16 +43,42 @@ public class DoorScript : MonoBehaviour
     /// </summary>
     void DoorRotation()
     {
-        switch (parentWall.transform.eulerAngles.y)
+        switch (doorType)
         {
-            case 0 or 180:
-                slideDirection = Vector3.back;
+            case DoorType.SINGLE or DoorType.ELEVATOR or DoorType.RIGHT:
+                SetDoorDirection(Vector3.back, Vector3.right);
                 break;
 
-            case 90 or 270:
-                slideDirection = Vector3.right;
+            case DoorType.LEFT:
+                SetDoorDirection(Vector3.forward, Vector3.left);
+                break;
+
+            case DoorType.GATE:
+                SetDoorDirection(Vector3.up, Vector3.zero);
                 break;
         }
+    }
+
+    public void SetDoorDirection(Vector3 direction1, Vector3 direction2)
+    {
+        if (direction2 != Vector3.zero)
+            switch (Mathf.Round(parentWall.transform.eulerAngles.y))
+            {
+                case 0 or 180:
+                    slideDirection = direction1;
+                    break;
+
+                case 90 or 270:
+                    slideDirection = direction2;
+                    break;
+
+                default:
+                    Debug.Log($"DoorScript: Unexpected wall rotation on {parentWall.name}");
+                    break;
+
+            }
+        else
+            slideDirection = direction1;
     }
 
     /// <summary>
@@ -74,7 +100,7 @@ public class DoorScript : MonoBehaviour
 
             case DoorType.GATE:
                 slideAmount = 7.0f;
-                speed = 4.0f;
+                speed = 1.0f;
                 break;
         }
     }
@@ -129,12 +155,4 @@ public class DoorScript : MonoBehaviour
         isOpen = false;
         isActive = true;
     }
-}
-
-/// <summary>
-/// tøída, která definuje typ dveøí, na základì kterého se poèítá jejích pohyb a rychlost
-/// </summary>
-public enum DoorType
-{
-    SINGLE, LEFT, RIGHT, ELEVATOR, GATE
 }

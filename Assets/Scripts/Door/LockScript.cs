@@ -12,7 +12,9 @@ public class LockScript : MonoBehaviour
 
     // Base
     private GameObject player;
+    public List<DoorScript> doors = new List<DoorScript>();
     public GameObject door;
+    private DoorScript MainDoor => doors[0];    //property: '=> doors[0]' je to samé, jako '{ get { return doors[0]; } }'
     private DoorScript doorScript;
     private InventoryScript inventoryScript;
     private Coroutine coroutine;
@@ -28,7 +30,13 @@ public class LockScript : MonoBehaviour
 
     void Start()
     {
-        doorScript = door.GetComponent<DoorScript>();
+        if (doors.Count == 0)
+        {
+            doors.Add(door.GetComponent<DoorScript>());
+            //Debug.LogError($"LockScript na {name} nemá pøiøazené žádné dveøe!");
+            //return;
+        }
+
         SetupForElevator();
         player = GameObject.FindGameObjectWithTag("Player");
         inventoryScript = player.GetComponent<InventoryScript>();
@@ -44,14 +52,14 @@ public class LockScript : MonoBehaviour
     /// <param name="clickedObject">kliknutý zámek</param>
     public void HandleDoorInteraction()
     {
-        if (doorScript.isBroken)
+        if (MainDoor.isBroken)
         {
             GameManagerScript.Instance.SetTextInfo("Door seems to be isBroken");
         }
-        else if (doorScript.lowestKeyCardLevel > 0)
+        else if (MainDoor.lowestKeyCardLevel > 0)
         {
-            Debug.Log("DoorScript: Má hráè keycard? " + inventoryScript.IsKeyCardActive(doorScript.lowestKeyCardLevel));
-            if (inventoryScript.IsKeyCardActive(doorScript.lowestKeyCardLevel))
+            Debug.Log("DoorScript: Má hráè keycard? " + inventoryScript.IsKeyCardActive(MainDoor.lowestKeyCardLevel));
+            if (inventoryScript.IsKeyCardActive(MainDoor.lowestKeyCardLevel))
             {
                 DoorCheck();
             }
@@ -68,12 +76,12 @@ public class LockScript : MonoBehaviour
 
     void DoorCheck()
     {
-        if (doorScript.doorType == DoorType.ELEVATOR && elevatorScript.elevatorIsBroken)
+        if (MainDoor.doorType == DoorType.ELEVATOR && elevatorScript.elevatorIsBroken)
         {
             GameManagerScript.Instance.SetTextInfo("Elevator is isBroken");
             //Debug.Log("LockScript: Elevator is isBroken");
         }
-        else if (doorScript.doorType == DoorType.ELEVATOR && floor != elevatorScript.currentFloor)
+        else if (MainDoor.doorType == DoorType.ELEVATOR && floor != elevatorScript.currentFloor)
         {
             elevatorScript.destination = floor;
             elevatorScript.called = true;
@@ -92,15 +100,21 @@ public class LockScript : MonoBehaviour
     /// </summary>
     void DoorMove()
     {
-        if (doorScript.isOpen && doorScript.isActive)
+        if (MainDoor.isOpen && MainDoor.isActive)
         {
-            door.GetComponent<NavMeshObstacle>().enabled = true;
-            coroutine = StartCoroutine(doorScript.DoSlidingClose());
+            foreach (DoorScript doorScript in doors)
+            {
+                doorScript.gameObject.GetComponent<NavMeshObstacle>().enabled = true;
+                coroutine = StartCoroutine(doorScript.DoSlidingClose());
+            }
         }
-        else if (!doorScript.isOpen && doorScript.isActive)
+        else if (!MainDoor.isOpen && MainDoor.isActive)
         {
-            door.GetComponent<NavMeshObstacle>().enabled = false;
-            coroutine = StartCoroutine(doorScript.DoSlidingOpen());
+            foreach (DoorScript doorScript in doors)
+            {
+                doorScript.gameObject.GetComponent<NavMeshObstacle>().enabled = false;
+                coroutine = StartCoroutine(doorScript.DoSlidingOpen());
+            }
         }
         else
         {
@@ -110,7 +124,7 @@ public class LockScript : MonoBehaviour
 
     void SetupForElevator()
     {
-        if (doorScript.doorType == DoorType.ELEVATOR)
+        if (MainDoor.doorType == DoorType.ELEVATOR)
         {
             elevatorScript = elevator.GetComponent<ElevatorSript>();
         }

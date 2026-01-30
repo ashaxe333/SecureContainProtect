@@ -30,6 +30,8 @@ public class AreaInstanceScript : MonoBehaviour
     public void PlayerEntered()
     {
         //Debug.Log("Player entered" + sourceData.name);
+        //AreaManager.Instance.currentArea = this.gameObject;  // this.GameObject(); - Z nìjakého dùvodu není platný
+
         AreaManager.Instance.currentArea = this.gameObject;  // this.GameObject(); - Z nìjakého dùvodu není platný
     }
 }

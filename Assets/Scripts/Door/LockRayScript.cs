@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 public class LockRayScript : MonoBehaviour
 {
     // UPRAVIT!
-    // 1) PortPlayer() pøendat do DoorButtonScript a upravit
+    // 1) List locks pøedìlat z GameObjectu na LockScript
 
     private GameObject player;
     private GameObject scp173;

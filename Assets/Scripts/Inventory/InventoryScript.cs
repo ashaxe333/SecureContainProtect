@@ -148,12 +148,14 @@ public class InventoryScript : MonoBehaviour
 
         if (!equipmentSlot.used)
         {
+            Debug.Log($"InventoryScript: IF, {equipmentSlot.name}");
             inventoryItem.itemData.Equip(true);
             equipmentSlot.SetItem(inventoryItem);
             Remove(inventoryItem);
         }
         else if(equipmentSlot.inventoryItem == inventoryItem)
         {
+            Debug.Log($"InventoryScript: ELSE IF, {equipmentSlot.name}");
             ItemData unequiped = equipmentSlot.inventoryItem.itemData;
             Add(unequiped);
             unequiped.Equip(false);
@@ -161,6 +163,7 @@ public class InventoryScript : MonoBehaviour
         }
         else
         {
+            Debug.Log($"InventoryScript: ELSE, {equipmentSlot.name}");
             ItemData unequiped = equipmentSlot.inventoryItem.itemData;
             Add(unequiped);
             unequiped.Equip(false);

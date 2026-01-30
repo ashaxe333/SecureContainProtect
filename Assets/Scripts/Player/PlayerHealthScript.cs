@@ -8,6 +8,7 @@ public class PlayerHealthScript : MonoBehaviour
     private float hpValue;
     private PlayerController playerController;
 
+    public bool isTakingDamage = false;
     public Slider hpSlider;
     [HideInInspector] public bool isDead = false;
 

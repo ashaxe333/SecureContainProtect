@@ -12,7 +12,7 @@ public abstract class ItemData : ScriptableObject
     public ItemArea area;
     public bool isEquiped;
 
-    public virtual void Equip(bool use)
+    public virtual void Equip(bool equip)
     {
         
     }

@@ -1,4 +1,7 @@
 public enum GameState
 {
-    INVENTORY, PAUSE, CUTSCENE, GAMEPLAY
+    INVENTORY,
+    PAUSE,
+    CUTSCENE,
+    GAMEPLAY
 }

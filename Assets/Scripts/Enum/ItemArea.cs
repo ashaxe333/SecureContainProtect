@@ -1,4 +1,6 @@
 public enum ItemArea
 {
-    HEAD, HAND, LEG
+    HEAD,
+    HAND,
+    LEG
 }
