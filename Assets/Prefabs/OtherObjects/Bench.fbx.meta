@@ -1,49 +1,9 @@
 fileFormatVersion: 2
-guid: d31d3bc4a52429d46a4e67742b4e0f6a
+guid: 099c466a8fb9c7c49a522a9bc5008de5
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: DirtMetalLight
-    second: {fileID: 2100000, guid: d5b5a37a949587f47840b4bfa1ae87b7, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Glass
-    second: {fileID: 2100000, guid: f8faa7f9b6bc5f14ca5ddc53bd8fd7e9, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: MetalBlack
-    second: {fileID: 2100000, guid: 772da049be7aafd42bddd7b1291be7da, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: StairsRoom_ConcreteFloor
-    second: {fileID: 2100000, guid: eee0c80b0311ba441810dfdeeac719d2, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: StairsRoom_Floor
-    second: {fileID: 2100000, guid: eee0c80b0311ba441810dfdeeac719d2, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: StairsRoom_YellowConcrete
-    second: {fileID: 2100000, guid: 741c82500469e794cbe987a35d019d01, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: StaisRoom_Concrete
-    second: {fileID: 2100000, guid: ac28b74851b70ec47a0f774b9c27a465, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: StaisrRoom_Concrete
-    second: {fileID: 2100000, guid: ac28b74851b70ec47a0f774b9c27a465, type: 2}
+  externalObjects: {}
   materials:
     materialImportMode: 2
     materialName: 0
