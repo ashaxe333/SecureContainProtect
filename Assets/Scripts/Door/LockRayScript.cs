@@ -1,8 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Threading;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.XR;
 
 public class LockRayScript : MonoBehaviour
 {
@@ -50,6 +52,8 @@ public class LockRayScript : MonoBehaviour
             if (hit.collider.gameObject.layer == 8)
             {
                 //Debug.Log("muzu otevrit/zavrit");
+                InteractionUIManager.Instance.SetLockInteractState(true);
+
                 if (Input.GetMouseButtonDown(0) && interactEnable)
                 {
                     //Debug.Log("oteviram/zaviram");
@@ -57,7 +61,9 @@ public class LockRayScript : MonoBehaviour
                     clickedObject.GetComponent<LockScript>().HandleDoorInteraction();
                 }
             }
+            else InteractionUIManager.Instance.SetLockInteractState(false);
         }
+        else InteractionUIManager.Instance.SetLockInteractState(false);
     }
 
     /// <summary>

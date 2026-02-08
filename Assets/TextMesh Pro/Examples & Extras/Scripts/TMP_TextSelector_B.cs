@@ -411,7 +411,7 @@ namespace TMPro.Examples
                             m_LinkObject01 = Instantiate(Link_01_Prefab);
                         else
                         {
-                            m_LinkObject01.gameObject.SetActive(true);
+                            m_LinkObject01.gameObject.SetLightActive(true);
                         }
 
                         break;

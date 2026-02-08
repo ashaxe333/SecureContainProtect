@@ -17,7 +17,6 @@ public class PlayerInteractScript : MonoBehaviour
     private InventoryScript inventoryScript;
 
     //public List<GameObject> allInteractiveObjects = new List<GameObject>();
-    public GameObject hand;
     private bool interactEnable = true;
     [SerializeField] public GameObject clickedObject;
 
@@ -25,8 +24,6 @@ public class PlayerInteractScript : MonoBehaviour
     {
         player = GameObject.FindGameObjectWithTag("Player");
         inventoryScript = player.GetComponent<InventoryScript>();
-
-        hand.SetActive(false);
     }
 
     void Update()
@@ -48,7 +45,8 @@ public class PlayerInteractScript : MonoBehaviour
         {
             //Debug.Log("je to interactive");
             //Dát sem image karty?
-            hand.SetActive(true);
+            //hand.SetActive(true);
+            InteractionUIManager.Instance.SetObjectInteractState(true);
 
             if (Input.GetMouseButtonDown(0))
             {
@@ -59,7 +57,8 @@ public class PlayerInteractScript : MonoBehaviour
         else if (Physics.Raycast(ray, out hit, 5.0f, 1 << 6))
         {
             //Debug.Log("je to collectible");
-            hand.SetActive(true);
+            //hand.SetActive(true);
+            InteractionUIManager.Instance.SetObjectInteractState(true);
 
             if (Input.GetMouseButtonDown(0))
             {
@@ -71,12 +70,14 @@ public class PlayerInteractScript : MonoBehaviour
         else if (Physics.Raycast(ray, out hit, 5.0f, 1 << 9))
         {
             Debug.Log("je to button");
-            hand.SetActive(true);
+            //hand.SetActive(true);
+            InteractionUIManager.Instance.SetObjectInteractState(true);
         }
         else if (Physics.Raycast(ray, out hit, 5.0f, 1 << 13))
         {
             Debug.Log("je to LightSwitch");
-            hand.SetActive(true);
+            //hand.SetActive(true);
+            InteractionUIManager.Instance.SetObjectInteractState(true);
 
             if (Input.GetMouseButtonDown(0))
             {
@@ -84,7 +85,7 @@ public class PlayerInteractScript : MonoBehaviour
                 clickedObject.GetComponent<LightTriggerScript>().LightSwitch();
             }
         }
-        else hand.SetActive(false);
+        else InteractionUIManager.Instance.SetObjectInteractState(false); //hand.SetActive(false);
     }
 
     /*

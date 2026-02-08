@@ -8,13 +8,19 @@ public class AreaInstanceScript : MonoBehaviour
     public AreaData sourceData;
     public List<Transform> spawnPoints = new List<Transform>();
     [HideInInspector] public int floor;
+    [HideInInspector] public GameObject saveSpawnPoint;
+
+    void Start()
+    {
+        saveSpawnPoint = GameObject.FindGameObjectWithTag("ssp");
+    }
 
     public Vector3 GetRandomSpawnPoint()
     {
         if (spawnPoints.Count == 0)
         {
             Debug.Log("AreaInstanceScript: No spawn points assigned!");
-            return transform.position;
+            return saveSpawnPoint.transform.position;
         }
 
         floor = (int)sourceData.floor;

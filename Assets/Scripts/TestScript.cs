@@ -8,6 +8,6 @@ public class TestScript : MonoBehaviour
     private void Awake()
     {
         gms = FindObjectsByType<GameManagerScript>(FindObjectsSortMode.None).ToList();
-        Debug.Log(gms.Count);
+        //Debug.Log(gms.Count);
     }
 }

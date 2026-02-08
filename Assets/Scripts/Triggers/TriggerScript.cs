@@ -50,9 +50,9 @@ public class TriggerScript : MonoBehaviour
         if (other.gameObject.CompareTag("Player") && floorForActivate != floorForDeactivate)
         {
             Debug.Log("deactivating:" + floorForDeactivate.name);
-            floorForDeactivate.SetActive(false); 
+            floorForDeactivate.SetLightActive(false); 
             Debug.Log("activating:" + floorForActivate.name);
-            floorForActivate.SetActive(true);
+            floorForActivate.SetLightActive(true);
         }
 
         //scp173.GetComponent<SCP173Script>().CorrectFloorWP(floorForActivate);

@@ -136,6 +136,12 @@ public class InventoryScript : MonoBehaviour
         return false;
     }
 
+    public bool IsFlashLightActive()
+    {
+        if(activeHandSlot.used && activeHandSlot.inventoryItem.itemData is FlashlightData) return true;
+        return false;
+    }
+
     /// <summary>
     /// equipne item do aktivního slotu
     /// </summary>

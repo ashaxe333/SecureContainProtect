@@ -49,9 +49,9 @@ public class GameManagerScript : MonoBehaviour
         //f2 = GameObject.FindGameObjectWithTag("F2");
         //f3 = GameObject.FindGameObjectWithTag("F3");
 
-        //f0.SetActive(false);
-        //f2.SetActive(false);
-        //f3.SetActive(false);
+        //f0.SetLightActive(false);
+        //f2.SetLightActive(false);
+        //f3.SetLightActive(false);
 
         currentFloor = 1;
 

@@ -19,6 +19,7 @@ TagManager:
   - GateBOpen
   - JumpScareWP
   - Inventory
+  - ssp
   layers:
   - Default
   - TransparentFX
