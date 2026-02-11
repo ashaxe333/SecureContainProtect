@@ -9,15 +9,23 @@ public class SCP939Script : MonoBehaviour
     private GameObject player;
     private PlayerController playerController;
     private PlayerInteractScript playerInteractScript;
-    public NavMeshAgent scp939;
-
+    [HideInInspector] public NavMeshAgent scp939;
     private GameObject target;
+
+    public Animator animator;
 
     private float followDistance;
     private float distanceToPlayer;
     private float distanceToTarget;
+
     private float returnDistance = 20f;
-    private float followSpeed = 13.0f;
+    private float noiseTriggerDistance = 30.0f;
+    private float runTriggerDistance = 48.0f;
+    private float walkTriggerDistance = 24.0f;
+    private float sneakTriggerDistance = 12.0f;
+    private float standTriggerDistance = 2.0f;
+
+    private float followSpeed = 18.0f;
     private float patrolSpeed = 6.0f;
 
     public Transform[] waypoints;
@@ -28,27 +36,24 @@ public class SCP939Script : MonoBehaviour
     private bool isTriggered = false;
     private bool isTriggered2 = false;
 
-    private GameObject gameManager;
-
-    // Start is called before the first frame update
     void Start()
     {
         timer = 1.0f;
         player = GameObject.FindGameObjectWithTag("Player");
         playerController = player.GetComponent<PlayerController>();
         playerInteractScript = player.GetComponent<PlayerInteractScript>();
-        gameManager = GameObject.FindGameObjectWithTag("GameManager");
+
+        scp939 = GetComponent<NavMeshAgent>();
+        animator = GetComponent<Animator>();
 
         if (player == null)
-        {
-            Debug.Log("hr·Ë!");
-        }
+            Debug.Log("SCP939Script: Assing player!!!");
     }
 
-    // Update is called once per frame
     void Update()
     {
         distanceToPlayer = Vector3.Distance(scp939.transform.position, player.transform.position);
+        Debug.Log(distanceToPlayer);
         timer -= Time.deltaTime;
 
         MoveTrigger();
@@ -67,19 +72,19 @@ public class SCP939Script : MonoBehaviour
             switch (playerController.movement)
             {
                 case 0.0f:
-                    followDistance = 2.0f;
+                    followDistance = standTriggerDistance;
                     break;
 
                 case 0.5f:
-                    followDistance = 6.0f;
+                    followDistance = sneakTriggerDistance;
                     break;
 
                 case 1.0f:
-                    followDistance = 12.0f;
+                    followDistance = walkTriggerDistance;
                     break;
 
                 case 2.0f:
-                    followDistance = 25.0f;
+                    followDistance = runTriggerDistance;
                     break;
             }
         }
@@ -112,24 +117,34 @@ public class SCP939Script : MonoBehaviour
     {
         if (isTriggered && distanceToPlayer < returnDistance)
         {
+            scp939.isStopped = false;
             scp939.speed = followSpeed;
             scp939.SetDestination(player.transform.position);
-            if(distanceToPlayer <= 2.0f)
+            animator.SetFloat("Speed", 1f);
+
+
+            if (distanceToPlayer <= 3.5f)
             {
+                animator.SetBool("Attack", true);
+                //PlayerDamageManager.instance.isTaking939 = true;
                 DeathInfoScript.msg = "You were killed by SCP-939";
-                SceneManager.LoadScene(2);
+                //SceneManager.LoadScene(2);
             }
         }
-        else if (isTriggered2 && distanceToTarget <= 30.0f)
+        else if (isTriggered2 && distanceToTarget <= noiseTriggerDistance)
         {
+            scp939.isStopped = false;
             scp939.speed = followSpeed;
             distanceToTarget = Vector3.Distance(scp939.transform.position, target.transform.position);
             scp939.SetDestination(target.transform.position);
+            animator.SetFloat("Speed", 1f);
 
-            if(distanceToTarget <= 3.0f)
+            if (distanceToTarget <= 3.0f)
             {
                 scp939.isStopped = true;
-                if(timer <= 0)
+                animator.SetFloat("Speed", 0f);
+
+                if (timer <= 0)
                 {
                     scp939.isStopped = false;
                     scp939.speed = patrolSpeed;
@@ -170,15 +185,27 @@ public class SCP939Script : MonoBehaviour
         }
         scp939.SetDestination(F1waypoints[currentWaypoint].position);
         */
+        bool atPoint = scp939.remainingDistance < scp939.stoppingDistance + 1;
 
-        // random
-        if (scp939.remainingDistance < scp939.stoppingDistance + 1 && timer < 0.0f)
+        if (atPoint && timer < 0.0f)
         {
             Debug.Log("provadÌm patrol");
-            reroll = Random.Range(10, 16);
+            reroll = Random.Range(12, 20);
             currentWaypoint = Random.Range(0, waypoints.Length);
             timer = reroll;
         }
+
+        if(atPoint && timer > 0.0f)
+        {
+            scp939.isStopped = true;
+            animator.SetFloat("Speed", 0f);
+        }  
+        else
+        {
+            scp939.isStopped = false;
+            animator.SetFloat("Speed", 0.4f);
+        }
+
         scp939.SetDestination(waypoints[currentWaypoint].position);
     }
 }

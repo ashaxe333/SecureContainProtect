@@ -10,6 +10,7 @@ public class PlayerDamageManager : MonoBehaviour
     public static PlayerDamageManager instance;
 
     public PlayerHealthScript playerHealthScript;
+    public InventoryScript inventoryScript;
     public List<GasTrigger> gasTriggerScripts = new List<GasTrigger>();
 
     public float gasDamage = 0.01f;     // každý frame
@@ -34,7 +35,7 @@ public class PlayerDamageManager : MonoBehaviour
 
     void Update()
     {
-        if(isTakingGas)
+        if(isTakingGas && !inventoryScript.IsMaskActive())
             playerHealthScript.TakeDamage(gasDamage);
 
         if (isTaking173)
