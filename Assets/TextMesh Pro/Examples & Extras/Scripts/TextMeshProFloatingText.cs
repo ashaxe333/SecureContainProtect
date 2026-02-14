@@ -113,7 +113,7 @@ namespace TMPro.Examples
         public IEnumerator DisplayTextMeshProFloatingText()
         {
             float CountDuration = 2.0f; // How long is the countdown alive.
-            float starting_Count = Random.Range(5f, 20f); // At what number is the counter starting at.
+            float starting_Count = Random.Range(5f, 20f); // At what number is the Counter starting at.
             float current_Count = starting_Count;
 
             Vector3 start_pos = m_floatingText_Transform.position;
@@ -169,7 +169,7 @@ namespace TMPro.Examples
         public IEnumerator DisplayTextMeshFloatingText()
         {
             float CountDuration = 2.0f; // How long is the countdown alive.
-            float starting_Count = Random.Range(5f, 20f); // At what number is the counter starting at.
+            float starting_Count = Random.Range(5f, 20f); // At what number is the Counter starting at.
             float current_Count = starting_Count;
 
             Vector3 start_pos = m_floatingText_Transform.position;

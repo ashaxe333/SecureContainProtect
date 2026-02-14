@@ -149,7 +149,7 @@ public class SCP173Script : MonoBehaviour
         {
             DeathInfoScript.msg = "You were killed by SCP-173";
             //Time.timeScale = 0; Debug
-            SceneManager.LoadScene(2);
+            PlayerDamageManager.instance.isTaking173 = true;
         }
     }
 

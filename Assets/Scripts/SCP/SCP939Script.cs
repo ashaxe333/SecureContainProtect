@@ -18,14 +18,14 @@ public class SCP939Script : MonoBehaviour
     private float distanceToPlayer;
     private float distanceToTarget;
 
-    private float returnDistance = 20f;
+    private float returnDistance = 50f;
     private float noiseTriggerDistance = 30.0f;
-    private float runTriggerDistance = 48.0f;
-    private float walkTriggerDistance = 24.0f;
-    private float sneakTriggerDistance = 12.0f;
+    private float runTriggerDistance = 40.0f;
+    private float walkTriggerDistance = 30.0f;
+    private float sneakTriggerDistance = 10.0f;
     private float standTriggerDistance = 2.0f;
 
-    private float followSpeed = 18.0f;
+    private float runSpeed = 18.0f;
     private float patrolSpeed = 6.0f;
 
     public Transform[] waypoints;
@@ -35,6 +35,8 @@ public class SCP939Script : MonoBehaviour
 
     private bool isTriggered = false;
     private bool isTriggered2 = false;
+    private bool isAttacking = false;
+    private float attackTime = 4f;
 
     void Start()
     {
@@ -53,12 +55,13 @@ public class SCP939Script : MonoBehaviour
     void Update()
     {
         distanceToPlayer = Vector3.Distance(scp939.transform.position, player.transform.position);
-        Debug.Log(distanceToPlayer);
+        Debug.Log($"isTriggered = {isTriggered}, isTriggered2 = {isTriggered2}, isAttacking = {isAttacking}, isStopped = {scp939.isStopped}");
         timer -= Time.deltaTime;
 
         MoveTrigger();
         NoiseTrigger();
         Move();
+        Counter();
     }
 
     /// <summary>
@@ -116,49 +119,66 @@ public class SCP939Script : MonoBehaviour
     void Move()
     {
         if (isTriggered && distanceToPlayer < returnDistance)
-        {
-            scp939.isStopped = false;
-            scp939.speed = followSpeed;
-            scp939.SetDestination(player.transform.position);
-            animator.SetFloat("Speed", 1f);
-
-
-            if (distanceToPlayer <= 3.5f)
-            {
-                animator.SetBool("Attack", true);
-                //PlayerDamageManager.instance.isTaking939 = true;
-                DeathInfoScript.msg = "You were killed by SCP-939";
-                //SceneManager.LoadScene(2);
-            }
-        }
+            FollowPlayer();
         else if (isTriggered2 && distanceToTarget <= noiseTriggerDistance)
+            RunToNoise();
+        else
+            ResetPatrol();
+    }
+
+    private void FollowPlayer()
+    {
+        Debug.Log("SCP939Script: FollowPlayer");
+
+        scp939.isStopped = false;
+        scp939.SetDestination(player.transform.position);
+        scp939.speed = runSpeed;
+        animator.SetFloat("Speed", 1f);
+
+        AttackPlayer();
+    }
+    private void AttackPlayer()
+    {
+        if (distanceToPlayer <= 4f && !isAttacking)
         {
-            scp939.isStopped = false;
-            scp939.speed = followSpeed;
-            distanceToTarget = Vector3.Distance(scp939.transform.position, target.transform.position);
-            scp939.SetDestination(target.transform.position);
-            animator.SetFloat("Speed", 1f);
+            Debug.Log($"SCP939Script: Attack!");
+            animator.SetTrigger("Attack");
+            //scp939.isStopped = false;
+            isAttacking = true;
+            //PlayerDamageManager.instance.isTaking939 = true;
+            DeathInfoScript.msg = "You were killed by SCP-939";
+        }
+    }
 
-            if (distanceToTarget <= 3.0f)
+    private void RunToNoise()
+    {
+        scp939.isStopped = false;
+        scp939.speed = runSpeed;
+        distanceToTarget = Vector3.Distance(scp939.transform.position, target.transform.position);
+        scp939.SetDestination(target.transform.position);
+        animator.SetFloat("Speed", 1f);
+        Debug.Log("SCP939Script: RunToNoise...");
+
+        if (distanceToTarget <= 3.0f)
+        {
+            scp939.isStopped = true;
+            animator.SetFloat("Speed", 0f);
+            Debug.Log("SCP939Script: RunToNoise if...");
+
+            if (timer <= 0)
             {
-                scp939.isStopped = true;
-                animator.SetFloat("Speed", 0f);
-
-                if (timer <= 0)
-                {
-                    scp939.isStopped = false;
-                    scp939.speed = patrolSpeed;
-                    isTriggered2 = false;
-                    Patrol();
-                }
+                ResetPatrol();
             }
         }
-        else
-        { 
-            scp939.speed = patrolSpeed;
-            isTriggered = false;
-            Patrol();
-        }
+    }
+
+    private void ResetPatrol()
+    {
+        scp939.isStopped = false;
+        scp939.speed = patrolSpeed;
+        isTriggered = false;
+        isTriggered2 = false;
+        Patrol();
     }
 
     /// <summary>
@@ -166,26 +186,8 @@ public class SCP939Script : MonoBehaviour
     /// </summary>
     void Patrol()
     {
-        // do koleèka
-        /*
-        if (scp939.remainingDistance < scp939.stoppingDistance + 1)
-        {
-            currentWaypoint = (currentWaypoint + 1) % F1waypoints.Length;     //restartuje currenWaypoint na 0
-        }
-        scp939.SetDestination(F1waypoints[currentWaypoint].position);
-
-        // tam zpátky
-        if (scp939.remainingDistance < scp939.stoppingDistance + 1)
-        {
-            if (F1waypoints[currentWaypoint].CompareTag("MainWayPoint"))
-            {
-
-            }
-            currentWaypoint = currentWaypoint + 1;
-        }
-        scp939.SetDestination(F1waypoints[currentWaypoint].position);
-        */
         bool atPoint = scp939.remainingDistance < scp939.stoppingDistance + 1;
+        Debug.Log($"SCP939Script: atPoint = {atPoint}");
 
         if (atPoint && timer < 0.0f)
         {
@@ -197,15 +199,32 @@ public class SCP939Script : MonoBehaviour
 
         if(atPoint && timer > 0.0f)
         {
+            Debug.Log("SCP939Script: Patrol if...");
             scp939.isStopped = true;
             animator.SetFloat("Speed", 0f);
         }  
         else
         {
+            Debug.Log("SCP939Script: Patrol else...");
             scp939.isStopped = false;
             animator.SetFloat("Speed", 0.4f);
         }
 
         scp939.SetDestination(waypoints[currentWaypoint].position);
+    }
+
+    private void Counter()
+    {
+        if (!isAttacking) return;
+
+        attackTime -= Time.deltaTime;
+        scp939.isStopped = true;
+
+        if (attackTime <= 0)
+        {
+            isAttacking = false;
+            scp939.isStopped = false;
+            attackTime = 2f;
+        }
     }
 }
