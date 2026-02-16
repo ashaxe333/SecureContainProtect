@@ -22,13 +22,9 @@ public class DoorScript : MonoBehaviour
     private float slideAmount;                          // poèítá se podle typu dveøí
     private float speed;                                // poèítá se podle typu dveøí
 
-    private NavMeshObstacle nmo;    // pøidat velikost
-
     private void Awake()
     {
         startPosition = transform.position;
-        nmo = GetComponent<NavMeshObstacle>();
-        //nmo.GetComponent<NavMeshObstacle>().size = 
         DoorRotation();
         SetDoorMoveParameters();
     }

@@ -13,12 +13,12 @@ public class PlayerDamageManager : MonoBehaviour
     public InventoryScript inventoryScript;
     public List<GasTrigger> gasTriggerScripts = new List<GasTrigger>();
 
-    public float gasDamage = 0.01f;     // každý frame
-    public float scp173Damage = 100f;   // jednou
-    public float scp939Damage = 100f;   // jednou
-    public bool isTakingGas = false;
-    public bool isTaking173 = false;
-    public bool isTaking939 = false;
+    [HideInInspector] public float gasDamage;      // každý frame
+    [HideInInspector] public float scp173Damage;   // jednou
+    [HideInInspector] public float scp939Damage;   // jednou
+    [HideInInspector] public bool isTakingGas = false;
+    [HideInInspector] public bool isTaking173 = false;
+    [HideInInspector] public bool isTaking939 = false;
 
     private void Awake()
     {
@@ -31,22 +31,30 @@ public class PlayerDamageManager : MonoBehaviour
     private void Start()
     {
         gasTriggerScripts = FindObjectsByType<GasTrigger>(FindObjectsSortMode.None).ToList();
+        gasDamage = 0.03f;
+        scp173Damage = 1000.0f;
+        scp939Damage = 40.0f;
     }
 
     void Update()
     {
         if(isTakingGas && !inventoryScript.IsMaskActive())
+        {
             playerHealthScript.TakeDamage(gasDamage);
+            DeathInfoScript.msg = "You were killed by toxic gas";
+        }
 
         if (isTaking173)
         {
             playerHealthScript.TakeDamage(scp173Damage);
+            DeathInfoScript.msg = "You were killed by SCP-173";
             isTaking173 = false;
         }
 
         if (isTaking939)
         {
             playerHealthScript.TakeDamage(scp939Damage);
+            DeathInfoScript.msg = "You were killed by SCP-939";
             isTaking939 = false;
         }
     }

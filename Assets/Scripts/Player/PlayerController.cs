@@ -13,7 +13,7 @@ public class PlayerController : MonoBehaviour
     //s1
     private float moveSpeed = 8.0f;
     private float runSpeed = 14.0f;
-    private float sneakSpeed = 2.0f;
+    private float sneakSpeed = 4.0f;
 	private float gravity = 20.0f;
 
     [SerializeField] public float movement;

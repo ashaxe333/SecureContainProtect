@@ -27,6 +27,11 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: MetalGrating
+    second: {fileID: 2100000, guid: 716cd97d590ea394093033d28e866d21, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: MetalPaintedDarkGrey
     second: {fileID: 2100000, guid: c4e241bf60d723249bec88c40852d273, type: 2}
   - first:
@@ -34,6 +39,11 @@ ModelImporter:
       assembly: UnityEngine.CoreModule
       name: MetalPaintedYeallow
     second: {fileID: 2100000, guid: 71b97eacb6e6e9b40a9259e1270adf69, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: WarningSign
+    second: {fileID: 2100000, guid: d6ed95236ade26f4ab18e0179d06174d, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

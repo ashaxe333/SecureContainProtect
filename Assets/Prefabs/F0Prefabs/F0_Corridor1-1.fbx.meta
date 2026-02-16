@@ -18,7 +18,7 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Glass
-    second: {fileID: 2100000, guid: f8faa7f9b6bc5f14ca5ddc53bd8fd7e9, type: 2}
+    second: {fileID: 2100000, guid: 716cd97d590ea394093033d28e866d21, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
@@ -29,6 +29,11 @@ ModelImporter:
       assembly: UnityEngine.CoreModule
       name: MetalBlue
     second: {fileID: 2100000, guid: dd04ac1ebe266114fa39c8e1abc2393c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: MetalGrating
+    second: {fileID: 2100000, guid: 716cd97d590ea394093033d28e866d21, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule

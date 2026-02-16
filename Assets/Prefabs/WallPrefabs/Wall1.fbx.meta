@@ -9,6 +9,11 @@ ModelImporter:
       assembly: UnityEngine.CoreModule
       name: MetalBlack
     second: {fileID: 2100000, guid: 772da049be7aafd42bddd7b1291be7da, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: SCP_logo
+    second: {fileID: 2100000, guid: 6edc107c565866148bb1d2db12a31102, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

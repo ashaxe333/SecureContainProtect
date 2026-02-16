@@ -48,7 +48,7 @@ public class SCP173Script : MonoBehaviour
     void Update()
     {
         timer -= Time.deltaTime;
-        //Debug.Log(timer);
+        //Debug.Log(objectMemory);
 
         FollowPlayer();
         IsKilled();
@@ -75,9 +75,10 @@ public class SCP173Script : MonoBehaviour
 
             if (hitObject == player)
             {
-                //Debug.Log("Trefil jsem hráèe!!! ZABÍT!!!");
+                //Debug.Log("Trefil jsem hráèe");
                 hasSeenPlayer = true;
-                timer = spawnDuration * 2;
+                timer = 30f;
+                //timer = spawnDuration * 2;
                 playerLastPosition = player.transform.position;
             }
         }
@@ -94,7 +95,7 @@ public class SCP173Script : MonoBehaviour
         {
             if (timer > 0)
             {
-                //timer -= Time.deltaTime;
+                //objectMemory -= Time.deltaTime;
                 scp173.SetDestination(playerLastPosition);
             }
             else
@@ -147,8 +148,7 @@ public class SCP173Script : MonoBehaviour
 
         if ((!scp173Renderer.isVisible || blinkScript.isBlinking) && distanceToPLayer <= killDistance && hitObject == player)
         {
-            DeathInfoScript.msg = "You were killed by SCP-173";
-            //Time.timeScale = 0; Debug
+            //Time.timeScale = 0; //Debug
             PlayerDamageManager.instance.isTaking173 = true;
         }
     }

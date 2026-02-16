@@ -32,6 +32,11 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: MetalGrating
+    second: {fileID: 2100000, guid: 716cd97d590ea394093033d28e866d21, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: MetalPaintedDarkGrey
     second: {fileID: 2100000, guid: c4e241bf60d723249bec88c40852d273, type: 2}
   - first:

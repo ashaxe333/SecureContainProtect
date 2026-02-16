@@ -12,18 +12,23 @@ public class PlayerHealthScript : MonoBehaviour
     public Slider hpSlider;
     [HideInInspector] public bool isDead = false;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
         playerController = GetComponent<PlayerController>();
         hpValue = hpSlider.maxValue;
+        hpSlider.value = hpSlider.maxValue;
+        Debug.Log($"HP = {hpSlider.value}");
     }
 
-    // Update is called once per frame
     void Update()
     {
+        Debug.Log($"HP = {hpSlider.value}");
         hpSlider.value = hpValue;
+        if(hpSlider.value < hpSlider.maxValue)
+        {
+            Regenerate();
+        }
         if (hpSlider.value <= 0)
         {
             isDead = true;
@@ -34,10 +39,11 @@ public class PlayerHealthScript : MonoBehaviour
     public void TakeDamage(float dmg)
     {
         hpValue -= dmg;
+        Debug.Log($"Value: {hpValue}");
     }
 
-    public void regenerate()
+    public void Regenerate()
     {
-        hpValue += Time.deltaTime * 0.01f;
+        hpValue += Time.deltaTime * 0.05f;
     }
 }

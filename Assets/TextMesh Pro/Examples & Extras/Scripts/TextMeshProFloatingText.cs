@@ -113,7 +113,7 @@ namespace TMPro.Examples
         public IEnumerator DisplayTextMeshProFloatingText()
         {
             float CountDuration = 2.0f; // How long is the countdown alive.
-            float starting_Count = Random.Range(5f, 20f); // At what number is the Counter starting at.
+            float starting_Count = Random.Range(5f, 20f); // At what number is the AttackTimeCounter starting at.
             float current_Count = starting_Count;
 
             Vector3 start_pos = m_floatingText_Transform.position;
@@ -130,7 +130,7 @@ namespace TMPro.Examples
 
                 if (current_Count <= 3)
                 {
-                    //Debug.Log("Fading Counter ... " + current_Count.ToString("f2"));
+                    //Debug.Log("Fading AttackTimeCounter ... " + current_Count.ToString("f2"));
                     alpha = Mathf.Clamp(alpha - (Time.deltaTime / fadeDuration) * 255, 0, 255);
                 }
 
@@ -169,7 +169,7 @@ namespace TMPro.Examples
         public IEnumerator DisplayTextMeshFloatingText()
         {
             float CountDuration = 2.0f; // How long is the countdown alive.
-            float starting_Count = Random.Range(5f, 20f); // At what number is the Counter starting at.
+            float starting_Count = Random.Range(5f, 20f); // At what number is the AttackTimeCounter starting at.
             float current_Count = starting_Count;
 
             Vector3 start_pos = m_floatingText_Transform.position;
@@ -185,7 +185,7 @@ namespace TMPro.Examples
 
                 if (current_Count <= 3)
                 {
-                    //Debug.Log("Fading Counter ... " + current_Count.ToString("f2"));
+                    //Debug.Log("Fading AttackTimeCounter ... " + current_Count.ToString("f2"));
                     alpha = Mathf.Clamp(alpha - (Time.deltaTime / fadeDuration) * 255, 0, 255);
                 }
 
