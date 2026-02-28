@@ -1,15 +1,88 @@
---- mixkit ---
-basketball buzzer: https://mixkit.co/free-sound-effects/buzzer/
-Car door close: https://mixkit.co/free-sound-effects/car/
-Gear fast lock tap: https://mixkit.co/free-sound-effects/click/
-Industrial hum loop: https://mixkit.co/free-sound-effects/white-noise/
-On or off light switch tap: https://mixkit.co/free-sound-effects/click/
-Prison metal door close: https://mixkit.co/free-sound-effects/metal/
-wrong long buzzer: https://mixkit.co/free-sound-effects/error/
+==============
+*** mixkit
+==============
+https://mixkit.co/free-sound-effects/buzzer/
+- Basketball buzzer
+- System beep buzzer fail
+- Wrong long buzzer
 
---- sfx engine ---
+https://mixkit.co/free-sound-effects/car/
+- Car door close
+
+https://mixkit.co/free-sound-effects/click/
+- Gear fast lock tap
+
+https://mixkit.co/free-sound-effects/white-noise/
+- Industrial hum loop
+
+https://mixkit.co/free-sound-effects/click/
+- On or off light switch tap
+
+https://mixkit.co/free-sound-effects/metal/
+- Prison metal door close
+
+https://mixkit.co/free-sound-effects/ding/
+- Doorbell tone
+
+https://mixkit.co/free-sound-effects/tones/
+- Elevator tone
+
+
+==============
+*** SFX Engine
+==============
 footsteps: https://sfxengine.com/sound-effects?search=Realistic+footsteps+sound+effect
+Subtle button press, deep, quick: https://sfxengine.com/sound-effects/buttons
 
---- youtube ---
+==============
+*** YouTube
+==============
 ambinet music: 
 intense chase music: https://www.youtube.com/watch?v=nEuXiJ-d2YM
+scp939: https://www.youtube.com/watch?v=0oXm76TuUOw
+scp096: https://www.youtube.com/watch?v=7PC-3VGLyP4
+scp173: https://www.youtube.com/watch?v=n8pxg44KhEo
+
+
+
+
+
+
+
+
+Obrázky:
+universe1: https://wallpaperaccess.com/full/47149.jpg
+
+universe2: https://th.bing.com/th/id/R.c27617da44262de447e6506c5b1d7935?rik=CM52u5Fz9rdWyA&riu=http%3a%2f%2fgetwallpapers.com%2fwallpaper%2ffull%2f5%2ff%2f6%2f395405.jpg&ehk=S%2f%2fWftUCpt6sv3RIkv%2fVlSBZ4bjJLQsVfoVJ3srLxQg%3d&risl=&pid=ImgRaw&r=0
+
+night_city1: https://images.wallpaperscraft.com/image/single/night_city_city_lights_aerial_view_136854_1920x1080.jpg
+
+night_city2: https://tse2.mm.bing.net/th/id/OIP.KwAZlbwYDNLgN7kIZrC-xwHaEK?rs=1&pid=ImgDetMain&o=7&rm=3
+
+mountains_landscape1: https://static.vecteezy.com/system/resources/previews/047/185/847/large_2x/mountain-lanscape-golden-hour-view-of-mountain-free-photo.jpg
+
+mountains_landscape2: https://th.bing.com/th/id/R.147dfd2696e0459de9a3316a704dc0e4?rik=vhnoj6OKKBRoFw&riu=http%3a%2f%2fwallup.net%2fwp-content%2fuploads%2f2016%2f01%2f296416-landscape-nature-mountain-lake-trees-snow-clouds-forest.jpg&ehk=GMAtZ8wa9YufV9P0BhLN3PZCWSTqXo2dz8iecfHiP8o%3d&risl=&pid=ImgRaw&r=0
+
+mountains_landscape3: https://th.bing.com/th/id/R.b5b5c0d04665728a60b42ecbf4e7da43?rik=eulc6AMGsiUWYw&riu=http%3a%2f%2fhdqwalls.com%2fdownload%2fmountains-landscape-nw-1920x1080.jpg&ehk=Ts%2bvcMHStYY2gqTE6zljKTT0Ie1ykBiq%2fL5vRfg3%2bJU%3d&risl=&pid=ImgRaw&r=0
+
+mountains_landscape4: https://images.wallpapersden.com/image/download/landscape-mountain-river_ZmtqZWmUmZqaraWkpJRmbmdlrWZlbWU.jpg
+
+mountains_landscape5: https://images.wallpapersden.com/image/download/winter-lake-snowy-mountain-landscape_bGttamqUmZqaraWkpJRmbmdlrWZlbWU.jpg
+
+jellyfish1: https://images.wallpaperscraft.com/image/single/jellyfish_blue_underwater_956608_1920x1080.jpg
+
+jellyfish2: https://tse4.mm.bing.net/th/id/OIP._-oKV8M5ODxuTIA1jZANYAHaEK?rs=1&pid=ImgDetMain&o=7&rm=3
+
+coral_reef1: https://wallpaperaccess.com/full/1151049.jpg
+
+coral_reef2: https://tse1.mm.bing.net/th/id/OIP.q1jFFPxfCprEYvJ_5DLZSQHaEK?rs=1&pid=ImgDetMain&o=7&rm=3
+
+
+
+SCP_CellSigns
+
+SCP173: https://tse4.mm.bing.net/th/id/OIP.aMCpss-YKSHJdzNJ541_DgAAAA?rs=1&pid=ImgDetMain&o=7&rm=3
+
+scp939: https://www.bing.com/images/search?view=detailV2&ccid=T%2FGUmLA6&id=36513A238DD469D72F529E0D467F3DDA316CC3AE&thid=OIP.T_GUmLA6-cGcolfqPo7cvAAAAA&mediaurl=https%3A%2F%2Fi.imgflip.com%2F8k4hbk.jpg&cdnurl=https%3A%2F%2Fth.bing.com%2Fth%2Fid%2FR.4ff19498b03af9c19ca257ea3e8edcbc%3Frik%3DrsNsMdo9f0YNng%26pid%3DImgRaw%26r%3D0&exph=250&expw=250&q=scp+939+sign&form=IRPRST&ck=CFBEBEAF788C3848B4C3CAF5C0B2A74A&selectedindex=0&itb=0&cw=1721&ch=853&ajaxhist=0&ajaxserp=0&vt=0&pivotparams=insightsToken%3Dccid_0jX7m10t*cp_995771BB40BF6DBC78EA7DBD219C2958*mid_69A838D4BF2BF974BD95B7547336648E2C5C1186*thid_OIP.0jX7m10t4Z0BuyH1cw8f5QAAAA&sim=11&iss=VSI&ajaxhist=0&ajaxserp=0
+
+scp096: https://tse4.mm.bing.net/th/id/OIP.skV7-W43E47R53xSmHLJMAHaHR?rs=1&pid=ImgDetMain&o=7&rm=3

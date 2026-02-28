@@ -16,7 +16,7 @@ public class AreaInstanceScript : MonoBehaviour
         //saveSpawnPoint = GameObject.FindGameObjectWithTag("ssp");
         scp173 = GameObject.FindGameObjectWithTag("173");
 
-        if (scp173 == null) Debug.Log("Není scp173!!");
+        if (scp173 == null) Debug.Log("Není broadcast!!");
     }
 
     public Vector3 GetRandomSpawnPoint()

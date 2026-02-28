@@ -19,8 +19,14 @@ public class DoorScript : MonoBehaviour
     public GameObject parentWall;
     [HideInInspector] public Vector3 slideDirection;
 
+    [SerializeField] private NavMeshObstacle door_NMO;
+    [SerializeField] private Transform SoundFX_Source;
+
+    public AudioClip doorMovementSFX;
+
     private float slideAmount;                          // poèítá se podle typu dveøí
     private float speed;                                // poèítá se podle typu dveøí
+    private float delay;
 
     private void Awake()
     {
@@ -35,7 +41,7 @@ public class DoorScript : MonoBehaviour
     }
 
     /// <summary>
-    /// Podle hodnoty se nastaví, jakým smìrem se dveøe budou otevírat
+    /// Podle doorType nastaví smìry posunu dveøí
     /// </summary>
     void DoorRotation()
     {
@@ -55,6 +61,11 @@ public class DoorScript : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Nastaví smìry posunu dveøí
+    /// </summary>
+    /// <param name="direction1"> smìr otevírání </param>
+    /// <param name="direction2"> smìr zavírání </param>
     public void SetDoorDirection(Vector3 direction1, Vector3 direction2)
     {
         if (direction2 != Vector3.zero)
@@ -87,16 +98,19 @@ public class DoorScript : MonoBehaviour
             case DoorType.SINGLE or DoorType.ELEVATOR:
                 slideAmount = 4.0f;
                 speed = 2.0f;
+                delay = 0.2f;
                 break;
 
             case DoorType.LEFT or DoorType.RIGHT:
                 slideAmount = 3.0f;
                 speed = 2.0f;
+                delay = 0.2f;
                 break;
 
             case DoorType.GATE:
-                slideAmount = 7.0f;
+                slideAmount = 10.0f;
                 speed = 1.0f;
+                delay = 0.4f;
                 break;
         }
     }
@@ -112,11 +126,14 @@ public class DoorScript : MonoBehaviour
     /// <returns>pouze posouvá dveøe</returns>
     public IEnumerator DoSlidingOpen() //IEnumerator - metoda se spouští po èástech
     {
-        //audioSource.PlayOneShot(doorOpeningAudio);
+        door_NMO.enabled = false;
         isActive = false;
         Vector3 endPosition = startPosition + slideAmount * slideDirection;
         Vector3 newStartPosition = transform.position;
         float time = 0.0f;
+        SoundFXManagerScript.instance.PlaySoundFX(doorMovementSFX, SoundFX_Source, 0.17f, 1.5f, 0f, 0f);
+
+        yield return new WaitForSeconds(delay);
         //Debug.Log($"DoorScript: slideDirection = {slideDirection}, start = {startPosition}, end = {endPosition}");
 
         while (time < 1)
@@ -136,10 +153,14 @@ public class DoorScript : MonoBehaviour
     /// <returns>pouze posouvá dveøe</returns>
     public IEnumerator DoSlidingClose()
     {
+        door_NMO.enabled = true;
         isActive = false;
         Vector3 endPosition = startPosition;
         Vector3 newStartPosition = transform.position;
         float time = 0.0f;
+        SoundFXManagerScript.instance.PlaySoundFX(doorMovementSFX, SoundFX_Source, 0.17f, 1.5f, 0f, 0f); //0.05
+
+        yield return new WaitForSeconds(delay);
 
         while (time < 1)
         {

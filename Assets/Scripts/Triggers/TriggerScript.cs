@@ -9,14 +9,14 @@ public class TriggerScript : MonoBehaviour
 
     //public GameObject floorForActivate;
     //private GameObject floorForDeactivate;
-    //private GameObject scp173;
+    //private GameObject broadcast;
 
     public int newCurrentFloor;
 
     void Start()
     {
         /*
-        scp173 = GameObject.FindGameObjectWithTag("173");
+        broadcast = GameObject.FindGameObjectWithTag("173");
 
         if(floorForActivate == null)
         {
@@ -55,7 +55,7 @@ public class TriggerScript : MonoBehaviour
             floorForActivate.SetLightActive(true);
         }
 
-        //scp173.GetComponent<SCP173Script>().CorrectFloorWP(floorForActivate);
+        //broadcast.GetComponent<SCP173Script>().CorrectFloorWP(floorForActivate);
     }
     */
 }

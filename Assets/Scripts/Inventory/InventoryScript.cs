@@ -18,6 +18,8 @@ public class InventoryScript : MonoBehaviour
 
     private CanvasGroup canvasGroup;
 
+    [SerializeField] private AudioClip[] pickItemsSoundFX;
+
     void Awake()
     {
         GetScripts();
@@ -81,6 +83,7 @@ public class InventoryScript : MonoBehaviour
     /// <param name="collected"> sebraný item </param>
     public void Add(ItemData collected)
     {
+        SoundFXManagerScript.instance.PlaySoundFX(pickItemsSoundFX, gameObject.transform, 0.1f);
         bool show = true;
 
         foreach (InventorySlot slot in slotScripts)

@@ -22,6 +22,11 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: MetalGrating2
+    second: {fileID: 2100000, guid: da6fa35d42554b14380d2c009a85dde7, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: StairsRoom_ConcreteFloor
     second: {fileID: 2100000, guid: eee0c80b0311ba441810dfdeeac719d2, type: 2}
   - first:

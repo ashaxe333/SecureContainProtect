@@ -38,13 +38,16 @@ public class ElevatorSript : MonoBehaviour
     private int direction;
     [HideInInspector] public int destination;
 
+    [SerializeField] private AudioClip[] buttonClicksSoundFX;
+    [SerializeField] private AudioClip cinkSoundFX;
+    [SerializeField] private AudioClip elevatorMoveSoundFX;
+
     void Start()
     {
         SetupCurrentDoor();
         SetupCurrentFloor();
         player = GameObject.FindGameObjectWithTag("Player");
         doorScript = currentDoor.GetComponent<DoorScript>();
-        currentDoor.GetComponent<NavMeshObstacle>().enabled = true;
         DoorMove(false);
     }
 
@@ -74,6 +77,8 @@ public class ElevatorSript : MonoBehaviour
 
                 if (clickedObject == upButton || clickedObject == downButton)
                 {
+                    SoundFXManagerScript.instance.PlaySoundFX(buttonClicksSoundFX, clickedObject.transform, 0.08f);    //click
+
                     if (elevatorIsBroken)
                     {
                         GameManagerScript.Instance.SetTextInfo("elevator is isBroken");
@@ -88,7 +93,6 @@ public class ElevatorSript : MonoBehaviour
                     }
                     else
                     {
-                        //pøehraje sound, že to nejde
                         Debug.Log("ElevatorScript: Nejde dál");
                     }
                 }
@@ -107,12 +111,14 @@ public class ElevatorSript : MonoBehaviour
     {
         if (doorScript.isOpen && doorScript.isActive)
         {
-            currentDoor.GetComponent<NavMeshObstacle>().enabled = true;
+            //doorScript.door_NMO.enabled = true;
+            //doorScript.DoSlidingClose();
             coroutine = StartCoroutine(doorScript.DoSlidingClose());
         }
         else if (!doorScript.isOpen && doorScript.isActive && !closedDoorClickedButton)
         {
-            currentDoor.GetComponent<NavMeshObstacle>().enabled = false;
+            //currentDoor.GetComponent<NavMeshObstacle>().enabled = false;
+            //doorScript.DoSlidingOpen();
             coroutine = StartCoroutine(doorScript.DoSlidingOpen());
         }
     }
@@ -123,6 +129,7 @@ public class ElevatorSript : MonoBehaviour
     void PortElevator()
     {
         if (port) timer -= Time.deltaTime;
+        //SoundFXManagerScript.instance.PlaySoundFX(elevatorMoveSoundFX, elevator.transform, 0.5f, 1f, 0f, 0f);    //hukot
 
         if (timer <= 1 && !hasPorted)
         {
@@ -138,6 +145,7 @@ public class ElevatorSript : MonoBehaviour
                 player.transform.position = new Vector3(player.transform.position.x, player.transform.position.y - portLength, player.transform.position.z);
                 player.GetComponent<CharacterController>().enabled = true;
                 currentFloor = nextFloor;
+                SoundFXManagerScript.instance.PlaySoundFX(cinkSoundFX, elevator.transform, 0.05f, 1f, 0f, 0f);    //cink
             }
             else if (clickedObject == upButton)
             {
@@ -149,6 +157,7 @@ public class ElevatorSript : MonoBehaviour
                 player.transform.position = new Vector3(player.transform.position.x, player.transform.position.y + portLength, player.transform.position.z);
                 player.GetComponent<CharacterController>().enabled = true;
                 currentFloor = nextFloor;
+                SoundFXManagerScript.instance.PlaySoundFX(cinkSoundFX, elevator.transform, 0.05f, 1f, 0f, 0f);    //cink
             }
         }
 

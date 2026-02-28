@@ -21,11 +21,14 @@ public class SCP173Script : MonoBehaviour
     private Renderer scp173Renderer;
     private Transform scp173Transform;
 
+    [SerializeField] private AudioClip jumpscareSoundFX;
+
     private float distanceToPLayer;
     //public GameObject startingSpawn;
 
     [SerializeField] private LayerMask raycastLayerMask;
     private float timer;
+    private float jumpScareTimer = 300f;    // nesmí hráèe jumpscarenout prvních 5 minut hry
     private bool hasSeenPlayer;
     private float spawnDuration = 15.0f;
     private float killDistance = 3.0f;      // dobrý tøeba pro nastavení obtížnosti. 4f už nic neodpustí, 3f je ještì "milý"
@@ -48,6 +51,7 @@ public class SCP173Script : MonoBehaviour
     void Update()
     {
         timer -= Time.deltaTime;
+        if (jumpScareTimer > -1) jumpScareTimer -= Time.deltaTime;
         //Debug.Log(objectMemory);
 
         FollowPlayer();
@@ -77,12 +81,21 @@ public class SCP173Script : MonoBehaviour
             {
                 //Debug.Log("Trefil jsem hráèe");
                 hasSeenPlayer = true;
-                timer = 30f;
-                //timer = spawnDuration * 2;
+                //timer = 30f;
+                timer = spawnDuration * 2;
                 playerLastPosition = player.transform.position;
             }
         }
-
+        /*
+        if(RayHitScript.instance.HitTargertFromTo(scp173.gameObject, player, 75.0f, raycastLayerMask))
+        {
+            //Debug.Log("Trefil jsem hráèe");
+            hasSeenPlayer = true;
+            timer = 30f;
+            //timer = spawnDuration * 2;
+            playerLastPosition = player.transform.position;
+        }
+        */
         Hit();
     }
 
@@ -114,9 +127,9 @@ public class SCP173Script : MonoBehaviour
     }
 
     /// <summary>
-    /// Každý frame kontroluje, jestli je scp173 v zorném poli kamery, a pokud je trefen 
+    /// Každý frame kontroluje, jestli je broadcast v zorném poli kamery, a pokud je trefen 
     /// rayem od hráèe (kdyby byl za sloupem tøeba, tak aby mohl jít, protože ho hráè skuteènì nevidí). 
-    /// Pokud je splpnno obojí, scp173 se zastaví
+    /// Pokud je splpnno obojí, broadcast se zastaví
     /// </summary>
     
     public void IsSeen()
@@ -164,8 +177,12 @@ public class SCP173Script : MonoBehaviour
         {
             case 0:
                 //Debug.Log("SCP173Script: To player " + random);
-                if (AreaManager.Instance.CanSpawn()) 
+                if (AreaManager.Instance.CanSpawn() && jumpScareTimer < 0f)
+                {
                     scp173.Warp(AreaManager.Instance.jumpScareWayPoint.transform.position);
+                    SoundFXManagerScript.instance.PlaySoundFX(jumpscareSoundFX, player.transform, 0.7f, 1f, 0f, 0f);
+                    jumpScareTimer = 600f;  // mùže udìlat jumpsacre znova aý po 10-ti minutách
+                } 
                 else 
                     scp173.Warp(AreaManager.Instance.GetClosestNonPlayerRoom().GetComponent<AreaInstanceScript>().GetRandomSpawnPoint()); //když nevyjde jumpscare, spawne se do nejbližší místnosti
                 timer = spawnDuration;

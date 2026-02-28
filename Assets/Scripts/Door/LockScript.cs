@@ -7,17 +7,20 @@ using UnityEngine.AI;
 public class LockScript : MonoBehaviour
 {
     // UPRAVIT!!!
-    // 1) ? místo door sem dát parentWall, odkud získám nìjak (tøeba pøes skript) door, PØÍPADNÌ doorLeft a doorRight ?
+    // 1) ? místo soundSourceTransform sem dát parentWall, odkud získám nìjak (tøeba pøes skript) soundSourceTransform, PØÍPADNÌ doorLeft a doorRight ?
     // 2) v budoucnu nedìlat pohyb dveøí pøes coroutine, ale pøes ANIMACI.
 
     // Base
     private GameObject player;
     public List<DoorScript> doors = new List<DoorScript>();
-    public GameObject door;
+    //public GameObject door;
     private DoorScript MainDoor => doors[0];    //property: '=> doors[0]' je to samé, jako '{ get { return doors[0]; } }'
     private DoorScript doorScript;
     private InventoryScript inventoryScript;
     private Coroutine coroutine;
+
+    [SerializeField] private AudioClip lockClickSFX;
+    [SerializeField] private AudioClip lockErrorSFX;
 
     // Elevator
     public int floor;
@@ -32,15 +35,16 @@ public class LockScript : MonoBehaviour
     {
         if (doors.Count == 0)
         {
-            doors.Add(door.GetComponent<DoorScript>());
-            //Debug.LogError($"LockScript na {name} nemá pøiøazené žádné dveøe!");
-            //return;
-        }
+            //doors.Add(door.GetComponent<DoorScript>());
+            Debug.LogError($"LockScript na {name} nemá pøiøazené žádné dveøe!");
 
+            return;
+        }
         SetupForElevator();
         player = GameObject.FindGameObjectWithTag("Player");
         inventoryScript = player.GetComponent<InventoryScript>();
-        door.GetComponent<NavMeshObstacle>().enabled = true;
+
+        //door.GetComponent<NavMeshObstacle>().enabled = true;
 
         //audioSource = GetComponent<AudioSource>();
         //doorOpeningAudio = Resources.Load<AudioClip>("Sounds/");
@@ -52,13 +56,16 @@ public class LockScript : MonoBehaviour
     /// <param name="clickedObject">kliknutý zámek</param>
     public void HandleDoorInteraction()
     {
+        SoundFXManagerScript.instance.PlaySoundFX(lockClickSFX, gameObject.transform, 0.1f, 1f, 0f, 0f); //0.02
+
         if (MainDoor.isBroken)
         {
-            GameManagerScript.Instance.SetTextInfo("Door seems to be isBroken");
+            GameManagerScript.Instance.SetTextInfo("Door seems to be broken or inactive");
+            SoundFXManagerScript.instance.PlaySoundFX(lockErrorSFX, gameObject.transform, 0.3f, 1f, 0f, 0f); //0.05
         }
         else if (MainDoor.lowestKeyCardLevel > 0)
         {
-            Debug.Log("DoorScript: Má hráè keycard? " + inventoryScript.IsKeyCardActive(MainDoor.lowestKeyCardLevel));
+            //Debug.Log("DoorScript: Má hráè keycard? " + inventoryScript.IsKeyCardActive(MainDoor.lowestKeyCardLevel));
             if (inventoryScript.IsKeyCardActive(MainDoor.lowestKeyCardLevel))
             {
                 DoorCheck();
@@ -66,6 +73,7 @@ public class LockScript : MonoBehaviour
             else
             {
                 GameManagerScript.Instance.SetTextInfo("A better key card is required");
+                SoundFXManagerScript.instance.PlaySoundFX(lockErrorSFX, gameObject.transform, 0.3f, 1f, 0f, 0f); //0.05
             }
         }
         else
@@ -78,7 +86,8 @@ public class LockScript : MonoBehaviour
     {
         if (MainDoor.doorType == DoorType.ELEVATOR && elevatorScript.elevatorIsBroken)
         {
-            GameManagerScript.Instance.SetTextInfo("Elevator is isBroken");
+            GameManagerScript.Instance.SetTextInfo("Elevator is broken");
+            SoundFXManagerScript.instance.PlaySoundFX(lockErrorSFX, gameObject.transform, 0.3f, 1f, 0f, 0f); //0.05
             //Debug.Log("LockScript: Elevator is isBroken");
         }
         else if (MainDoor.doorType == DoorType.ELEVATOR && floor != elevatorScript.currentFloor)
@@ -104,22 +113,22 @@ public class LockScript : MonoBehaviour
         {
             foreach (DoorScript doorScript in doors)
             {
-                doorScript.gameObject.GetComponent<NavMeshObstacle>().enabled = true;
+                //doorScript.gameObject.GetComponent<NavMeshObstacle>().enabled = true;
                 coroutine = StartCoroutine(doorScript.DoSlidingClose());
+                //doorScript.DoSlidingClose();  // Až budou animace
+
             }
         }
         else if (!MainDoor.isOpen && MainDoor.isActive)
         {
             foreach (DoorScript doorScript in doors)
             {
-                doorScript.gameObject.GetComponent<NavMeshObstacle>().enabled = false;
+                //doorScript.gameObject.GetComponent<NavMeshObstacle>().enabled = false;
                 coroutine = StartCoroutine(doorScript.DoSlidingOpen());
+                //doorScript.DoSlidingOpen();   // Až budou animace
             }
         }
-        else
-        {
-            // Zvuk pøi spamování
-        }
+        //else //spam
     }
 
     void SetupForElevator()

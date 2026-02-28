@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class FlashLightController : MonoBehaviour
 {
+    public Transform player;
     public static FlashLightController Instance;
     public InventoryScript inventoryScript;
     public bool isActive;
     public Light spot;
+    [SerializeField] private AudioClip[] lightSwitchClicks;
 
     void Awake()
     {
@@ -32,6 +34,7 @@ public class FlashLightController : MonoBehaviour
     {
         if (inventoryScript.IsFlashLightActive())
         {
+            SoundFXManagerScript.instance.PlaySoundFX(lightSwitchClicks, player, 0.08f);
             isActive = active;
             spot.enabled = active;
         }

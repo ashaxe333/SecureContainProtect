@@ -3,7 +3,12 @@ guid: 099c466a8fb9c7c49a522a9bc5008de5
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Blue_Leather
+    second: {fileID: 2100000, guid: d6027153999303d4bbf30c034ca89506, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

@@ -12,6 +12,16 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: MetalBlack
+    second: {fileID: 2100000, guid: 772da049be7aafd42bddd7b1291be7da, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: MetalGrating2
+    second: {fileID: 2100000, guid: da6fa35d42554b14380d2c009a85dde7, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: SA_Ceiling
     second: {fileID: 2100000, guid: 60869f76ac9b44e48aec4b4c14c2ce65, type: 2}
   - first:

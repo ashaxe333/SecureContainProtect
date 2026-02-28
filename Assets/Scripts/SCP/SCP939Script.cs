@@ -102,13 +102,6 @@ public class SCP939Script : MonoBehaviour
                     followDistance = runTriggerDistance;
                     break;
             }
-            /*
-            if (distanceToPlayer <= followDistance)
-            {
-                isTriggered = true;
-                playerMemory = playerMemoryDuration;
-            }
-            */
         }
 
         
