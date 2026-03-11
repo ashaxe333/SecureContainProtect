@@ -11,6 +11,7 @@ public class GameStateManagerScript : MonoBehaviour
     private GameObject player;
     private PlayerController playerController;
     private PlayerInteractScript playerInteractScript;
+    private InventoryScript inventoryScript;
 
     public GameObject pauseMenu;
     private PauseMenuScript pauseMenuScript;
@@ -39,6 +40,7 @@ public class GameStateManagerScript : MonoBehaviour
         optionsMenuScript = gameObject.GetComponent<OptionsMenuScript>();
         playerController = player.GetComponent<PlayerController>();
         playerInteractScript = player.GetComponent<PlayerInteractScript>();
+        inventoryScript = player.GetComponent<InventoryScript>();
         lockRayScript = GameManagerScript.Instance.GetComponent<LockRayScript>();
 
         CurrentState = GameState.GAMEPLAY;
@@ -68,25 +70,25 @@ public class GameStateManagerScript : MonoBehaviour
         {
             case GameState.GAMEPLAY:
                 Time.timeScale = 1;
-                EnableInput(true, true, true);
+                EnableInput(true, true, true, true);
                 CursorManagerScript.Instance.HideCursor();
                 break;
 
             case GameState.INVENTORY:
                 Time.timeScale = 1;
-                EnableInput(true, false, false);
+                EnableInput(true, false, false, true);
                 CursorManagerScript.Instance.ShowCursor();
                 break;
 
             case GameState.PAUSE:
                 Time.timeScale = 0;
-                EnableInput(false, false, false);
+                EnableInput(false, false, false, false);
                 CursorManagerScript.Instance.ShowCursor();
                 break;
 
             case GameState.CUTSCENE:
                 Time.timeScale = 0;
-                EnableInput(false, false, false);
+                EnableInput(false, false, false, false);
                 CursorManagerScript.Instance.HideCursor();
                 break;
         }
@@ -141,12 +143,13 @@ public class GameStateManagerScript : MonoBehaviour
     /// <param name="movementEnable"> pohyb </param>
     /// <param name="cameraEnable"> kamera </param>
     /// <param name="interactEnable"> interakce </param>
-    public void EnableInput(bool movementEnable, bool cameraEnable, bool interactEnable)
+    public void EnableInput(bool movementEnable, bool cameraEnable, bool interactEnable, bool keyEnable)
     {
         if (player != null)
         {
             playerController.SetMovementEnabled(movementEnable);
             playerController.SetCameraEnabled(cameraEnable);
+            inventoryScript.SetKeyEnabled(keyEnable);
             playerInteractScript.SetInteractEnable(interactEnable);
             lockRayScript.SetInteractEnable(interactEnable);
         }

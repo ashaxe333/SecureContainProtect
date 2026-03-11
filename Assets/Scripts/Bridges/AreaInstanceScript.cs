@@ -7,7 +7,7 @@ public class AreaInstanceScript : MonoBehaviour
 {
     public AreaData sourceData;
     public List<Transform> spawnPoints = new List<Transform>();
-    [HideInInspector] public int floor;
+    public int floor;
     //public GameObject saveSpawnPoint;
     public GameObject scp173;
 
@@ -23,12 +23,10 @@ public class AreaInstanceScript : MonoBehaviour
     {
         if (spawnPoints.Count == 0)
         {
-            Debug.Log($"AreaInstanceScript: No spawn points assigned in {gameObject.name}!");
+            //Debug.Log($"AreaInstanceScript: No spawn points assigned in {gameObject.name}!");
             //return saveSpawnPoint.transform.position;
             return scp173.transform.position;
         }
-
-        floor = (int)sourceData.floor;
 
         int index = Random.Range(0, spawnPoints.Count);
         float offsetY = Random.Range(-4f, 4f);
@@ -38,11 +36,12 @@ public class AreaInstanceScript : MonoBehaviour
         return new Vector3(spawn.position.x + offsetX, spawn.position.y + offsetY, spawn.position.z);
     }
 
+    /// <summary>
+    /// Nastavuje novou current areu
+    /// </summary>
     public void PlayerEntered()
     {
-        //Debug.Log("Player entered" + sourceData.name);
-        //AreaManager.Instance.currentArea = this.gameObject;  // this.GameObject(); - Z nìjakého dùvodu není platný
-
-        AreaManager.Instance.currentArea = this.gameObject;  // this.GameObject(); - Z nìjakého dùvodu není platný
+        Debug.Log($"AreaInstanceScript: Player entered {gameObject.name} ({sourceData.name})");
+        AreaManager.Instance.currentArea = this.gameObject;
     }
 }

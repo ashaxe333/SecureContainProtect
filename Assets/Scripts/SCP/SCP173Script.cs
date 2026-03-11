@@ -24,7 +24,7 @@ public class SCP173Script : MonoBehaviour
     [SerializeField] private AudioClip jumpscareSoundFX;
 
     private float distanceToPLayer;
-    //public GameObject startingSpawn;
+    public GameObject[] prohibitedAreas;
 
     [SerializeField] private LayerMask raycastLayerMask;
     private float timer;
@@ -51,7 +51,7 @@ public class SCP173Script : MonoBehaviour
     void Update()
     {
         timer -= Time.deltaTime;
-        if (jumpScareTimer > -1) jumpScareTimer -= Time.deltaTime;
+        if (!ProhibitedSpawnAreas()) jumpScareTimer -= Time.deltaTime;
         //Debug.Log(objectMemory);
 
         FollowPlayer();
@@ -81,7 +81,6 @@ public class SCP173Script : MonoBehaviour
             {
                 //Debug.Log("Trefil jsem hráèe");
                 hasSeenPlayer = true;
-                //timer = 30f;
                 timer = spawnDuration * 2;
                 playerLastPosition = player.transform.position;
             }
@@ -173,6 +172,9 @@ public class SCP173Script : MonoBehaviour
     {
         int random = Random.Range(0, 20);
 
+        // Pokud po 15 minutách nenastal ani jeden Jumpscare, tak se stane hned
+        if (jumpScareTimer < -300f) random = 0;
+
         switch (random)
         {
             case 0:
@@ -181,7 +183,7 @@ public class SCP173Script : MonoBehaviour
                 {
                     scp173.Warp(AreaManager.Instance.jumpScareWayPoint.transform.position);
                     SoundFXManagerScript.instance.PlaySoundFX(jumpscareSoundFX, player.transform, 0.7f, 1f, 0f, 0f);
-                    jumpScareTimer = 600f;  // mùže udìlat jumpsacre znova aý po 10-ti minutách
+                    jumpScareTimer = 600f;  // mùže udìlat jumpsacre znova až po 10-ti minutách
                 } 
                 else 
                     scp173.Warp(AreaManager.Instance.GetClosestNonPlayerRoom().GetComponent<AreaInstanceScript>().GetRandomSpawnPoint()); //když nevyjde jumpscare, spawne se do nejbližší místnosti
@@ -195,10 +197,28 @@ public class SCP173Script : MonoBehaviour
                 break;
 
             default:
-                //Debug.Log("SCP173Script: To random corridor");    GetComponent<AreaInstanceScript>().
+                //Debug.Log("SCP173Script: To random corridor");
                 scp173.Warp(AreaManager.Instance.GetRandomNonPlayerRoom().GetComponent<AreaInstanceScript>().GetRandomSpawnPoint());
                 timer = spawnDuration;
                 break;
         }
+    }
+
+    /// <summary>
+    /// Kontroluje, jestli se hráè nenachází v místnosti, kam se SCP173 nemùže spawnout na jumpscare
+    /// </summary>
+    /// <returns></returns>
+    public bool ProhibitedSpawnAreas()
+    {
+        bool result = false;
+        for (int i = 0; i < prohibitedAreas.Length; i++)
+        {
+            if (prohibitedAreas[i] == AreaManager.Instance.currentArea)
+            {
+                result = true;
+                break;
+            }
+        }
+        return result;
     }
 }

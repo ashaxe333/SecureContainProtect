@@ -68,11 +68,11 @@ public class ElevatorSript : MonoBehaviour
 
         if (Physics.Raycast(ray, out hit, 5.0f, 1 << 9))
         {
-            Debug.Log("ElevatorScript: dolu/nahoru");
+            //Debug.Log("ElevatorScript: dolu/nahoru");
 
             if (Input.GetMouseButtonDown(0))
             {
-                Debug.Log("ElevatorScript: hitnul jsem button");
+                //Debug.Log("ElevatorScript: hitnul jsem button");
                 clickedObject = hit.collider.gameObject;
 
                 if (clickedObject == upButton || clickedObject == downButton)
@@ -111,13 +111,13 @@ public class ElevatorSript : MonoBehaviour
     {
         if (doorScript.isOpen && doorScript.isActive)
         {
-            //doorScript.door_NMO.enabled = true;
+            //doorScript.door_NMO.isEnabled = true;
             //doorScript.DoSlidingClose();
             coroutine = StartCoroutine(doorScript.DoSlidingClose());
         }
         else if (!doorScript.isOpen && doorScript.isActive && !closedDoorClickedButton)
         {
-            //currentDoor.GetComponent<NavMeshObstacle>().enabled = false;
+            //currentDoor.GetComponent<NavMeshObstacle>().isEnabled = false;
             //doorScript.DoSlidingOpen();
             coroutine = StartCoroutine(doorScript.DoSlidingOpen());
         }
@@ -139,7 +139,7 @@ public class ElevatorSript : MonoBehaviour
             {
                 nextFloor -= 1;
                 SetupCurrentFloor();
-                Debug.Log("ElevatorScript: vzdálenost = " + portLength);
+                //Debug.Log("ElevatorScript: vzdálenost = " + portLength);
                 elevator.transform.position = new Vector3(elevator.transform.position.x, elevator.transform.position.y - portLength, elevator.transform.position.z);
                 player.GetComponent<CharacterController>().enabled = false;
                 player.transform.position = new Vector3(player.transform.position.x, player.transform.position.y - portLength, player.transform.position.z);
@@ -151,7 +151,7 @@ public class ElevatorSript : MonoBehaviour
             {
                 nextFloor += 1;
                 SetupCurrentFloor();
-                Debug.Log("ElevatorScript: vzdálenost = " + portLength);
+                //Debug.Log("ElevatorScript: vzdálenost = " + portLength);
                 elevator.transform.position = new Vector3(elevator.transform.position.x, elevator.transform.position.y + portLength, elevator.transform.position.z);
                 player.GetComponent<CharacterController>().enabled = false;
                 player.transform.position = new Vector3(player.transform.position.x, player.transform.position.y + portLength, player.transform.position.z);
@@ -194,13 +194,13 @@ public class ElevatorSript : MonoBehaviour
 
             if (direction == 0)
             {
-                Debug.Log($"ElevatorScript: direction = {direction}, vzdálenost = {portLength}");
+                //Debug.Log($"ElevatorScript: direction = {direction}, vzdálenost = {portLength}");
                 elevator.transform.position = new Vector3(elevator.transform.position.x, elevator.transform.position.y - portLength, elevator.transform.position.z);
                 currentFloor = nextFloor;
             }
             else if (direction == 1)
             {
-                Debug.Log($"ElevatorScript: direction = {direction}, vzdálenost = {portLength}");
+                //Debug.Log($"ElevatorScript: direction = {direction}, vzdálenost = {portLength}");
                 elevator.transform.position = new Vector3(elevator.transform.position.x, elevator.transform.position.y + portLength, elevator.transform.position.z);
                 currentFloor = nextFloor;
             }
@@ -212,7 +212,7 @@ public class ElevatorSript : MonoBehaviour
             hasPorted = false;
             timer = 9.0f;
             DoorMove(false);
-            Debug.Log("otevírám");
+            //Debug.Log("otevírám");
         }
     }
 

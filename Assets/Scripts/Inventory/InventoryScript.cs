@@ -13,6 +13,7 @@ public class InventoryScript : MonoBehaviour
     public EquipmentSlotScript activeHeadSlot;
     public EquipmentSlotScript activeHandSlot;
     public GameObject inventory;
+    private bool keyEnabled = true;
 
     public GameObject maskVision;
 
@@ -34,7 +35,8 @@ public class InventoryScript : MonoBehaviour
 
     void Update()
     {
-        ShowInventory();
+        if (keyEnabled)
+            ShowInventory();
     }
 
     /// <summary>
@@ -228,5 +230,14 @@ public class InventoryScript : MonoBehaviour
 
         Quaternion rotation = Quaternion.Euler(90f, 0f, 0f);
         Instantiate(inventoryItem.itemData.prefab, position, rotation);
+    }
+
+    /// <summary>
+    /// Urèuje, jestli hráè bude moct chodit
+    /// </summary>
+    /// <param name="enabled"> true/false </param>
+    public void SetKeyEnabled(bool enabled)
+    {
+        keyEnabled = enabled;
     }
 }

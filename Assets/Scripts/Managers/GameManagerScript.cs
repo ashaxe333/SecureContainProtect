@@ -31,7 +31,7 @@ public class GameManagerScript : MonoBehaviour
         if (Instance == null)
         {
             Instance = this;
-            //DontDestroyOnLoad(gameObject); // neznièí instanci pøi pøechodu do jiné scény
+            //DontDestroyOnLoad(gameObject);    // NEznièí instanci pøi pøechodu do jiné scény
         }
         else
         {

@@ -34,7 +34,7 @@ public class TriggerScript : MonoBehaviour
         if (other.gameObject.CompareTag("Player") && newCurrentFloor != GameManagerScript.Instance.currentFloor)
         {
             GameManagerScript.Instance.currentFloor = newCurrentFloor;
-            Debug.Log($"TriggerScript: new current floor = {GameManagerScript.Instance.currentFloor}");
+            //Debug.Log($"TriggerScript: new current floor = {GameManagerScript.Instance.currentFloor}");
         }
     }
 

@@ -16,6 +16,9 @@ public class SCP939Script : MonoBehaviour
     public Animator animator;
     private GameObject hitObject;
 
+    [SerializeField] private AudioClip[] clips;
+    private float randomSoundTimer;
+
     private float followDistance;
     private float distanceToPlayer;
     private float distanceToTarget;
@@ -195,6 +198,8 @@ public class SCP939Script : MonoBehaviour
     }
 
     /*
+     * Má dìlat to, že i když se agentovi odøíznì cesta, pùjde co nejblíž k hráèí - NEFUNGUJE
+     * 
     private Vector3 GetReachablePosition(Vector3 targetPos)
     {
         NavMeshPath path = new NavMeshPath();
@@ -223,8 +228,8 @@ public class SCP939Script : MonoBehaviour
     /// Vyvolá útok na hráèe
     /// </summary>
     private void AttackPlayer()
-    {
-        if (distanceToPlayer <= 4f && !isAttacking)
+    {                                                 // ZATÍM zde tuto metodu tak lze použít
+        if (distanceToPlayer <= 4f && !isAttacking && HasHearingContact())
         {
             Debug.Log($"SCP939Script: Attack!");
             animator.SetTrigger("Attack");
@@ -323,5 +328,17 @@ public class SCP939Script : MonoBehaviour
             scp939.isStopped = false;
             attackTime = 2f;
         }
+    }
+
+    public void MakeNoise()
+    {
+        if(randomSoundTimer >= 0)
+            randomSoundTimer -= Time.deltaTime;
+        else
+        {
+            SoundFXManagerScript.instance.PlaySoundFX(clips, gameObject.transform, 0.5f);
+            randomSoundTimer = Random.Range(10, 120);
+        }
+        
     }
 }

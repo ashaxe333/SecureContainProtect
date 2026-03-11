@@ -9,6 +9,7 @@ public class AreaManager : MonoBehaviour
 {
     // MOZNA:
     // pøidat currentAreas, což bude pøedstavovat list s aktualními chodbami. Odtud bude broadcast loadovat spawny, a ne z areas. Kvùli patrùm - jsem na F1, scp tahá z F1
+
     public static AreaManager Instance { get; private set; }    //staticky mùžu pøistupovat ke tøídì AreaManager + èíst mùžu všude, ale mìnit jen tady
 
     public List<AreaData> allAreaTypes;
@@ -27,9 +28,7 @@ public class AreaManager : MonoBehaviour
             //DontDestroyOnLoad(gameObject); // neznièí instanci pøi pøechodu do jiné scény
         }
         else
-        {
             Destroy(gameObject); // znièí duplicitní instanci
-        }
 
         LoadAreas();
     }
@@ -46,17 +45,26 @@ public class AreaManager : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Získá náhodnou areu
+    /// </summary>
+    /// <returns> area </returns>
     public GameObject GetRandomNonPlayerRoom()
     {
-        //Debug.Log("poèet chodeb: " + areas.Count);
         areas.Remove(currentArea);
-        //Debug.Log("poèet chodeb: " + areas.Count);
         int index = Random.Range(0, areas.Count);
+
+        while (areas[index].GetComponent<AreaInstanceScript>().floor != GameManagerScript.Instance.currentFloor)    // DOÈASNÝ - Hlídá, aby se SCP173 spawnoval do stejného patra jako je hráè
+            index = Random.Range(0, areas.Count);
+
         areas.Add(currentArea);
-        //Debug.Log("poèet chodeb: " + areas.Count);
         return areas[index];
     }
 
+    /// <summary>
+    /// Získá nejbližší areu k hráèi    VZDUŠNOU ÈASOU ALE !
+    /// </summary>
+    /// <returns> area </returns>
     public GameObject GetClosestNonPlayerRoom()
     {
         float min = float.MaxValue;

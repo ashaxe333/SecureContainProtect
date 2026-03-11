@@ -44,7 +44,7 @@ public class LockScript : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player");
         inventoryScript = player.GetComponent<InventoryScript>();
 
-        //door.GetComponent<NavMeshObstacle>().enabled = true;
+        //door.GetComponent<NavMeshObstacle>().isEnabled = true;
 
         //audioSource = GetComponent<AudioSource>();
         //doorOpeningAudio = Resources.Load<AudioClip>("Sounds/");
@@ -82,6 +82,9 @@ public class LockScript : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Kontroluje, jestli je v˝tah v provozu, a p¯ÌpadnÏ otev¯e dve¯e
+    /// </summary>
     void DoorCheck()
     {
         if (MainDoor.doorType == DoorType.ELEVATOR && elevatorScript.elevatorIsBroken)
@@ -113,29 +116,44 @@ public class LockScript : MonoBehaviour
         {
             foreach (DoorScript doorScript in doors)
             {
-                //doorScript.gameObject.GetComponent<NavMeshObstacle>().enabled = true;
+                //doorScript.gameObject.GetComponent<NavMeshObstacle>().isEnabled = true;
                 coroutine = StartCoroutine(doorScript.DoSlidingClose());
                 //doorScript.DoSlidingClose();  // Aû budou animace
-
+                if (OpensGate()) TriggerEndScript.instance.SetEnabled(false);
             }
         }
         else if (!MainDoor.isOpen && MainDoor.isActive)
         {
             foreach (DoorScript doorScript in doors)
             {
-                //doorScript.gameObject.GetComponent<NavMeshObstacle>().enabled = false;
+                //doorScript.gameObject.GetComponent<NavMeshObstacle>().isEnabled = false;
                 coroutine = StartCoroutine(doorScript.DoSlidingOpen());
                 //doorScript.DoSlidingOpen();   // Aû budou animace
+                if (OpensGate()) TriggerEndScript.instance.SetEnabled(true);
             }
         }
         //else //spam
     }
 
+    /// <summary>
+    /// NastavÌ elevatorScript, pokud jsou dve¯e typu ELEVATOR
+    /// </summary>
     void SetupForElevator()
     {
         if (MainDoor.doorType == DoorType.ELEVATOR)
         {
             elevatorScript = elevator.GetComponent<ElevatorSript>();
         }
+    }
+
+    /// <summary>
+    /// Zjiöùuje, jestli z·mÏk otevÌr· ˙nikovÈ dve¯e
+    /// </summary>
+    /// <returns> bool </returns>
+    bool OpensGate()
+    {
+        if(gameObject.CompareTag("GateBOpen"))
+            return true;
+        return false;
     }
 }
