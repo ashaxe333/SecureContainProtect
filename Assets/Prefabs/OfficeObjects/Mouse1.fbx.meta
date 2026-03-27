@@ -3,7 +3,22 @@ guid: 70ef8126c05c38f4da2c277b36d6f4c5
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Display
+    second: {fileID: 2100000, guid: c53112816e86a4b47aec88e1c6dc020f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Plastic_Rough
+    second: {fileID: 2100000, guid: 3e38ebebfd283364baeca53ff374b27a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Plastic_Smooth
+    second: {fileID: 2100000, guid: c0766e0417672e54ab290eb8659202e7, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

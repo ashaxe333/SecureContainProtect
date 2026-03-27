@@ -106,10 +106,7 @@ public class SCP173Script : MonoBehaviour
         if (hasSeenPlayer)
         {
             if (timer > 0)
-            {
-                //objectMemory -= Time.deltaTime;
                 scp173.SetDestination(playerLastPosition);
-            }
             else
             {
                 hasSeenPlayer = false;
@@ -119,9 +116,7 @@ public class SCP173Script : MonoBehaviour
         else
         {
             if (timer < 0)
-            {
                 Patrol();
-            }
         }
     }
 
@@ -166,7 +161,7 @@ public class SCP173Script : MonoBehaviour
     }
 
     /// <summary>
-    /// SCP173 se bude náhodnì portovat do buïto náhodný chodby, do nejbližší chodby k hráèi, nebo vzácnì pøímo pøed hráèe
+    /// SCP173 bude náhodnì portolovat do náhodný chodby, do nejbližší chodby k hráèi, nebo vzácnì pøímo pøed hráèe
     /// </summary>
     void Patrol()
     {
@@ -185,8 +180,9 @@ public class SCP173Script : MonoBehaviour
                     SoundFXManagerScript.instance.PlaySoundFX(jumpscareSoundFX, player.transform, 0.7f, 1f, 0f, 0f);
                     jumpScareTimer = 600f;  // mùže udìlat jumpsacre znova až po 10-ti minutách
                 } 
-                else 
-                    scp173.Warp(AreaManager.Instance.GetClosestNonPlayerRoom().GetComponent<AreaInstanceScript>().GetRandomSpawnPoint()); //když nevyjde jumpscare, spawne se do nejbližší místnosti
+                else
+                    //když nevyjde jumpscare, spawne se do nejbližší místnosti
+                    scp173.Warp(AreaManager.Instance.GetClosestNonPlayerRoom().GetComponent<AreaInstanceScript>().GetRandomSpawnPoint()); 
                 timer = spawnDuration;
                 break;
 

@@ -54,7 +54,8 @@ public class AreaManager : MonoBehaviour
         areas.Remove(currentArea);
         int index = Random.Range(0, areas.Count);
 
-        while (areas[index].GetComponent<AreaInstanceScript>().floor != GameManagerScript.Instance.currentFloor)    // DOÈASNÝ - Hlídá, aby se SCP173 spawnoval do stejného patra jako je hráè
+        // DOÈASNÝ - Hlídá, aby se SCP173 spawnoval do stejného patra jako je hráè
+        while (areas[index].GetComponent<AreaInstanceScript>().floor != GameManagerScript.Instance.currentFloor)
             index = Random.Range(0, areas.Count);
 
         areas.Add(currentArea);
@@ -62,7 +63,7 @@ public class AreaManager : MonoBehaviour
     }
 
     /// <summary>
-    /// Získá nejbližší areu k hráèi    VZDUŠNOU ÈASOU ALE !
+    /// Získá nejbližší areu k hráèi    (VZDUŠNOU ÈAROU ALE -> v budoucnu pøidat každé aree list tìch navazujících - to budou ty nejbližší)
     /// </summary>
     /// <returns> area </returns>
     public GameObject GetClosestNonPlayerRoom()

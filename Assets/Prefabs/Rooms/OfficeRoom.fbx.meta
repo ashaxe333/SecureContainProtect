@@ -29,6 +29,11 @@ ModelImporter:
       assembly: UnityEngine.CoreModule
       name: MetalDarkGrey
     second: {fileID: 2100000, guid: 38ee88d2f19745448b8f3389e90e4310, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Pruhledny
+    second: {fileID: 2100000, guid: 38d8f88fe4f721446b2600aa0ce932bf, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

@@ -42,6 +42,26 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: SA_Ceiling1
+    second: {fileID: 2100000, guid: 35a564ee08d2ba746adf3a7878166ccd, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: SA_ConcreteWall1
+    second: {fileID: 2100000, guid: 07c1029917d5f28438deec5f44e9bd40, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: SA_Floor1
+    second: {fileID: 2100000, guid: 9fb2b6b479f3b7643bddad3e59666ce3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: StairsRoom_ConcreteFloor
+    second: {fileID: 2100000, guid: eee0c80b0311ba441810dfdeeac719d2, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: WarningSign
     second: {fileID: 2100000, guid: d6ed95236ade26f4ab18e0179d06174d, type: 2}
   materials:

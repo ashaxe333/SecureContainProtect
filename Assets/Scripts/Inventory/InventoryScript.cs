@@ -85,15 +85,14 @@ public class InventoryScript : MonoBehaviour
     /// <param name="collected"> sebraný item </param>
     public void Add(ItemData collected)
     {
-        SoundFXManagerScript.instance.PlaySoundFX(pickItemsSoundFX, gameObject.transform, 0.1f);
         bool show = true;
 
         foreach (InventorySlot slot in slotScripts)
         {
             if (!slot.used)
             {
+                SoundFXManagerScript.instance.PlaySoundFX(pickItemsSoundFX, gameObject.transform, 0.1f);
                 InventoryItem invItem = new InventoryItem(collected);
-
                 slot.SetItem(invItem);
                 show = false;
                 return;
