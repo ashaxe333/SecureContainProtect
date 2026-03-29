@@ -57,5 +57,4 @@ public class OptionsMenuScript : MonoBehaviour
                 break;
         }
     }
-
 }

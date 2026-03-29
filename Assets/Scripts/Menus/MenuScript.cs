@@ -9,15 +9,14 @@ public class MenuScript : MonoBehaviour
     public GameObject playBTN;
     public GameObject exitBTN;
     public GameObject helpBTN;
-    public GameObject tutorialPanel;
-
-    public GameObject panel;
-    public GameObject generals;
+    public GameObject optionMenu;
+    public GameObject generalsMenu;
+    public GameObject menuPanel;
 
     private void Start()
     {
         CursorManagerScript.Instance.ShowCursor();
-        tutorialPanel.SetActive(false);
+        optionMenu.SetActive(false);
     }
 
     /// <summary>
@@ -39,29 +38,20 @@ public class MenuScript : MonoBehaviour
     }
 
     /// <summary>
-    /// Ukáže panel s tutoriálem
+    /// Otevøe options menu
     /// </summary>
-    public void ShowTutorial()
+    public void OpenOptions()
     {
-        playBTN.SetActive(false);
-        exitBTN.SetActive(false);
-        helpBTN.SetActive(false);
-        tutorialPanel.SetActive(true);
-    }
-
-    public void ShowOptionPanel()
-    {
-
+        optionMenu.SetActive(true);
+        generalsMenu.SetActive(true);
+        menuPanel.SetActive(false);
     }
 
     /// <summary>
-    /// Vrací zpìt na menu z tutoriálu
+    /// Zavøe options menu
     /// </summary>
-    public void Back()
+    public void CloseOptions()
     {
-        tutorialPanel.SetActive(false);
-        playBTN.SetActive(true);
-        exitBTN.SetActive(true);
-        helpBTN.SetActive(true);
+        optionMenu.SetActive(false);
     }
 }
