@@ -30,7 +30,7 @@ public class SCP173Script : MonoBehaviour
     private float timer;
     private float jumpScareTimer = 300f;    // nesmí hráèe jumpscarenout prvních 5 minut hry
     private bool hasSeenPlayer;
-    private float spawnDuration = 15.0f;
+    private float spawnDuration = 7.0f;
     private float killDistance = 3.0f;      // dobrý tøeba pro nastavení obtížnosti. 4f už nic neodpustí, 3f je ještì "milý"
     Vector3 playerLastPosition;
 
@@ -178,11 +178,15 @@ public class SCP173Script : MonoBehaviour
                 {
                     scp173.Warp(AreaManager.Instance.jumpScareWayPoint.transform.position);
                     SoundFXManagerScript.instance.PlaySoundFX(jumpscareSoundFX, player.transform, 0.7f, 1f, 0f, 0f);
+                    BlinkScript.Instance.currentTime = BlinkScript.Instance.blinkTimer;
                     jumpScareTimer = 600f;  // mùže udìlat jumpsacre znova až po 10-ti minutách
-                } 
-                else
+                }
+                else 
+                { 
                     //když nevyjde jumpscare, spawne se do nejbližší místnosti
-                    scp173.Warp(AreaManager.Instance.GetClosestNonPlayerRoom().GetComponent<AreaInstanceScript>().GetRandomSpawnPoint()); 
+                    scp173.Warp(AreaManager.Instance.GetClosestNonPlayerRoom().GetComponent<AreaInstanceScript>().GetRandomSpawnPoint());
+                    Debug.Log("< 5 minut");
+                }
                 timer = spawnDuration;
                 break;
 

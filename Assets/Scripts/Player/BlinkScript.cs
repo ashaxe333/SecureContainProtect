@@ -6,13 +6,24 @@ using UnityEngine.UI;
 public class BlinkScript : MonoBehaviour
 {
     public Image fadeImage;
-    private float blinkTimer = 15.0f;
-    private float currentTime;
+    [HideInInspector] public float blinkTimer = 15.0f;
+    [HideInInspector] public float currentTime;
 
-    private float blinkDuration;
+    [HideInInspector] public float blinkDuration;
     public bool isBlinking = false;
 
     public Slider blinkSlider;
+
+    public static BlinkScript Instance { get; private set; }
+
+    private void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else Destroy(Instance);
+    }
 
     // Start is called before the first frame update
     void Start()

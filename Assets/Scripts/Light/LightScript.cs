@@ -9,6 +9,7 @@ public class LightScript : MonoBehaviour
     private bool isOn = true;
     private bool isInRange;
     public int floor;   // užiteèné v pøípadì, že nemám optimalizaci svìta, jen svìtel
+    public GameObject partentArea;
 
     void Awake()
     {

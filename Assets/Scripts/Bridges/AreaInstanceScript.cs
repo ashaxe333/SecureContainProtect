@@ -10,6 +10,7 @@ public class AreaInstanceScript : MonoBehaviour
     public int floor;
     //public GameObject saveSpawnPoint;
     public GameObject scp173;
+    public List<Light> lights = new List<Light>();
 
     void Awake()
     {
@@ -17,6 +18,17 @@ public class AreaInstanceScript : MonoBehaviour
         scp173 = GameObject.FindGameObjectWithTag("173");
 
         if (scp173 == null) Debug.Log("Není broadcast!!");
+    }
+
+    void Update()
+    {
+        if (this.gameObject == AreaManager.Instance.currentArea)
+        {
+            foreach (Light light in lights)
+            {
+                light.enabled = false;
+            }
+        }
     }
 
     public Vector3 GetRandomSpawnPoint()

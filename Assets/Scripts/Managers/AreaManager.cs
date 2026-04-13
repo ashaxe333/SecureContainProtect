@@ -7,8 +7,6 @@ using UnityEngine.SocialPlatforms;
 
 public class AreaManager : MonoBehaviour
 {
-    // MOZNA:
-    // pøidat currentAreas, což bude pøedstavovat list s aktualními chodbami. Odtud bude broadcast loadovat spawny, a ne z areas. Kvùli patrùm - jsem na F1, scp tahá z F1
 
     public static AreaManager Instance { get; private set; }    //staticky mùžu pøistupovat ke tøídì AreaManager + èíst mùžu všude, ale mìnit jen tady
 
