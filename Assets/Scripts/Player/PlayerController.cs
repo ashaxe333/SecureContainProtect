@@ -164,7 +164,7 @@ public class PlayerController : MonoBehaviour
 
         if (stepTimer <= 0f)
         {
-            SoundFXManagerScript.instance.PlaySoundFX(footsteps, transform, volume);
+            SoundFXManagerScript.instance.PlaySoundFX(footsteps, transform, volume, false);
             stepTimer = delay;
         }
     }

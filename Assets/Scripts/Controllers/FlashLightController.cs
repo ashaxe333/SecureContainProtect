@@ -34,7 +34,7 @@ public class FlashLightController : MonoBehaviour
     {
         if (inventoryScript.IsFlashLightActive())
         {
-            SoundFXManagerScript.instance.PlaySoundFX(lightSwitchClicks, player, 0.08f);
+            SoundFXManagerScript.instance.PlaySoundFX(lightSwitchClicks, player, 0.08f, false);
             isActive = active;
             spot.enabled = active;
         }

@@ -91,7 +91,7 @@ public class InventoryScript : MonoBehaviour
         {
             if (!slot.used)
             {
-                SoundFXManagerScript.instance.PlaySoundFX(pickItemsSoundFX, gameObject.transform, 0.1f);
+                SoundFXManagerScript.instance.PlaySoundFX(pickItemsSoundFX, gameObject.transform, 0.1f, false);
                 InventoryItem invItem = new InventoryItem(collected);
                 slot.SetItem(invItem);
                 show = false;

@@ -337,8 +337,8 @@ public class SCP939Script : MonoBehaviour
             randomSoundTimer -= Time.deltaTime;
         else
         {
-            SoundFXManagerScript.instance.PlaySoundFX(clips, gameObject.transform, 1f);
-            randomSoundTimer = Random.Range(10, 120);
+            SoundFXManagerScript.instance.PlaySoundFX(clips, gameObject.transform, 0.7f, true);
+            randomSoundTimer = Random.Range(10, 60);
         }
         
     }

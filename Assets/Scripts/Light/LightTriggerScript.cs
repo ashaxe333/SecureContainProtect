@@ -9,7 +9,7 @@ public class LightTriggerScript : MonoBehaviour
 
     public void LightSwitch()
     {
-        SoundFXManagerScript.instance.PlaySoundFX(lightSwitchClicks, gameObject.transform, 0.08f);
+        SoundFXManagerScript.instance.PlaySoundFX(lightSwitchClicks, gameObject.transform, 0.08f, false);
         //Debug.Log(Time.time);
 
         for (int i = 0; i < lights.Count; i++)

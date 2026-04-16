@@ -77,7 +77,7 @@ public class ElevatorSript : MonoBehaviour
 
                 if (clickedObject == upButton || clickedObject == downButton)
                 {
-                    SoundFXManagerScript.instance.PlaySoundFX(buttonClicksSoundFX, clickedObject.transform, 0.08f);    //click
+                    SoundFXManagerScript.instance.PlaySoundFX(buttonClicksSoundFX, clickedObject.transform, 0.08f, false);    //click
 
                     if (elevatorIsBroken)
                     {
