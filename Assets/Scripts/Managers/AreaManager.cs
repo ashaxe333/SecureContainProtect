@@ -7,53 +7,47 @@ using UnityEngine.SocialPlatforms;
 
 public class AreaManager : MonoBehaviour
 {
-
     public static AreaManager Instance { get; private set; }    //staticky mùžu pøistupovat ke tøídì AreaManager + èíst mùžu všude, ale mìnit jen tady
 
     public List<AreaData> allAreaTypes;
-    public List<GameObject> areas = new List<GameObject>();
-    //public List<GameObject> currentAreas = new List<GameObject>();    // list s aktuálnì aktivníma místnostma
-    public GameObject currentArea;
+    public List<AreaInstanceScript> areas = new List<AreaInstanceScript>();
+
+    [HideInInspector] public AreaInstanceScript currentArea;    // chodba, ve které se hráè momentálnì nachází
+    [HideInInspector] public List<AreaInstanceScript> nextAreas = new List<AreaInstanceScript>();    // list s navazujícíma areama na currentArea
+    [HideInInspector] public AreaInstanceScript previousArea;    // pøedešlá currentArea
+
     public GameObject jumpScareWayPoint;
     private GameObject player;
 
     private void Awake()
     {
-        // Singleton (bez toho je Instance jen null)
-        if (Instance == null)
-        {
-            Instance = this;
-            //DontDestroyOnLoad(gameObject); // neznièí instanci pøi pøechodu do jiné scény
-        }
-        else
-            Destroy(gameObject); // znièí duplicitní instanci
-
+        Singleton();
         LoadAreas();
     }
 
     void Start()
     {
-        currentArea = areas[Random.Range(0, areas.Count)];
+        currentArea = GameObject.FindGameObjectWithTag("StartingArea").GetComponent<AreaInstanceScript>();
+        nextAreas = currentArea.nextAreas;
+
         player = GameObject.FindGameObjectWithTag("Player");
         jumpScareWayPoint = GameObject.FindGameObjectWithTag("JumpScareWP");
 
         if (jumpScareWayPoint == null) 
-        {
             Debug.Log("AreaManager: jumpScare Point!!");
-        }
     }
 
     /// <summary>
     /// Získá náhodnou areu
     /// </summary>
     /// <returns> area </returns>
-    public GameObject GetRandomNonPlayerRoom()
+    public AreaInstanceScript GetRandomNonPlayerRoom()
     {
         areas.Remove(currentArea);
         int index = Random.Range(0, areas.Count);
 
         // DOÈASNÝ - Hlídá, aby se SCP173 spawnoval do stejného patra jako je hráè
-        while (areas[index].GetComponent<AreaInstanceScript>().floor != GameManagerScript.Instance.currentFloor)
+        while (areas[index].floor != GameManagerScript.Instance.currentFloor || areas[index].spawnPoints.Count == 0)
             index = Random.Range(0, areas.Count);
 
         areas.Add(currentArea);
@@ -61,44 +55,51 @@ public class AreaManager : MonoBehaviour
     }
 
     /// <summary>
-    /// Získá nejbližší areu k hráèi    (VZDUŠNOU ÈAROU ALE -> v budoucnu pøidat každé aree list tìch navazujících - to budou ty nejbližší)
+    /// Získá nejbližší areu k hráèi
     /// </summary>
     /// <returns> area </returns>
-    public GameObject GetClosestNonPlayerRoom()
+    public AreaInstanceScript GetClosestNonPlayerRoom()
     {
-        float min = float.MaxValue;
-        int index = 0;
-
-        areas.Remove(currentArea);
-        for (int i = 0; i < areas.Count; i++)
-        {
-            if (min > Vector3.Distance(areas[i].transform.position, player.transform.position))
-            {
-                min = Vector3.Distance(areas[i].transform.position, player.transform.position);
-                index = i;
-            }
+        if (nextAreas.Count == 0)
+            return GetRandomNonPlayerRoom();
+        else if (nextAreas.Count == 1) 
+        { 
+            if (nextAreas[0].spawnPoints.Count == 0)
+                return GetRandomNonPlayerRoom();
+            else
+                return nextAreas[0];
         }
-        areas.Add(currentArea);
+        else
+        {
+            float min = float.MaxValue;
+            int index = 0;
 
-        return areas[index];
+            nextAreas.Remove(previousArea);
+            for (int i = 0; i < nextAreas.Count; i++)
+            {
+                if (nextAreas[i].spawnPoints == null || nextAreas[i].spawnPoints.Count == 0)
+                    continue;
+                if (min > Vector3.Distance(nextAreas[i].transform.position, player.transform.position))
+                {
+                    min = Vector3.Distance(nextAreas[i].transform.position, player.transform.position);
+                    index = i;
+                }
+            }
+            nextAreas.Add(previousArea);
+
+            if (min != float.MaxValue)
+                return nextAreas[index];
+            else
+                return GetRandomNonPlayerRoom();
+        }
     }
 
     /// <summary>
-    /// Naètì všechny chodby do listu, odkud broadcast bere chodby pro spawn
+    /// Naète všechny chodby do listu (odkud broadcast bere chodby pro spawn - NEIMPLEMENTOVÁNO)
     /// </summary>
     public void LoadAreas() 
     {
-        //areas = FindObjectsByType<AreaInstanceScript>(FindObjectsSortMode.None).ToList();
-        GameObject[] objectsInScene = FindObjectsByType<GameObject>(FindObjectsSortMode.None); 
-
-        foreach (GameObject obj in objectsInScene) 
-        { 
-            if (obj.layer == LayerMask.NameToLayer("Areas")) 
-            { 
-                areas.Add(obj); 
-            } 
-        }
-
+        areas = FindObjectsByType<AreaInstanceScript>(FindObjectsSortMode.None).ToList();
         Debug.Log("areas count: " + areas.Count);
     }
 
@@ -136,6 +137,25 @@ public class AreaManager : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Singleton (bez toho je Instance jen null)
+    /// </summary>
+    public void Singleton()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+            //DontDestroyOnLoad(gameObject); // neznièí instanci pøi pøechodu do jiné scény
+        }
+        else
+            Destroy(gameObject); // znièí duplicitní instanci
+    }
+
+
+
+
+
+
     // Pro broadcast, aby pøi optimalizaci vybíralo zprávný spawny
     /*
     public void LoadCurrentAreas()
@@ -151,7 +171,6 @@ public class AreaManager : MonoBehaviour
                     }
                 }
                 break;
-
         }
     }
     */

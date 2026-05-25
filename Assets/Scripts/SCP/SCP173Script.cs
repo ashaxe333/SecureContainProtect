@@ -51,7 +51,8 @@ public class SCP173Script : MonoBehaviour
     void Update()
     {
         timer -= Time.deltaTime;
-        if (!ProhibitedSpawnAreas()) jumpScareTimer -= Time.deltaTime;
+        if (!ProhibitedSpawnAreas())
+            jumpScareTimer -= Time.deltaTime;
         //Debug.Log(objectMemory);
 
         FollowPlayer();
@@ -86,12 +87,12 @@ public class SCP173Script : MonoBehaviour
             }
         }
         /*
-        if(RayHitScript.instance.HitTargertFromTo(scp173.gameObject, player, 75.0f, raycastLayerMask))
+         * Místo celýho kódu výš jen toto
+        if (RayHitScript.HitTargertFromTo(scp173.gameObject, player, 75.0f, raycastLayerMask))
         {
             //Debug.Log("Trefil jsem hráèe");
             hasSeenPlayer = true;
-            timer = 30f;
-            //timer = spawnDuration * 2;
+            timer = spawnDuration * 2;
             playerLastPosition = player.transform.position;
         }
         */
@@ -165,14 +166,14 @@ public class SCP173Script : MonoBehaviour
     /// </summary>
     void Patrol()
     {
-        int random = Random.Range(0, 20);
+        int random = Random.Range(0, 100);
 
         // Pokud po 15 minutách nenastal ani jeden Jumpscare, tak se stane hned
         if (jumpScareTimer < -300f) random = 0;
 
         switch (random)
         {
-            case 0:
+            case int n when (n >= 0 && n < 5):
                 //Debug.Log("SCP173Script: To player " + random);
                 if (AreaManager.Instance.CanSpawn() && jumpScareTimer < 0f)
                 {
@@ -184,21 +185,21 @@ public class SCP173Script : MonoBehaviour
                 else 
                 { 
                     //když nevyjde jumpscare, spawne se do nejbližší místnosti
-                    scp173.Warp(AreaManager.Instance.GetClosestNonPlayerRoom().GetComponent<AreaInstanceScript>().GetRandomSpawnPoint());
+                    scp173.Warp(AreaManager.Instance.GetClosestNonPlayerRoom().GetRandomSpawnPoint());
                     Debug.Log("< 5 minut");
                 }
                 timer = spawnDuration;
                 break;
 
-            case int n when (n >= 1 && n <= 5):
-                //Debug.Log("SCP173Script: To closest corridor");
-                scp173.Warp(AreaManager.Instance.GetClosestNonPlayerRoom().GetComponent<AreaInstanceScript>().GetRandomSpawnPoint());
+            case int n when (n >= 5 && n < 25):
+                Debug.Log("SCP173Script: To closest corridor");
+                scp173.Warp(AreaManager.Instance.GetClosestNonPlayerRoom().GetRandomSpawnPoint());
                 timer = spawnDuration;
                 break;
 
             default:
                 //Debug.Log("SCP173Script: To random corridor");
-                scp173.Warp(AreaManager.Instance.GetRandomNonPlayerRoom().GetComponent<AreaInstanceScript>().GetRandomSpawnPoint());
+                scp173.Warp(AreaManager.Instance.GetRandomNonPlayerRoom().GetRandomSpawnPoint());
                 timer = spawnDuration;
                 break;
         }

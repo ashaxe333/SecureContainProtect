@@ -129,7 +129,7 @@ public class ElevatorSript : MonoBehaviour
     void PortElevator()
     {
         if (port) timer -= Time.deltaTime;
-        //SoundFXManagerScript.instance.PlaySoundFX(elevatorMoveSoundFX, elevator.transform, 0.5f, 1f, 0f, 0f);    //hukot
+        //SoundFXManagerScript.Instance.PlaySoundFX(elevatorMoveSoundFX, elevator.transform, 0.5f, 1f, 0f, 0f);    //hukot
 
         if (timer <= 1 && !hasPorted)
         {

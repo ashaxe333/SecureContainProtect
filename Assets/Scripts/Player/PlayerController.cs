@@ -94,7 +94,7 @@ public class PlayerController : MonoBehaviour
                 movement = 2.0f;
                 
             }
-            else if (Input.GetKey(KeyCode.X) && (horizontal != 0 || vertical != 0))     // w, s, a, d
+            else if (Input.GetKey(KeyCode.C) && (horizontal != 0 || vertical != 0))     // w, s, a, d
             {
                 moveDirection *= sneakSpeed;
 				movement = 0.5f;

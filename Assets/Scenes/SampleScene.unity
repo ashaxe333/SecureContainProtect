@@ -1571,7 +1571,7 @@ MonoBehaviour:
   sourceData: {fileID: 11400000, guid: 0f822678bbb92b2478f94a24ced317c2, type: 2}
   spawnPoints: []
   floor: 0
-  scp173: {fileID: 0}
+  nextAreas: []
   lights: []
 --- !u!4 &9770071 stripped
 Transform:
@@ -1694,6 +1694,7 @@ MonoBehaviour:
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
+  m_characterHorizontalScale: 1
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
@@ -3786,7 +3787,7 @@ MonoBehaviour:
   - {fileID: 1852197217}
   - {fileID: 1852197216}
   floor: 1
-  scp173: {fileID: 0}
+  nextAreas: []
   lights: []
 --- !u!1001 &25071416
 PrefabInstance:
@@ -4353,6 +4354,7 @@ MonoBehaviour:
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
+  m_characterHorizontalScale: 1
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
@@ -5374,7 +5376,7 @@ MonoBehaviour:
   - {fileID: 2020559922}
   - {fileID: 1733348110}
   floor: 1
-  scp173: {fileID: 0}
+  nextAreas: []
   lights: []
 --- !u!4 &38580151 stripped
 Transform:
@@ -8169,6 +8171,7 @@ MonoBehaviour:
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
+  m_characterHorizontalScale: 1
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
@@ -11176,7 +11179,7 @@ MonoBehaviour:
   - {fileID: 489804753}
   - {fileID: 489804752}
   floor: 1
-  scp173: {fileID: 0}
+  nextAreas: []
   lights: []
 --- !u!1 &70385413 stripped
 GameObject:
@@ -18110,7 +18113,7 @@ MonoBehaviour:
   - {fileID: 43880223}
   - {fileID: 43880222}
   floor: 2
-  scp173: {fileID: 0}
+  nextAreas: []
   lights: []
 --- !u!64 &99956752
 MeshCollider:
@@ -19068,7 +19071,7 @@ MonoBehaviour:
   - {fileID: 167740074}
   - {fileID: 167740073}
   floor: 0
-  scp173: {fileID: 0}
+  nextAreas: []
   lights: []
 --- !u!65 &110158262
 BoxCollider:
@@ -19263,7 +19266,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isOpen: 0
   isActive: 1
-  isBroken: 0
+  isBroken: 1
   lowestKeyCardLevel: 0
   doorType: 0
   startPosition: {x: 0, y: 0, z: 0}
@@ -21536,7 +21539,7 @@ MonoBehaviour:
   - {fileID: 16633826}
   - {fileID: 16633825}
   floor: 2
-  scp173: {fileID: 0}
+  nextAreas: []
   lights: []
 --- !u!64 &143033120
 MeshCollider:
@@ -22564,6 +22567,7 @@ MonoBehaviour:
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
+  m_characterHorizontalScale: 1
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
@@ -22668,7 +22672,7 @@ MonoBehaviour:
   sourceData: {fileID: 11400000, guid: 453736cf110d34042a91eed3e582009d, type: 2}
   spawnPoints: []
   floor: 1
-  scp173: {fileID: 0}
+  nextAreas: []
   lights: []
 --- !u!1 &153521806
 GameObject:
@@ -25261,6 +25265,7 @@ MonoBehaviour:
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
+  m_characterHorizontalScale: 1
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
@@ -28090,7 +28095,7 @@ MonoBehaviour:
   sourceData: {fileID: 11400000, guid: 453736cf110d34042a91eed3e582009d, type: 2}
   spawnPoints: []
   floor: 2
-  scp173: {fileID: 0}
+  nextAreas: []
   lights: []
 --- !u!65 &202127702
 BoxCollider:
@@ -28190,7 +28195,7 @@ MonoBehaviour:
   - {fileID: 1004111652}
   - {fileID: 1004111651}
   floor: 0
-  scp173: {fileID: 0}
+  nextAreas: []
   lights: []
 --- !u!64 &203992013
 MeshCollider:
@@ -28235,7 +28240,7 @@ MonoBehaviour:
   - {fileID: 309831220}
   - {fileID: 309831219}
   floor: 0
-  scp173: {fileID: 0}
+  nextAreas: []
   lights: []
 --- !u!1001 &204249737
 PrefabInstance:
@@ -29082,7 +29087,7 @@ MonoBehaviour:
   - {fileID: 2006573103}
   - {fileID: 2006573102}
   floor: 0
-  scp173: {fileID: 0}
+  nextAreas: []
   lights: []
 --- !u!1001 &215531402
 PrefabInstance:
@@ -32321,7 +32326,7 @@ MonoBehaviour:
   - {fileID: 1459739080}
   - {fileID: 1459739079}
   floor: 2
-  scp173: {fileID: 0}
+  nextAreas: []
   lights: []
 --- !u!1 &235970039
 GameObject:
@@ -32435,7 +32440,7 @@ MonoBehaviour:
   - {fileID: 520719851}
   - {fileID: 520719850}
   floor: 1
-  scp173: {fileID: 0}
+  nextAreas: []
   lights: []
 --- !u!114 &239433021
 MonoBehaviour:
@@ -33006,7 +33011,7 @@ MonoBehaviour:
   sourceData: {fileID: 11400000, guid: 453736cf110d34042a91eed3e582009d, type: 2}
   spawnPoints: []
   floor: 2
-  scp173: {fileID: 0}
+  nextAreas: []
   lights: []
 --- !u!4 &246138894 stripped
 Transform:
@@ -34413,6 +34418,7 @@ MonoBehaviour:
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
+  m_characterHorizontalScale: 1
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
@@ -35966,6 +35972,8 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -35987,9 +35995,11 @@ MeshRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!33 &268201160
 MeshFilter:
@@ -36192,7 +36202,7 @@ MonoBehaviour:
   sourceData: {fileID: 11400000, guid: cc791b1192de7f748870a6838610d5c9, type: 2}
   spawnPoints: []
   floor: -1
-  scp173: {fileID: 0}
+  nextAreas: []
   lights: []
 --- !u!1001 &274110043
 PrefabInstance:
@@ -39923,6 +39933,7 @@ MonoBehaviour:
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
+  m_characterHorizontalScale: 1
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
@@ -43807,6 +43818,8 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -43828,9 +43841,11 @@ MeshRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!33 &305535815
 MeshFilter:
@@ -46187,7 +46202,7 @@ MonoBehaviour:
   - {fileID: 1086522807}
   - {fileID: 1086522806}
   floor: 1
-  scp173: {fileID: 0}
+  nextAreas: []
   lights: []
 --- !u!65 &315023970
 BoxCollider:
@@ -46414,6 +46429,7 @@ MonoBehaviour:
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
+  m_characterHorizontalScale: 1
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
@@ -48984,7 +49000,7 @@ MonoBehaviour:
   - {fileID: 988625635}
   - {fileID: 988625634}
   floor: 2
-  scp173: {fileID: 0}
+  nextAreas: []
   lights: []
 --- !u!64 &338511837
 MeshCollider:
@@ -50684,7 +50700,7 @@ MonoBehaviour:
   - {fileID: 364318661}
   - {fileID: 364318660}
   floor: 2
-  scp173: {fileID: 0}
+  nextAreas: []
   lights: []
 --- !u!64 &364318688
 MeshCollider:
@@ -50754,7 +50770,7 @@ MonoBehaviour:
   - {fileID: 2111441619}
   - {fileID: 2111441618}
   floor: 1
-  scp173: {fileID: 0}
+  nextAreas: []
   lights: []
 --- !u!1001 &366757491
 PrefabInstance:
@@ -53386,7 +53402,7 @@ MonoBehaviour:
   - {fileID: 851891785}
   - {fileID: 1083114729}
   floor: 1
-  scp173: {fileID: 0}
+  nextAreas: []
   lights: []
 --- !u!64 &389073710
 MeshCollider:
@@ -54586,7 +54602,7 @@ MonoBehaviour:
   - {fileID: 1563933536}
   - {fileID: 1563933535}
   floor: 2
-  scp173: {fileID: 0}
+  nextAreas: []
   lights: []
 --- !u!64 &406687444
 MeshCollider:
@@ -55276,7 +55292,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "X\u200B"
+  m_text: "C\u200B"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -55314,6 +55330,7 @@ MonoBehaviour:
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
+  m_characterHorizontalScale: 1
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
@@ -55679,6 +55696,7 @@ MonoBehaviour:
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
+  m_characterHorizontalScale: 1
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
@@ -56347,6 +56365,7 @@ MonoBehaviour:
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
+  m_characterHorizontalScale: 1
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
@@ -56504,6 +56523,7 @@ MonoBehaviour:
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
+  m_characterHorizontalScale: 1
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
@@ -58715,6 +58735,7 @@ MonoBehaviour:
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
+  m_characterHorizontalScale: 1
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
@@ -62169,6 +62190,7 @@ MonoBehaviour:
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
+  m_characterHorizontalScale: 1
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
@@ -62360,6 +62382,8 @@ MonoBehaviour:
   allAreaTypes: []
   areas: []
   currentArea: {fileID: 0}
+  nextAreas: []
+  previousArea: {fileID: 0}
   jumpScareWayPoint: {fileID: 1952513492}
 --- !u!114 &484369421
 MonoBehaviour:
@@ -62540,7 +62564,7 @@ MonoBehaviour:
   - {fileID: 624335845}
   - {fileID: 624335844}
   floor: 0
-  scp173: {fileID: 0}
+  nextAreas: []
   lights: []
 --- !u!1 &485519381
 GameObject:
@@ -62595,6 +62619,8 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -62616,9 +62642,11 @@ MeshRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!33 &485519385
 MeshFilter:
@@ -64255,6 +64283,8 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -64276,9 +64306,11 @@ MeshRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!4 &495143125 stripped
 Transform:
@@ -64361,7 +64393,7 @@ MonoBehaviour:
   sourceData: {fileID: 11400000, guid: 453736cf110d34042a91eed3e582009d, type: 2}
   spawnPoints: []
   floor: 2
-  scp173: {fileID: 0}
+  nextAreas: []
   lights: []
 --- !u!64 &495925321
 MeshCollider:
@@ -64487,7 +64519,7 @@ MonoBehaviour:
   - {fileID: 327793713}
   - {fileID: 327793712}
   floor: 0
-  scp173: {fileID: 0}
+  nextAreas: []
   lights: []
 --- !u!1 &499591647 stripped
 GameObject:
@@ -64884,7 +64916,7 @@ MonoBehaviour:
   - {fileID: 1919907207}
   - {fileID: 1919907206}
   floor: 1
-  scp173: {fileID: 0}
+  nextAreas: []
   lights: []
 --- !u!114 &503939540
 MonoBehaviour:
@@ -64906,7 +64938,7 @@ MonoBehaviour:
   - {fileID: 1790882318}
   - {fileID: 1790882317}
   floor: 2
-  scp173: {fileID: 0}
+  nextAreas: []
   lights: []
 --- !u!64 &504686269
 MeshCollider:
@@ -64998,7 +65030,7 @@ MonoBehaviour:
   sourceData: {fileID: 11400000, guid: 453736cf110d34042a91eed3e582009d, type: 2}
   spawnPoints: []
   floor: 1
-  scp173: {fileID: 0}
+  nextAreas: []
   lights: []
 --- !u!1 &508799502 stripped
 GameObject:
@@ -65395,6 +65427,7 @@ MonoBehaviour:
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
+  m_characterHorizontalScale: 1
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
@@ -66183,7 +66216,7 @@ MonoBehaviour:
   sourceData: {fileID: 11400000, guid: 453736cf110d34042a91eed3e582009d, type: 2}
   spawnPoints: []
   floor: 2
-  scp173: {fileID: 0}
+  nextAreas: []
   lights: []
 --- !u!64 &515334983
 MeshCollider:
@@ -68488,7 +68521,7 @@ MonoBehaviour:
   - {fileID: 54424573}
   - {fileID: 54424572}
   floor: 1
-  scp173: {fileID: 0}
+  nextAreas: []
   lights: []
 --- !u!1 &523456817 stripped
 GameObject:
@@ -69408,7 +69441,7 @@ MonoBehaviour:
   - {fileID: 915876229}
   - {fileID: 915876228}
   floor: 0
-  scp173: {fileID: 0}
+  nextAreas: []
   lights: []
 --- !u!1 &536504073 stripped
 GameObject:
@@ -72149,7 +72182,7 @@ MonoBehaviour:
   - {fileID: 52758533}
   - {fileID: 52758532}
   floor: 2
-  scp173: {fileID: 0}
+  nextAreas: []
   lights: []
 --- !u!64 &564190396
 MeshCollider:
@@ -74133,6 +74166,7 @@ MonoBehaviour:
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
+  m_characterHorizontalScale: 1
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
@@ -74290,6 +74324,7 @@ MonoBehaviour:
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
+  m_characterHorizontalScale: 1
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
@@ -75415,6 +75450,8 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -75436,9 +75473,11 @@ MeshRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!33 &584226312
 MeshFilter:
@@ -79297,7 +79336,7 @@ MonoBehaviour:
   sourceData: {fileID: 11400000, guid: 453736cf110d34042a91eed3e582009d, type: 2}
   spawnPoints: []
   floor: 1
-  scp173: {fileID: 0}
+  nextAreas: []
   lights: []
 --- !u!114 &617692570
 MonoBehaviour:
@@ -79335,7 +79374,7 @@ MonoBehaviour:
   - {fileID: 310238076}
   - {fileID: 310238075}
   floor: 2
-  scp173: {fileID: 0}
+  nextAreas: []
   lights: []
 --- !u!64 &617692571
 MeshCollider:
@@ -79628,7 +79667,7 @@ MonoBehaviour:
   - {fileID: 283961597}
   - {fileID: 283961596}
   floor: 2
-  scp173: {fileID: 0}
+  nextAreas: []
   lights: []
 --- !u!1 &626115220 stripped
 GameObject:
@@ -81659,7 +81698,7 @@ MonoBehaviour:
   - {fileID: 568546488}
   - {fileID: 568546487}
   floor: 2
-  scp173: {fileID: 0}
+  nextAreas: []
   lights: []
 --- !u!1001 &648454795
 PrefabInstance:
@@ -83222,6 +83261,7 @@ MonoBehaviour:
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
+  m_characterHorizontalScale: 1
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
@@ -83381,6 +83421,7 @@ MonoBehaviour:
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
+  m_characterHorizontalScale: 1
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
@@ -83652,14 +83693,14 @@ Light:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 671756030}
   m_Enabled: 1
-  serializedVersion: 11
+  serializedVersion: 13
   m_Type: 2
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Intensity: 0.5
   m_Range: 100
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
-  m_CookieSize: 10
+  m_CookieSize2D: {x: 10, y: 10}
   m_Shadows:
     m_Type: 0
     m_Resolution: -1
@@ -83704,7 +83745,7 @@ Light:
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
   m_ForceVisible: 0
-  m_ShadowRadius: 0
+  m_ShapeRadius: 0
   m_ShadowAngle: 0
   m_LightUnit: 1
   m_LuxAtDistance: 1
@@ -85245,7 +85286,7 @@ MonoBehaviour:
   - {fileID: 1742935729}
   - {fileID: 1742935728}
   floor: 0
-  scp173: {fileID: 0}
+  nextAreas: []
   lights: []
 --- !u!114 &686170263
 MonoBehaviour:
@@ -86867,6 +86908,7 @@ MonoBehaviour:
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
+  m_characterHorizontalScale: 1
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
@@ -87279,7 +87321,7 @@ MonoBehaviour:
   sourceData: {fileID: 11400000, guid: 0f822678bbb92b2478f94a24ced317c2, type: 2}
   spawnPoints: []
   floor: 0
-  scp173: {fileID: 0}
+  nextAreas: []
   lights: []
 --- !u!114 &700461455
 MonoBehaviour:
@@ -87308,7 +87350,7 @@ MonoBehaviour:
   - {fileID: 93737015}
   - {fileID: 93737014}
   floor: 0
-  scp173: {fileID: 0}
+  nextAreas: []
   lights: []
 --- !u!1 &700515853 stripped
 GameObject:
@@ -89524,6 +89566,7 @@ MonoBehaviour:
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
+  m_characterHorizontalScale: 1
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
@@ -91406,7 +91449,7 @@ MonoBehaviour:
   - {fileID: 1817188725}
   - {fileID: 1817188724}
   floor: 2
-  scp173: {fileID: 0}
+  nextAreas: []
   lights: []
 --- !u!64 &756374373
 MeshCollider:
@@ -91450,7 +91493,7 @@ MonoBehaviour:
   - {fileID: 542976157}
   - {fileID: 542976156}
   floor: 2
-  scp173: {fileID: 0}
+  nextAreas: []
   lights: []
 --- !u!1 &756785858
 GameObject:
@@ -93102,6 +93145,7 @@ MonoBehaviour:
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
+  m_characterHorizontalScale: 1
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
@@ -93747,7 +93791,7 @@ MonoBehaviour:
   - {fileID: 1275607521}
   - {fileID: 1275607520}
   floor: 0
-  scp173: {fileID: 0}
+  nextAreas: []
   lights: []
 --- !u!1 &779211202 stripped
 GameObject:
@@ -94780,7 +94824,7 @@ MonoBehaviour:
   sourceData: {fileID: 11400000, guid: 453736cf110d34042a91eed3e582009d, type: 2}
   spawnPoints: []
   floor: 2
-  scp173: {fileID: 0}
+  nextAreas: []
   lights: []
 --- !u!64 &791130361
 MeshCollider:
@@ -95197,7 +95241,7 @@ MonoBehaviour:
   - {fileID: 1004111654}
   - {fileID: 1004111653}
   floor: 0
-  scp173: {fileID: 0}
+  nextAreas: []
   lights: []
 --- !u!64 &804054197
 MeshCollider:
@@ -95247,14 +95291,14 @@ Light:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 804095830}
   m_Enabled: 1
-  serializedVersion: 11
+  serializedVersion: 13
   m_Type: 2
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Intensity: 2
   m_Range: 100
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
-  m_CookieSize: 10
+  m_CookieSize2D: {x: 10, y: 10}
   m_Shadows:
     m_Type: 0
     m_Resolution: -1
@@ -95299,7 +95343,7 @@ Light:
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
   m_ForceVisible: 0
-  m_ShadowRadius: 0
+  m_ShapeRadius: 0
   m_ShadowAngle: 0
   m_LightUnit: 1
   m_LuxAtDistance: 1
@@ -96651,7 +96695,7 @@ MonoBehaviour:
   - {fileID: 1942812453}
   - {fileID: 262040054}
   floor: 2
-  scp173: {fileID: 0}
+  nextAreas: []
   lights: []
 --- !u!1 &817466277
 GameObject:
@@ -98010,14 +98054,14 @@ Light:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 836833266}
   m_Enabled: 1
-  serializedVersion: 11
+  serializedVersion: 13
   m_Type: 0
   m_Color: {r: 1, g: 0.94509804, b: 0.8392157, a: 1}
   m_Intensity: 1.5
-  m_Range: 25
-  m_SpotAngle: 50
+  m_Range: 30
+  m_SpotAngle: 60
   m_InnerSpotAngle: 4
-  m_CookieSize: 10
+  m_CookieSize2D: {x: 10, y: 10}
   m_Shadows:
     m_Type: 1
     m_Resolution: -1
@@ -98062,7 +98106,7 @@ Light:
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
   m_ForceVisible: 0
-  m_ShadowRadius: 0
+  m_ShapeRadius: 0
   m_ShadowAngle: 0
   m_LightUnit: 1
   m_LuxAtDistance: 1
@@ -99845,6 +99889,7 @@ MonoBehaviour:
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
+  m_characterHorizontalScale: 1
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
@@ -100313,7 +100358,7 @@ MonoBehaviour:
   - {fileID: 472430937}
   - {fileID: 472430936}
   floor: 0
-  scp173: {fileID: 0}
+  nextAreas: []
   lights: []
 --- !u!1 &870585045
 GameObject:
@@ -100410,6 +100455,7 @@ MonoBehaviour:
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
+  m_characterHorizontalScale: 1
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
@@ -100516,7 +100562,7 @@ MonoBehaviour:
   - {fileID: 568546484}
   - {fileID: 568546483}
   floor: 2
-  scp173: {fileID: 0}
+  nextAreas: []
   lights: []
 --- !u!1 &873237520 stripped
 GameObject:
@@ -101010,6 +101056,8 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -101031,9 +101079,11 @@ MeshRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!33 &878641613
 MeshFilter:
@@ -103667,7 +103717,7 @@ MonoBehaviour:
   - {fileID: 1566528029}
   - {fileID: 1566528028}
   floor: 1
-  scp173: {fileID: 0}
+  nextAreas: []
   lights: []
 --- !u!1 &903372865 stripped
 GameObject:
@@ -107215,6 +107265,8 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -107236,9 +107288,11 @@ MeshRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!1001 &937463529
 PrefabInstance:
@@ -107404,7 +107458,7 @@ MonoBehaviour:
   - {fileID: 1742935731}
   - {fileID: 1742935730}
   floor: 0
-  scp173: {fileID: 0}
+  nextAreas: []
   lights: []
 --- !u!64 &938091256
 MeshCollider:
@@ -107456,7 +107510,7 @@ MonoBehaviour:
   - {fileID: 387165245}
   - {fileID: 387165244}
   floor: 1
-  scp173: {fileID: 0}
+  nextAreas: []
   lights: []
 --- !u!1 &938109548 stripped
 GameObject:
@@ -108030,7 +108084,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &946730639
 RectTransform:
   m_ObjectHideFlags: 0
@@ -108108,6 +108162,7 @@ MonoBehaviour:
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
+  m_characterHorizontalScale: 1
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
@@ -108419,7 +108474,7 @@ MonoBehaviour:
   sourceData: {fileID: 11400000, guid: 453736cf110d34042a91eed3e582009d, type: 2}
   spawnPoints: []
   floor: 0
-  scp173: {fileID: 0}
+  nextAreas: []
   lights: []
 --- !u!64 &947740354
 MeshCollider:
@@ -110965,7 +111020,7 @@ MonoBehaviour:
   sourceData: {fileID: 11400000, guid: c74532c858482064ba81fda0e9cfca39, type: 2}
   spawnPoints: []
   floor: 1
-  scp173: {fileID: 0}
+  nextAreas: []
   lights: []
 --- !u!1001 &973809934
 PrefabInstance:
@@ -111372,7 +111427,7 @@ MonoBehaviour:
   - {fileID: 493099769}
   - {fileID: 493099768}
   floor: 2
-  scp173: {fileID: 0}
+  nextAreas: []
   lights: []
 --- !u!64 &976333967
 MeshCollider:
@@ -111449,6 +111504,8 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -111470,9 +111527,11 @@ MeshRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!33 &976470987
 MeshFilter:
@@ -112261,6 +112320,7 @@ MonoBehaviour:
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
+  m_characterHorizontalScale: 1
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
@@ -114186,7 +114246,7 @@ MonoBehaviour:
   - {fileID: 1677530896}
   - {fileID: 1677530895}
   floor: 1
-  scp173: {fileID: 0}
+  nextAreas: []
   lights: []
 --- !u!114 &992288728
 MonoBehaviour:
@@ -114205,7 +114265,7 @@ MonoBehaviour:
   - {fileID: 1677530898}
   - {fileID: 1677530897}
   floor: 1
-  scp173: {fileID: 0}
+  nextAreas: []
   lights: []
 --- !u!1 &992592135 stripped
 GameObject:
@@ -114667,6 +114727,8 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -114688,9 +114750,11 @@ MeshRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!33 &996029883
 MeshFilter:
@@ -117186,7 +117250,7 @@ MonoBehaviour:
   - {fileID: 299767972}
   - {fileID: 299767971}
   floor: 1
-  scp173: {fileID: 0}
+  nextAreas: []
   lights: []
 --- !u!1 &1011852860 stripped
 GameObject:
@@ -117850,7 +117914,7 @@ MonoBehaviour:
   - {fileID: 46004308}
   - {fileID: 46004307}
   floor: 2
-  scp173: {fileID: 0}
+  nextAreas: []
   lights: []
 --- !u!1001 &1027057038
 PrefabInstance:
@@ -119182,7 +119246,7 @@ MonoBehaviour:
   sourceData: {fileID: 11400000, guid: 453736cf110d34042a91eed3e582009d, type: 2}
   spawnPoints: []
   floor: 2
-  scp173: {fileID: 0}
+  nextAreas: []
   lights: []
 --- !u!1 &1036810131 stripped
 GameObject:
@@ -119941,7 +120005,7 @@ MonoBehaviour:
   - {fileID: 260083005}
   - {fileID: 260083004}
   floor: 1
-  scp173: {fileID: 0}
+  nextAreas: []
   lights: []
 --- !u!1 &1045972789 stripped
 GameObject:
@@ -120622,6 +120686,8 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -120643,9 +120709,11 @@ MeshRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!33 &1053594465
 MeshFilter:
@@ -122143,6 +122211,7 @@ MonoBehaviour:
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
+  m_characterHorizontalScale: 1
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
@@ -125702,7 +125771,7 @@ MonoBehaviour:
   - {fileID: 1677530900}
   - {fileID: 1677530899}
   floor: 1
-  scp173: {fileID: 0}
+  nextAreas: []
   lights: []
 --- !u!65 &1097326797
 BoxCollider:
@@ -125881,6 +125950,7 @@ MonoBehaviour:
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
+  m_characterHorizontalScale: 1
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
@@ -128260,7 +128330,7 @@ MonoBehaviour:
   sourceData: {fileID: 11400000, guid: 453736cf110d34042a91eed3e582009d, type: 2}
   spawnPoints: []
   floor: 0
-  scp173: {fileID: 0}
+  nextAreas: []
   lights: []
 --- !u!1001 &1108600623
 PrefabInstance:
@@ -128509,6 +128579,7 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_VertexColorAlwaysGammaSpace: 0
+  m_UseReflectionProbes: 0
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
@@ -130101,7 +130172,7 @@ MonoBehaviour:
   - {fileID: 2129073456}
   - {fileID: 2129073455}
   floor: 2
-  scp173: {fileID: 0}
+  nextAreas: []
   lights: []
 --- !u!1001 &1126531516
 PrefabInstance:
@@ -133147,6 +133218,7 @@ MonoBehaviour:
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
+  m_characterHorizontalScale: 1
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
@@ -135676,7 +135748,7 @@ MonoBehaviour:
   - {fileID: 1124618541}
   - {fileID: 1124618540}
   floor: 0
-  scp173: {fileID: 0}
+  nextAreas: []
   lights: []
 --- !u!65 &1175597710
 BoxCollider:
@@ -136201,6 +136273,7 @@ MonoBehaviour:
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
+  m_characterHorizontalScale: 1
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
@@ -136300,6 +136373,8 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -136321,9 +136396,11 @@ MeshRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!33 &1181913760
 MeshFilter:
@@ -137239,7 +137316,7 @@ MonoBehaviour:
   - {fileID: 1004273830}
   - {fileID: 1004273829}
   floor: 0
-  scp173: {fileID: 0}
+  nextAreas: []
   lights: []
 --- !u!114 &1191417693
 MonoBehaviour:
@@ -140661,7 +140738,7 @@ MonoBehaviour:
   - {fileID: 280912991}
   - {fileID: 280912990}
   floor: 0
-  scp173: {fileID: 0}
+  nextAreas: []
   lights: []
 --- !u!114 &1234246979
 MonoBehaviour:
@@ -140769,7 +140846,7 @@ MonoBehaviour:
   - {fileID: 1434935847}
   - {fileID: 1434935846}
   floor: 1
-  scp173: {fileID: 0}
+  nextAreas: []
   lights: []
 --- !u!65 &1236211128
 BoxCollider:
@@ -143360,7 +143437,7 @@ MonoBehaviour:
   - {fileID: 673856841}
   - {fileID: 673856840}
   floor: 0
-  scp173: {fileID: 0}
+  nextAreas: []
   lights: []
 --- !u!1001 &1253866146
 PrefabInstance:
@@ -144620,7 +144697,7 @@ MonoBehaviour:
   - {fileID: 1833395732}
   - {fileID: 1833395731}
   floor: 1
-  scp173: {fileID: 0}
+  nextAreas: []
   lights: []
 --- !u!1 &1266056108 stripped
 GameObject:
@@ -146711,7 +146788,7 @@ MonoBehaviour:
   - {fileID: 1773318750}
   - {fileID: 1773318749}
   floor: 0
-  scp173: {fileID: 0}
+  nextAreas: []
   lights: []
 --- !u!1 &1284699825
 GameObject:
@@ -147392,6 +147469,8 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -147413,9 +147492,11 @@ MeshRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!33 &1302833280
 MeshFilter:
@@ -150019,7 +150100,7 @@ MonoBehaviour:
   - {fileID: 248897058}
   - {fileID: 248897057}
   floor: 1
-  scp173: {fileID: 0}
+  nextAreas: []
   lights: []
 --- !u!114 &1318899783
 MonoBehaviour:
@@ -153608,7 +153689,7 @@ MonoBehaviour:
   sourceData: {fileID: 11400000, guid: 453736cf110d34042a91eed3e582009d, type: 2}
   spawnPoints: []
   floor: 0
-  scp173: {fileID: 0}
+  nextAreas: []
   lights: []
 --- !u!64 &1380779229
 MeshCollider:
@@ -153782,7 +153863,7 @@ MonoBehaviour:
   - {fileID: 1742935726}
   - {fileID: 1742935724}
   floor: 0
-  scp173: {fileID: 0}
+  nextAreas: []
   lights: []
 --- !u!64 &1381992729
 MeshCollider:
@@ -156788,7 +156869,7 @@ MonoBehaviour:
   sourceData: {fileID: 11400000, guid: 453736cf110d34042a91eed3e582009d, type: 2}
   spawnPoints: []
   floor: 1
-  scp173: {fileID: 0}
+  nextAreas: []
   lights: []
 --- !u!1 &1424498451 stripped
 GameObject:
@@ -156961,6 +157042,7 @@ MonoBehaviour:
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
+  m_characterHorizontalScale: 1
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
@@ -158886,6 +158968,7 @@ MonoBehaviour:
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
+  m_characterHorizontalScale: 1
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
@@ -162125,6 +162208,7 @@ MonoBehaviour:
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
+  m_characterHorizontalScale: 1
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
@@ -164406,6 +164490,8 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -164427,9 +164513,11 @@ MeshRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!33 &1474429702
 MeshFilter:
@@ -166313,7 +166401,7 @@ MonoBehaviour:
   - {fileID: 1004111656}
   - {fileID: 1004111655}
   floor: 0
-  scp173: {fileID: 0}
+  nextAreas: []
   lights: []
 --- !u!1 &1486121397
 GameObject:
@@ -167064,7 +167152,7 @@ MonoBehaviour:
   m_OverrideVoxelSize: 0
   m_VoxelSize: 0.13333334
   m_MinRegionArea: 2
-  m_NavMeshData: {fileID: 23800000, guid: fb021ac15cb37ec4fb43c59ff3b149a6, type: 2}
+  m_NavMeshData: {fileID: 23800000, guid: 6f6f6a019a8e8254ebf3d210db8150dc, type: 2}
   m_BuildHeightMesh: 0
 --- !u!4 &1495573109
 Transform:
@@ -167111,7 +167199,7 @@ MonoBehaviour:
   m_OverrideVoxelSize: 0
   m_VoxelSize: 0.5
   m_MinRegionArea: 2
-  m_NavMeshData: {fileID: 23800000, guid: 73f3a1138d396904fbb8a88fba3ae152, type: 2}
+  m_NavMeshData: {fileID: 23800000, guid: 1a7bc7dfc7707ca4ebc3ac7a347abb89, type: 2}
   m_BuildHeightMesh: 0
 --- !u!1001 &1496249392
 PrefabInstance:
@@ -169338,7 +169426,7 @@ MonoBehaviour:
   - {fileID: 2082203675}
   - {fileID: 2082203674}
   floor: 2
-  scp173: {fileID: 0}
+  nextAreas: []
   lights: []
 --- !u!65 &1519914759
 BoxCollider:
@@ -176633,6 +176721,7 @@ MonoBehaviour:
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
+  m_characterHorizontalScale: 1
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
@@ -176979,10 +177068,10 @@ Rigidbody:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1530785290}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
   m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
@@ -179476,7 +179565,7 @@ MonoBehaviour:
   - {fileID: 221698570}
   - {fileID: 221698569}
   floor: 2
-  scp173: {fileID: 0}
+  nextAreas: []
   lights: []
 --- !u!64 &1603479197
 MeshCollider:
@@ -179767,7 +179856,7 @@ MonoBehaviour:
   sourceData: {fileID: 11400000, guid: 453736cf110d34042a91eed3e582009d, type: 2}
   spawnPoints: []
   floor: 0
-  scp173: {fileID: 0}
+  nextAreas: []
   lights: []
 --- !u!208 &1609996901
 NavMeshObstacle:
@@ -181215,7 +181304,7 @@ MonoBehaviour:
   sourceData: {fileID: 11400000, guid: 453736cf110d34042a91eed3e582009d, type: 2}
   spawnPoints: []
   floor: 0
-  scp173: {fileID: 0}
+  nextAreas: []
   lights: []
 --- !u!4 &1630301272 stripped
 Transform:
@@ -182856,7 +182945,7 @@ MonoBehaviour:
   sourceData: {fileID: 11400000, guid: 453736cf110d34042a91eed3e582009d, type: 2}
   spawnPoints: []
   floor: 1
-  scp173: {fileID: 0}
+  nextAreas: []
   lights: []
 --- !u!114 &1638033376
 MonoBehaviour:
@@ -182873,7 +182962,7 @@ MonoBehaviour:
   sourceData: {fileID: 11400000, guid: 453736cf110d34042a91eed3e582009d, type: 2}
   spawnPoints: []
   floor: 1
-  scp173: {fileID: 0}
+  nextAreas: []
   lights: []
 --- !u!114 &1638033379
 MonoBehaviour:
@@ -182890,7 +182979,7 @@ MonoBehaviour:
   sourceData: {fileID: 11400000, guid: 453736cf110d34042a91eed3e582009d, type: 2}
   spawnPoints: []
   floor: 1
-  scp173: {fileID: 0}
+  nextAreas: []
   lights: []
 --- !u!1 &1638326436
 GameObject:
@@ -182987,6 +183076,7 @@ MonoBehaviour:
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
+  m_characterHorizontalScale: 1
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
@@ -184496,7 +184586,7 @@ MonoBehaviour:
   - {fileID: 1168168192}
   - {fileID: 1168168191}
   floor: 0
-  scp173: {fileID: 0}
+  nextAreas: []
   lights: []
 --- !u!65 &1655175808
 BoxCollider:
@@ -185654,7 +185744,7 @@ MonoBehaviour:
   - {fileID: 2044366693}
   - {fileID: 2044366692}
   floor: 0
-  scp173: {fileID: 0}
+  nextAreas: []
   lights: []
 --- !u!114 &1670703040
 MonoBehaviour:
@@ -186088,6 +186178,7 @@ MonoBehaviour:
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
+  m_characterHorizontalScale: 1
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
@@ -186953,7 +187044,7 @@ MonoBehaviour:
   - {fileID: 1308831829}
   - {fileID: 1308831828}
   floor: 1
-  scp173: {fileID: 0}
+  nextAreas: []
   lights: []
 --- !u!1 &1681740610 stripped
 GameObject:
@@ -187701,6 +187792,7 @@ MonoBehaviour:
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
+  m_characterHorizontalScale: 1
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
@@ -189655,7 +189747,7 @@ MonoBehaviour:
   - {fileID: 759932799}
   - {fileID: 759932798}
   floor: 0
-  scp173: {fileID: 0}
+  nextAreas: []
   lights: []
 --- !u!65 &1704825869
 BoxCollider:
@@ -190278,7 +190370,7 @@ MonoBehaviour:
   - {fileID: 69318383}
   - {fileID: 69318382}
   floor: 2
-  scp173: {fileID: 0}
+  nextAreas: []
   lights: []
 --- !u!64 &1715803642
 MeshCollider:
@@ -190501,7 +190593,7 @@ MonoBehaviour:
   - {fileID: 1446882565}
   - {fileID: 1446882564}
   floor: 1
-  scp173: {fileID: 0}
+  nextAreas: []
   lights: []
 --- !u!114 &1717890013
 MonoBehaviour:
@@ -191607,6 +191699,7 @@ MonoBehaviour:
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
+  m_characterHorizontalScale: 1
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
@@ -193505,6 +193598,8 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -193526,9 +193621,11 @@ MeshRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!33 &1746039765
 MeshFilter:
@@ -193638,6 +193735,7 @@ MonoBehaviour:
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
+  m_characterHorizontalScale: 1
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
@@ -195377,7 +195475,7 @@ MonoBehaviour:
   - {fileID: 285866169}
   - {fileID: 285866168}
   floor: 2
-  scp173: {fileID: 0}
+  nextAreas: []
   lights: []
 --- !u!4 &1766953297 stripped
 Transform:
@@ -197212,7 +197310,7 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 2150773298
+    rgba: 2160642248
   m_fontColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5}
   m_enableVertexGradient: 0
   m_colorMode: 3
@@ -197241,6 +197339,7 @@ MonoBehaviour:
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
+  m_characterHorizontalScale: 1
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
@@ -197416,6 +197515,7 @@ MonoBehaviour:
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
+  m_characterHorizontalScale: 1
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
@@ -197478,7 +197578,7 @@ MonoBehaviour:
   - {fileID: 172859297}
   - {fileID: 172859296}
   floor: 0
-  scp173: {fileID: 0}
+  nextAreas: []
   lights: []
 --- !u!1001 &1790882313
 PrefabInstance:
@@ -198778,6 +198878,7 @@ MonoBehaviour:
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
+  m_characterHorizontalScale: 1
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
@@ -199384,7 +199485,7 @@ MonoBehaviour:
   sourceData: {fileID: 11400000, guid: 453736cf110d34042a91eed3e582009d, type: 2}
   spawnPoints: []
   floor: 1
-  scp173: {fileID: 0}
+  nextAreas: []
   lights: []
 --- !u!114 &1801343924
 MonoBehaviour:
@@ -199723,6 +199824,7 @@ Transform:
   - {fileID: 833149361}
   - {fileID: 1948481867}
   - {fileID: 995253775}
+  - {fileID: 2122967587}
   - {fileID: 1588856709}
   - {fileID: 1412510378}
   - {fileID: 1786185106}
@@ -200138,6 +200240,7 @@ MonoBehaviour:
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
+  m_characterHorizontalScale: 1
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
@@ -201396,6 +201499,8 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -201417,9 +201522,11 @@ MeshRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!33 &1825120418
 MeshFilter:
@@ -201955,7 +202062,7 @@ MonoBehaviour:
   sourceData: {fileID: 11400000, guid: 453736cf110d34042a91eed3e582009d, type: 2}
   spawnPoints: []
   floor: 2
-  scp173: {fileID: 0}
+  nextAreas: []
   lights: []
 --- !u!64 &1829465381
 MeshCollider:
@@ -203402,6 +203509,8 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -203423,9 +203532,11 @@ MeshRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!33 &1842057787
 MeshFilter:
@@ -207528,7 +207639,7 @@ MonoBehaviour:
   - {fileID: 1307651966}
   - {fileID: 1307651965}
   floor: 2
-  scp173: {fileID: 0}
+  nextAreas: []
   lights: []
 --- !u!64 &1874473534
 MeshCollider:
@@ -208146,7 +208257,7 @@ MonoBehaviour:
   - {fileID: 1481912872}
   - {fileID: 1481912871}
   floor: 2
-  scp173: {fileID: 0}
+  nextAreas: []
   lights: []
 --- !u!64 &1881429773
 MeshCollider:
@@ -208875,6 +208986,7 @@ MonoBehaviour:
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
+  m_characterHorizontalScale: 1
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
@@ -208987,7 +209099,7 @@ MonoBehaviour:
   - {fileID: 1948803243}
   - {fileID: 1948803242}
   floor: 0
-  scp173: {fileID: 0}
+  nextAreas: []
   lights: []
 --- !u!1 &1896064407 stripped
 GameObject:
@@ -211212,7 +211324,7 @@ MonoBehaviour:
   - {fileID: 568546486}
   - {fileID: 568546485}
   floor: 2
-  scp173: {fileID: 0}
+  nextAreas: []
   lights: []
 --- !u!64 &1916868348
 MeshCollider:
@@ -212610,7 +212722,7 @@ MonoBehaviour:
   - {fileID: 1451215588}
   - {fileID: 1451215587}
   floor: 1
-  scp173: {fileID: 0}
+  nextAreas: []
   lights: []
 --- !u!64 &1927766080
 MeshCollider:
@@ -213800,7 +213912,7 @@ MonoBehaviour:
   - {fileID: 21872989}
   - {fileID: 21872988}
   floor: 1
-  scp173: {fileID: 0}
+  nextAreas: []
   lights: []
 --- !u!64 &1943564279
 MeshCollider:
@@ -213879,7 +213991,7 @@ MonoBehaviour:
   - {fileID: 1245652739}
   - {fileID: 1245652738}
   floor: 1
-  scp173: {fileID: 0}
+  nextAreas: []
   lights: []
 --- !u!1 &1945751993 stripped
 GameObject:
@@ -216344,6 +216456,8 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -216365,9 +216479,11 @@ MeshRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!33 &1981343057
 MeshFilter:
@@ -216560,6 +216676,7 @@ MonoBehaviour:
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
+  m_characterHorizontalScale: 1
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
@@ -216665,7 +216782,7 @@ MonoBehaviour:
   - {fileID: 1678387800}
   - {fileID: 1678387799}
   floor: 1
-  scp173: {fileID: 0}
+  nextAreas: []
   lights: []
 --- !u!1001 &1986040777
 PrefabInstance:
@@ -217431,7 +217548,7 @@ MonoBehaviour:
   sourceData: {fileID: 11400000, guid: 453736cf110d34042a91eed3e582009d, type: 2}
   spawnPoints: []
   floor: 2
-  scp173: {fileID: 0}
+  nextAreas: []
   lights: []
 --- !u!64 &1994363685
 MeshCollider:
@@ -220595,7 +220712,7 @@ MonoBehaviour:
   m_CaretColor: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
   m_CustomCaretColor: 0
   m_SelectionColor: {r: 0.65882355, g: 0.80784315, b: 1, a: 0.7529412}
-  m_Text: X
+  m_Text: C
   m_CaretBlinkRate: 0.85
   m_CaretWidth: 1
   m_ReadOnly: 1
@@ -221901,6 +222018,7 @@ MonoBehaviour:
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
+  m_characterHorizontalScale: 1
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
@@ -222261,7 +222379,7 @@ MonoBehaviour:
   sourceData: {fileID: 11400000, guid: 453736cf110d34042a91eed3e582009d, type: 2}
   spawnPoints: []
   floor: 2
-  scp173: {fileID: 0}
+  nextAreas: []
   lights: []
 --- !u!64 &2038233162
 MeshCollider:
@@ -223421,6 +223539,7 @@ MonoBehaviour:
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
+  m_characterHorizontalScale: 1
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
@@ -226059,6 +226178,7 @@ MonoBehaviour:
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
+  m_characterHorizontalScale: 1
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
@@ -226812,6 +226932,8 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -226833,9 +226955,11 @@ MeshRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!33 &2091656210
 MeshFilter:
@@ -227486,6 +227610,7 @@ MonoBehaviour:
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
+  m_characterHorizontalScale: 1
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
@@ -227890,7 +228015,7 @@ MonoBehaviour:
   - {fileID: 1598991803}
   - {fileID: 1598991802}
   floor: 1
-  scp173: {fileID: 0}
+  nextAreas: []
   lights: []
 --- !u!1 &2109134647 stripped
 GameObject:
@@ -228767,7 +228892,7 @@ MonoBehaviour:
   - {fileID: 1792718901}
   - {fileID: 1792718900}
   floor: 1
-  scp173: {fileID: 998917705}
+  nextAreas: []
   lights: []
 --- !u!64 &2111475665
 MeshCollider:
@@ -228812,7 +228937,7 @@ MonoBehaviour:
   - {fileID: 1186827304}
   - {fileID: 1186827303}
   floor: 0
-  scp173: {fileID: 0}
+  nextAreas: []
   lights: []
 --- !u!1001 &2113057250
 PrefabInstance:
@@ -230480,6 +230605,84 @@ NavMeshObstacle:
   m_CarveOnlyStationary: 1
   m_Center: {x: 0, y: 0, z: 0.030000001}
   m_TimeToStationary: 0.5
+--- !u!1001 &2122967586
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1808311350}
+    m_Modifications:
+    - target: {fileID: 4852589186476772995, guid: 16553e61b08af6042980d033e1339352, type: 3}
+      propertyPath: m_Name
+      value: GasMask1 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5196041862131602489, guid: 16553e61b08af6042980d033e1339352, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 26.66
+      objectReference: {fileID: 0}
+    - target: {fileID: 5196041862131602489, guid: 16553e61b08af6042980d033e1339352, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 14.61
+      objectReference: {fileID: 0}
+    - target: {fileID: 5196041862131602489, guid: 16553e61b08af6042980d033e1339352, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 140.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5196041862131602489, guid: 16553e61b08af6042980d033e1339352, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071067
+      objectReference: {fileID: 0}
+    - target: {fileID: 5196041862131602489, guid: 16553e61b08af6042980d033e1339352, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 5196041862131602489, guid: 16553e61b08af6042980d033e1339352, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5196041862131602489, guid: 16553e61b08af6042980d033e1339352, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5196041862131602489, guid: 16553e61b08af6042980d033e1339352, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5196041862131602489, guid: 16553e61b08af6042980d033e1339352, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5196041862131602489, guid: 16553e61b08af6042980d033e1339352, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8791351367758410449, guid: 16553e61b08af6042980d033e1339352, type: 3}
+      propertyPath: m_Size.x
+      value: 0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 8791351367758410449, guid: 16553e61b08af6042980d033e1339352, type: 3}
+      propertyPath: m_Size.y
+      value: 0.009999998
+      objectReference: {fileID: 0}
+    - target: {fileID: 8791351367758410449, guid: 16553e61b08af6042980d033e1339352, type: 3}
+      propertyPath: m_Size.z
+      value: 0.004999999
+      objectReference: {fileID: 0}
+    - target: {fileID: 8791351367758410449, guid: 16553e61b08af6042980d033e1339352, type: 3}
+      propertyPath: m_Center.z
+      value: 0.0024999995
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 16553e61b08af6042980d033e1339352, type: 3}
+--- !u!4 &2122967587 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5196041862131602489, guid: 16553e61b08af6042980d033e1339352, type: 3}
+  m_PrefabInstance: {fileID: 2122967586}
+  m_PrefabAsset: {fileID: 0}
 --- !u!65 &2122988718
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -230516,7 +230719,7 @@ MonoBehaviour:
   sourceData: {fileID: 11400000, guid: 453736cf110d34042a91eed3e582009d, type: 2}
   spawnPoints: []
   floor: 1
-  scp173: {fileID: 0}
+  nextAreas: []
   lights: []
 --- !u!65 &2124229160
 BoxCollider:

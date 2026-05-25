@@ -4,9 +4,6 @@
 TagManager:
   serializedVersion: 3
   tags:
-  - 939_1
-  - 939_2
-  - 939_3
   - Lock
   - 173
   - F0
@@ -20,6 +17,7 @@ TagManager:
   - JumpScareWP
   - Inventory
   - ssp
+  - StartingArea
   layers:
   - Default
   - TransparentFX
@@ -37,8 +35,8 @@ TagManager:
   - LightSwitches
   - Environment
   - Doors
-  - 
-  - 
+  - SafeZone
+  - Prohibitted
   - 
   - 
   - 

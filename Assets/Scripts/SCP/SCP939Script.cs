@@ -28,7 +28,7 @@ public class SCP939Script : MonoBehaviour
     private float runTriggerDistance = 40.0f;
     private float walkTriggerDistance = 30.0f;
     private float sneakTriggerDistance = 10.0f;
-    private float standTriggerDistance = 2.0f;
+    private float standTriggerDistance = 4.0f;
 
     private float playerMemory = 0.0f;
     private float playerMemoryDuration = 30.0f;
@@ -107,7 +107,6 @@ public class SCP939Script : MonoBehaviour
                     break;
             }
         }
-
         
         if (distanceToPlayer <= followDistance)
         {

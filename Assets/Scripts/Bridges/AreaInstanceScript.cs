@@ -8,8 +8,9 @@ public class AreaInstanceScript : MonoBehaviour
     public AreaData sourceData;
     public List<Transform> spawnPoints = new List<Transform>();
     public int floor;
+    public List<AreaInstanceScript> nextAreas = new List<AreaInstanceScript>();
     //public GameObject saveSpawnPoint;
-    public GameObject scp173;
+    private GameObject scp173;
     public List<Light> lights = new List<Light>();
 
     void Awake()
@@ -18,17 +19,6 @@ public class AreaInstanceScript : MonoBehaviour
         scp173 = GameObject.FindGameObjectWithTag("173");
 
         if (scp173 == null) Debug.Log("Není broadcast!!");
-    }
-
-    void Update()
-    {
-        if (this.gameObject == AreaManager.Instance.currentArea)
-        {
-            foreach (Light light in lights)
-            {
-                light.enabled = false;
-            }
-        }
     }
 
     public Vector3 GetRandomSpawnPoint()
@@ -54,6 +44,8 @@ public class AreaInstanceScript : MonoBehaviour
     public void PlayerEntered()
     {
         Debug.Log($"AreaInstanceScript: Player entered {gameObject.name} ({sourceData.name})");
-        AreaManager.Instance.currentArea = this.gameObject;
+        AreaManager.Instance.previousArea = AreaManager.Instance.currentArea;
+        AreaManager.Instance.currentArea = this;
+        AreaManager.Instance.nextAreas = nextAreas;
     }
 }

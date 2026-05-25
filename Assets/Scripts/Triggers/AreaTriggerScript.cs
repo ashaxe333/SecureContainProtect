@@ -4,21 +4,19 @@ using UnityEngine;
 
 public class AreaTriggerScript : MonoBehaviour
 {
-    public GameObject parentArea;
+    public AreaInstanceScript parentArea;
 
     private void Start()
     {
         if (parentArea == null)
-            Debug.Log("parent area!!!" + this.gameObject.name);
+            Debug.Log($"AreaTriggerScript: {gameObject.name} Is missing parent area");
+
+        //Debug.Log($"AreaTriggerScript: {parentArea.gameObject.name}");
     }
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Player"))
-        {
-            //Debug.Log("current corridor changed to: " + AreaManager.Instance.currentArea.name);
-            parentArea.GetComponent<AreaInstanceScript>().PlayerEntered();
-            //parentArea.PlayerEntered();
-        }
+            parentArea.PlayerEntered();
     }
 }

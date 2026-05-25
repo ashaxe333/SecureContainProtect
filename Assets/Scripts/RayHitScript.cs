@@ -2,16 +2,9 @@ using UnityEngine;
 
 public class RayHitScript : MonoBehaviour
 {
-    public static RayHitScript instance;
+    public static RayHitScript Instance;
 
-    private void Awake()
-    {
-        if(instance == null)
-            instance = this;
-    }
-    //public Transform broadcast;
-
-    public bool HitTargertFromTo(GameObject broadcast, GameObject target, float distance, LayerMask raycastLayerMask)
+    public static bool HitTargertFromTo(GameObject broadcast, GameObject target, float distance, LayerMask raycastLayerMask)
     {
         float distanceToPLayer = Vector3.Distance(broadcast.transform.position, target.transform.position);
         Vector3 directionToPlayer = (target.transform.position - broadcast.transform.position).normalized;
