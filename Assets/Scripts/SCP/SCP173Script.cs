@@ -25,13 +25,15 @@ public class SCP173Script : MonoBehaviour
 
     private float distanceToPLayer;
     public GameObject[] prohibitedAreas;
+    public GameObject playersLookUp;
+    public List<GameObject> scpLocaters;
 
     [SerializeField] private LayerMask raycastLayerMask;
     private float timer;
     private float jumpScareTimer = 300f;    // nesmí hráèe jumpscarenout prvních 5 minut hry
     private bool hasSeenPlayer;
     private float spawnDuration = 7.0f;
-    private float killDistance = 3.0f;      // dobrý tøeba pro nastavení obtížnosti. 4f už nic neodpustí, 3f je ještì "milý"
+    private float killDistance = 3.0f;      // dobrý tøeba pro nastavení obtížnosti. 4f už nic neodpustí, 3f je ještì akorát
     Vector3 playerLastPosition;
 
     private GameObject hitObject;
@@ -65,37 +67,13 @@ public class SCP173Script : MonoBehaviour
     /// </summary>
     void FollowPlayer()
     {
-        distanceToPLayer = Vector3.Distance(scp173.transform.position, player.transform.position);
-        Vector3 directionToPlayer = (player.transform.position - scp173.transform.position).normalized;
-
-        Ray ray = new Ray(scp173.transform.position, directionToPlayer);
-        RaycastHit hit;
-
-        Debug.DrawRay(scp173.transform.position, directionToPlayer * 100.0f, Color.red);
-
-        if (Physics.Raycast(ray, out hit, 75.0f, raycastLayerMask/*Physics.DefaultRaycastLayers, QueryTriggerInteraction.Ignore*/))
-        {
-            //Debug.Log("Trefil jsem: " + hit.collider.gameObject.name);
-            hitObject = hit.collider.gameObject;
-
-            if (hitObject == player)
-            {
-                //Debug.Log("Trefil jsem hráèe");
-                hasSeenPlayer = true;
-                timer = spawnDuration * 2;
-                playerLastPosition = player.transform.position;
-            }
-        }
-        /*
-         * Místo celýho kódu výš jen toto
-        if (RayHitScript.HitTargertFromTo(scp173.gameObject, player, 75.0f, raycastLayerMask))
+        if (RayHitScript.HitTargertFromTo(scp173.gameObject, player, 75.0f, raycastLayerMask, "red"))
         {
             //Debug.Log("Trefil jsem hráèe");
             hasSeenPlayer = true;
             timer = spawnDuration * 2;
             playerLastPosition = player.transform.position;
         }
-        */
         Hit();
     }
 
@@ -129,7 +107,7 @@ public class SCP173Script : MonoBehaviour
     
     public void IsSeen()
     {
-        if (scp173Renderer.isVisible && !blinkScript.isBlinking)
+        if (scp173Renderer.isVisible/* &&  Located()*/ && !blinkScript.isBlinking)
         {
             //Debug.Log($"SCP173: renderer = {scp173Renderer.isVisible}");
             //Debug.Log($"SCP173: Is Seen");
@@ -144,6 +122,15 @@ public class SCP173Script : MonoBehaviour
             //Debug.Log($"SCP173: Isn't Seen");
             scp173.isStopped = false;
         }
+    }
+
+    public bool Located()
+    {
+        foreach (var locater in scpLocaters)
+        {
+            if (RayHitScript.HitTargertFromTo(playersLookUp, locater, 100.0f, raycastLayerMask, "blue")) return true;
+        }
+        return false;
     }
 
     /// <summary>
@@ -174,7 +161,7 @@ public class SCP173Script : MonoBehaviour
         switch (random)
         {
             case int n when (n >= 0 && n < 5):
-                //Debug.Log("SCP173Script: To player " + random);
+                Debug.Log("SCP173Script: To player " + random);
                 if (AreaManager.Instance.CanSpawn() && jumpScareTimer < 0f)
                 {
                     scp173.Warp(AreaManager.Instance.jumpScareWayPoint.transform.position);
@@ -198,7 +185,7 @@ public class SCP173Script : MonoBehaviour
                 break;
 
             default:
-                //Debug.Log("SCP173Script: To random corridor");
+                Debug.Log("SCP173Script: To random corridor");
                 scp173.Warp(AreaManager.Instance.GetRandomNonPlayerRoom().GetRandomSpawnPoint());
                 timer = spawnDuration;
                 break;

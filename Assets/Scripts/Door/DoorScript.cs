@@ -13,6 +13,7 @@ public class DoorScript : MonoBehaviour
     [HideInInspector] public bool isActive = true;      // chrání pøed spamklikem
     public bool isBroken = false;                       // pokud jsou dveøe zamèené, nejdou otevøít
     public int lowestKeyCardLevel;                      // nejnižší potøebný level karty
+    [SerializeField] private Animator animator;
 
     public DoorType doorType;
     [HideInInspector] public Vector3 startPosition;
@@ -38,6 +39,7 @@ public class DoorScript : MonoBehaviour
     void Start()
     {
         if (parentWall == null) Debug.Log($"DoorScript: dveøe {name} nemají parentwall!");
+        animator = GetComponent<Animator>();
     }
 
     /// <summary>
@@ -126,6 +128,7 @@ public class DoorScript : MonoBehaviour
     /// <returns>pouze posouvá dveøe</returns>
     public IEnumerator DoSlidingOpen() //IEnumerator - metoda se spouští po èástech
     {
+        /*
         door_NMO.enabled = false;
         isActive = false;
         Vector3 endPosition = startPosition + slideAmount * slideDirection;
@@ -145,6 +148,18 @@ public class DoorScript : MonoBehaviour
 
         isOpen = true;
         isActive = true;
+        */
+
+        door_NMO.enabled = false;
+        isActive = false;
+        SoundFXManagerScript.instance.PlaySoundFX(doorMovementSFX, SoundFX_Source, 0.17f, 1.5f, 0f, 0f);
+
+        yield return new WaitForSeconds(delay);
+        Debug.Log($"DoorScript: OPEN!");
+        animator.SetTrigger("OpenDoor");
+
+        isOpen = true;
+        isActive = true;
     }
 
     /// <summary>
@@ -153,6 +168,7 @@ public class DoorScript : MonoBehaviour
     /// <returns>pouze posouvá dveøe</returns>
     public IEnumerator DoSlidingClose()
     {
+        /*
         door_NMO.enabled = true;
         isActive = false;
         Vector3 endPosition = startPosition;
@@ -168,6 +184,18 @@ public class DoorScript : MonoBehaviour
             yield return null;
             time += Time.deltaTime * speed;
         }
+
+        isOpen = false;
+        isActive = true;
+        */
+
+        door_NMO.enabled = true;
+        isActive = false;
+        SoundFXManagerScript.instance.PlaySoundFX(doorMovementSFX, SoundFX_Source, 0.17f, 1.5f, 0f, 0f); //0.05
+
+        yield return new WaitForSeconds(delay);
+        Debug.Log($"DoorScript: CLOSE!");
+        animator.SetTrigger("CloseDoor");
 
         isOpen = false;
         isActive = true;
