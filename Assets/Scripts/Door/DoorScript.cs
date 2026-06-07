@@ -39,7 +39,16 @@ public class DoorScript : MonoBehaviour
     void Start()
     {
         if (parentWall == null) Debug.Log($"DoorScript: dveøe {name} nemají parentwall!");
-        animator = GetComponent<Animator>();
+        //animator = GetComponent<Animator>();
+    }
+
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.T))
+        {
+            animator.SetTrigger("OpenDoor");
+            Debug.Log("Trigger manuálnì nastaven");
+        }
     }
 
     /// <summary>
@@ -156,7 +165,11 @@ public class DoorScript : MonoBehaviour
 
         yield return new WaitForSeconds(delay);
         Debug.Log($"DoorScript: OPEN!");
+        yield return null;
+        Debug.Log($"Animator: {animator.name}, Controller: {animator.runtimeAnimatorController}");
+        Debug.Log($"Trigger OpenDoor nastaven na: {animator.gameObject.name}");
         animator.SetTrigger("OpenDoor");
+        yield return new WaitForSeconds(1);
 
         isOpen = true;
         isActive = true;
@@ -195,7 +208,9 @@ public class DoorScript : MonoBehaviour
 
         yield return new WaitForSeconds(delay);
         Debug.Log($"DoorScript: CLOSE!");
+        yield return null;
         animator.SetTrigger("CloseDoor");
+        yield return new WaitForSeconds(1);
 
         isOpen = false;
         isActive = true;
