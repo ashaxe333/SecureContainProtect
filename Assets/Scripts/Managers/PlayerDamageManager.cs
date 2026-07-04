@@ -30,7 +30,7 @@ public class PlayerDamageManager : MonoBehaviour
 
     private void Start()
     {
-        gasTriggerScripts = FindObjectsByType<GasTrigger>(FindObjectsSortMode.None).ToList();
+        gasTriggerScripts = FindObjectsByType<GasTrigger>().ToList();
         gasDamage = 0.03f;
         scp173Damage = 1000.0f;
         scp939Damage = 40.0f;

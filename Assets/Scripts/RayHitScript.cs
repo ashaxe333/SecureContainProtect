@@ -44,21 +44,4 @@ public class RayHitScript : MonoBehaviour
         else 
             return false;
     }
-
-    private Color PickColor(string color)
-    {
-        switch (color)
-        {
-            case "red":
-                return Color.red;
-            case "blue":
-                return Color.blue;
-            case "green":
-                return Color.green;
-            case "yellow":
-                return Color.yellow;
-            default:
-                return Color.white;
-        }
-    }
 }

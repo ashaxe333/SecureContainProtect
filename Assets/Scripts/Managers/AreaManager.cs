@@ -99,7 +99,7 @@ public class AreaManager : MonoBehaviour
     /// </summary>
     public void LoadAreas() 
     {
-        areas = FindObjectsByType<AreaInstanceScript>(FindObjectsSortMode.None).ToList();
+        areas = FindObjectsByType<AreaInstanceScript>().ToList();
         Debug.Log("areas count: " + areas.Count);
     }
 

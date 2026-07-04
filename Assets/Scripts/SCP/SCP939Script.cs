@@ -90,20 +90,20 @@ public class SCP939Script : MonoBehaviour
         {
             switch (playerController.movement)
             {
-                case 0.0f:
-                    followDistance = standTriggerDistance;
-                    break;
-
-                case 0.5f:
+                case PlayerMovementMode.CRAWL:
                     followDistance = sneakTriggerDistance;
                     break;
 
-                case 1.0f:
+                case PlayerMovementMode.WALK:
                     followDistance = walkTriggerDistance;
                     break;
 
-                case 2.0f:
+                case PlayerMovementMode.RUN:
                     followDistance = runTriggerDistance;
+                    break;
+
+                default:
+                    followDistance = standTriggerDistance;
                     break;
             }
         }

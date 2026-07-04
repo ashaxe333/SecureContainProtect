@@ -30,7 +30,7 @@ public class PlayerStaminaScript : MonoBehaviour
     /// </summary>
     public void UseStamina()
     {
-        if (playerController.movement == 2.0f)
+        if (playerController.movement == PlayerMovementMode.RUN)
         {
             if (staminaValue > 0)
             {

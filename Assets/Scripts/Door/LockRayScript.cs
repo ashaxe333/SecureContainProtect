@@ -101,7 +101,7 @@ public class LockRayScript : MonoBehaviour
     /// </summary>
     void LoadLocks()
     {
-        GameObject[] objectsInScene = FindObjectsByType<GameObject>(FindObjectsSortMode.None);
+        GameObject[] objectsInScene = FindObjectsByType<GameObject>();
 
         foreach (GameObject obj in objectsInScene)
         {

@@ -23,7 +23,7 @@ public class LightManagerScript : MonoBehaviour
 
     void Start()
     {
-        lights = FindObjectsByType<LightScript>(FindObjectsSortMode.None);
+        lights = FindObjectsByType<LightScript>();
         Debug.Log("LightManagerScript: pocet svetel: " + lights.Length);
         player = GameObject.FindGameObjectWithTag("Player");
     }

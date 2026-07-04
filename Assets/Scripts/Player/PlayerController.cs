@@ -16,10 +16,10 @@ public class PlayerController : MonoBehaviour
     //s1
     private float moveSpeed = 8.0f;
     private float runSpeed = 14.0f;
-    private float sneakSpeed = 4.0f;
+    private float crawlSpeed = 4.0f;
 	private float gravity = 20.0f;
 
-    [HideInInspector] public float movement;
+    [HideInInspector] public PlayerMovementMode movement;
 
 	private CharacterController controller;
 	private Vector3 moveDirection = Vector3.zero;
@@ -34,13 +34,14 @@ public class PlayerController : MonoBehaviour
     private PlayerStaminaScript playerStaminaScript;
     private bool movementEnabled = true;
     private bool cameraEnabled = true;
+    private Vector2 moveInput;
 
     [Header("Footsteps")]
     [SerializeField] private AudioClip[] footsteps2Sounds;
     [SerializeField] private AudioClip[] footsteps1Sounds;
     [SerializeField] private float walkStepDelay = 0.8f;
     [SerializeField] private float runStepDelay = 0.4f;
-    [SerializeField] private float sneakStepDelay = 1f;
+    [SerializeField] private float crawlStepDelay = 1f;
 
     private float stepTimer;
 
@@ -78,36 +79,41 @@ public class PlayerController : MonoBehaviour
     /// </summary>
     public void Move()
     {
-        float horizontal = Input.GetAxis("Horizontal");
-        float vertical = Input.GetAxis("Vertical");
-        movement = 0.0f;
+        moveInput = UserInput.Instance.MoveInput;
+
+
+        float horizontal = moveInput.x;
+        float vertical = moveInput.y;
+        movement = PlayerMovementMode.STAND;
+
+        bool isMoving = horizontal != 0f || vertical != 0f;
 
         if (controller.isGrounded)
         {
             moveDirection = new Vector3(horizontal, 0, vertical);
             moveDirection = transform.TransformDirection(moveDirection);
 
-            if (Input.GetKey(KeyCode.LeftShift) && vertical > 0)    // w
+            if (UserInput.Instance.SprintInput && vertical > 0)    // shift + w
             {
                 if (playerStaminaScript.canRun) moveDirection *= runSpeed;
                 else moveDirection *= moveSpeed;
-                movement = 2.0f;
+                movement = PlayerMovementMode.RUN;
                 
             }
-            else if (Input.GetKey(KeyCode.C) && (horizontal != 0 || vertical != 0))     // w, s, a, d
+            else if (UserInput.Instance.CrawlInput && isMoving)     // c + w/s/a/d
             {
-                moveDirection *= sneakSpeed;
-				movement = 0.5f;
+                moveDirection *= crawlSpeed;
+				movement = PlayerMovementMode.CRAWL;
             }
-            else if (horizontal != 0 || vertical != 0)  // w, s, a, d
+            else if (isMoving)  // w, s, a, d
             {
                 moveDirection *= moveSpeed;
-                movement = 1.0f;
+                movement = PlayerMovementMode.WALK;
             }
             else
             {
-                moveDirection *=  moveSpeed;
-                movement = 0.0f;
+                moveDirection *= moveSpeed;
+                movement = PlayerMovementMode.STAND;
             }
         }
 
@@ -148,15 +154,15 @@ public class PlayerController : MonoBehaviour
         float volume = 0.2f;
         AudioClip[] footsteps = footsteps1Sounds;
 
-        if (movement == 2.0f)
+        if (movement == PlayerMovementMode.RUN)
         {
             delay = runStepDelay;
             volume = 0.2f;
             footsteps = footsteps2Sounds;
         }
-        else if (movement == 0.5f)
+        else if (movement == PlayerMovementMode.CRAWL)
         {
-            delay = sneakStepDelay;
+            delay = crawlStepDelay;
             volume = 0.1f;
         }
 
