@@ -1,0 +1,19 @@
+TVAR: MAT_[Materiál]_[Povrch]_[Barva]_[Odstín]
+
+možnost 1:
+MAT_Metal_Painted_Red_Dark
+MAT_Metal_Painted_Red_Light
+
+možnost 2:
+MAT_Metal_Painted_Green_01
+MAT_Metal_Painted_Green_02
+MAT_Metal_Painted_Green_03
+
+pro metaly bez barvy:
+MAT_Metal_Bare
+
+Painted – natřený kov.
+Bare – holý, nenatřený kov.
+Brushed – broušený kov (typický vzhled nerezu se směrovými rýhami).
+Polished – leštěný kov.
+Galvanized – pozinkovaný kov.
