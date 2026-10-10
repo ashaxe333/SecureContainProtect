@@ -25,20 +25,20 @@ TagManager:
   - Light
   - Water
   - UI
+  - Area
+  - Environment
+  - Wall
+  - Floor
+  - Ceiling
+  - Trigger
+  - Door
+  - Lock
   - Collectible
   - Interactive
-  - Locks
-  - Button
-  - Walls
-  - Areas
-  - Triggers
-  - LightSwitches
-  - Environment
-  - Doors
   - SafeZone
   - Prohibitted
-  - 
-  - 
+  - Button
+  - LightSwitches
   - 
   - 
   - 

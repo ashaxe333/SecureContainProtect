@@ -1,0 +1,4 @@
+﻿<Solution>
+  <Project Path="Unity.InputSystem.RebindingUI.csproj" />
+  <Project Path="Assembly-CSharp.csproj" />
+</Solution>

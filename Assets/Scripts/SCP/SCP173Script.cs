@@ -224,6 +224,8 @@ public class SCP173Script : MonoBehaviour
     public bool ProhibitedSpawnAreas()
     {
         bool result = false;
+        if (prohibitedAreas.Length <= 0) return result;
+
         for (int i = 0; i < prohibitedAreas.Length; i++)
         {
             if (prohibitedAreas[i] == AreaManager.Instance.currentArea)
